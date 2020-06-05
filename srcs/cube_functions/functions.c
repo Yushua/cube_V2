@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/05 11:35:00 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/05 14:57:47 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/05 15:18:57 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,87 +25,56 @@ int		if_empty(int x, int y, t_struct_m *main)
 	}
 }
 
-// int		flood_fill(int x, int y, t_struct_m *main)
-// {
-// 	int x = main->Ray.posY;
-// 	int	y = main->Ray.posX;
-// 	if(main->cubecopy[y][x] == '1' || main->cubecopy[y][x])
+int		flood_fill(int x, int y, t_struct_m *main)
+{
+	// if (main->cubecopy[y][x] == '1' || main->cubecopy[y][x] == color)
 	// 	return 0;
-	// if(main->cubecopy[y][x] != target)
+	// if (main->cubecopy[y][x] != target)
 	// 	return 0;
-
 	// main->cubecopy[y][x] = 'X';
-	// if(y + 1 < main->Ray.yy)
-	// {
-	// 	y++;
-	// 	flood_fill(y, x, main);
-	// }
-	// if(y - 1 >= 0)
-	// {
-	// 	y--;
-	// 	flood_fill(y, x, main);
-	// }
-	// if(x - 1 >= 0)
-	// {
-	// 	x--;
-	// 	flood_fill(y, x, main);
-	// }
-	// if(x + 1 < ft_strlen(main->cubecopy[y]))
-	// {
-	// 	x++;
-	// 	flood_fill(y, x, main);
-	// }
-// }
+	// if (y + 1 < main->Ray.yy)
+	// 	flood_fill(y = 1, x, main);
+	// if (y - 1 >= 0)
+	// 	flood_fill(y - 1, x, main);
+	// if (x - 1 >= 0)
+	// 	flood_fill(y, x - 1, main);
+	// if (x + 1 < ft_strlen(main->cubecopy[y]))
+	// 	flood_fill(y, x + 1, main);
+}
 
 int		check_fill(t_struct_m *main)
 {
-	int x = main->Ray.posY;
+	int	x = main->Ray.posY;
 	int	y = main->Ray.posX;
 	// flood_fill(x, y,main);
 	y = 0;
 	x = 0;
-	while (y <= main->Ray.yy)
+	while (y < main->Ray.yy)
 	{
+		while (main->cubecopy[0][x])
+		{
+			if (main->cubecopy[0][x] == 'X')
+			{
+				main->place.error_c = 15;//top
+				ft_error(main);
+				return (0);
+			}
+		}
+		x = 0;
+		while (main->cubecopy[main->Ray.yy][x])
+		{
+			if (main->cubecopy[main->Ray.yy][x] == 'X')
+			{
+				main->place.error_c = 15;//bottom
+				ft_error(main);
+				return (0);
+			}
+			x++;
+		}
 		while (main->cubecopy[y][x])
 		{
 			if (main->cubecopy[y][x] != '1')//place with the where yu look
-			{
-				if (y < 0 || x < 0)//check if the cordinates don't go out of the map
-				{
-					main->place.error_c = 15;
-					ft_error(main);
-					return (0);
-				}
-				if ((if_empty(x, y, main)) == 0)
-					return (0);
-				if ((if_empty(x, y, main)) == 0)
-					return (0);
-				x++;
-				if ((if_empty(x, y, main)) == 0)
-					return (0);
-				x++;
-				if ((if_empty(x, y, main)) == 0)
-					return (0);
-				x++;
-				if ((if_empty(x, y, main)) == 0)
-					return (0);
-				y++;
-				if ((if_empty(x, y, main)) == 0)
-					return (0);
-				x -= 2;
-				if ((if_empty(x, y, main)) == 0)
-					return (0);
-				y++;
-				if ((if_empty(x, y, main)) == 0)
-					return (0);
-				x++;
-				if ((if_empty(x, y, main)) == 0)
-					return (0);
-				x++;
-				if ((if_empty(x, y, main)) == 0)
-					return (0);
-				x--;
-				y--;
+			{ 
 			}
 			x++;
 		}
