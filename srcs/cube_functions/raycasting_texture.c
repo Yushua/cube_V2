@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   raycasting_texture.c                               :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/05/13 20:54:40 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/06/05 14:27:22 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,7 +162,10 @@ int 	render_next_frame_structure(t_struct_m *main)
         main->Ray.x++;
     }
     render_next_frame_sprites(main);
-    // render_next_frame_sprites_copy(main);
 	mlx_put_image_to_window(main->vars.mlx, main->vars.win, main->img.img, 0, 0);
+    mlx_destroy_image(main->vars.mlx, main->img.img);
+    main->img.img = mlx_new_image(main->vars.mlx, main->place.s_width, main->place.s_height);
+    main->img.addr = mlx_get_data_addr(main->img.img, &main->img.bits_per_pixel, &main->img.line_length,
+                                 &main->img.endian);
 	return (0);
 }

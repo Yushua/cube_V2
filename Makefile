@@ -6,13 +6,12 @@
 #    By: ybakker <ybakker@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/03/05 10:59:00 by ybakker       #+#    #+#                  #
-#    Updated: 2020/06/05 10:37:46 by ybakker       ########   odam.nl          #
+#    Updated: 2020/06/05 14:16:56 by ybakker       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cube
 SRC = ./srcs/cube_functions/main.c\
-		./srcs/cube_functions/raycasting.c\
 		./srcs/cube_functions/set_location.c\
 		./srcs/cube_functions/texture.c\
 		./srcs/cube_functions/keys.c\
@@ -36,7 +35,7 @@ SRC = ./srcs/cube_functions/main.c\
 		./srcs/get_next_line/get_next_line.c\
 
 OBJ	= $(SRC:.c=.o)
-CFLAGS = -g
+CFLAGS = -g -Ofast
 LIBFT = srcs/libft
 MLX = srcs/mlx
 .PHONY: all clean fclean re
