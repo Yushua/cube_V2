@@ -6,14 +6,19 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/05 14:28:06 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/10 13:58:58 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-int     main(void)
+static void    ft_end_function(main)
 {
+    exit(0);
+}
+
+int     main(void)
+{       
     t_struct_m *main;
     
     main = ft_calloc(1, sizeof(t_struct_m));
@@ -25,14 +30,14 @@ int     main(void)
     set_location(main);
     ft_putstr("this means my other functions stil work\n");
     //map_correct(main);
-    printmap(main);
     spritesnumb(main);
 	ft_putstr("begin fill check");
-	// check_fill(main);
+	check_fill(main);
+    printmap(main);
     if (main->place.error == -1)
         ft_putstr("no error\n");
-    // else if (main->place.error_c == 0) //don't forget to free
-    //     return (0);
+    // else if (main->place.error_c == 0) //don't forget to free wrong with error
+    //     ft_end_function(main);
     ft_putstr("data");
 	int i = 0;
     main->vars.mlx = mlx_init();

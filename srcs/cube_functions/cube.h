@@ -209,6 +209,7 @@ typedef struct  s_struct_m {
 	int 		*spriteOrder;
 	double 		*spriteDistance;
 	char		**cubecopy;
+	int			count;
 }               t_struct_m;
 
 void            my_mlx_pixel_put(t_data *data, int x, int y, int color);
@@ -244,6 +245,7 @@ void			spritesnumb(t_struct_m *main);
 int				check_fill(t_struct_m *main);
 int				flood_fill(int x, int y, t_struct_m *main);
 int				if_empty(int x, int y, t_struct_m *main);
+int     		ft_check_empty(int x, int y, t_struct_m *main);
 
 //functions
 

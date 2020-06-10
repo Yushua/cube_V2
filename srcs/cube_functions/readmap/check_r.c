@@ -9,7 +9,7 @@ int     check_R(t_struct_m *main, char *map, int i)
         return (1);
     else if (main->Double.D_R == 0)
     {
-        while (map[i] != '\0' || map[i] != '\n' || map[i] != NULL)
+        while (map[i])
         {
             while (map[i] == ' ')
                 i++;
@@ -36,7 +36,7 @@ int     check_R(t_struct_m *main, char *map, int i)
                     ft_error(main);
                     break ;
                 }
-                if (r == 1)
+                if (r > 1)
                 {
                     if (!map[i])
                     {

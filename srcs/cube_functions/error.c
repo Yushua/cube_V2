@@ -48,6 +48,8 @@ void        ft_error(t_struct_m *main)
         ft_putstr("map incorrect, not surroudned by 1's, left side wrong");
     else if (main->place.error_c == 17)
         ft_putstr("map incorrect, not surroudned by 1's, right side wrong");
+    else if (main->place.error_c == 18)
+        ft_putstr("map incorrect");
     main->place.error_c = 0;
     //come sin ehre, error shoudl only happen once
 }
