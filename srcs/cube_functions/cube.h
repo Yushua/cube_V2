@@ -145,7 +145,6 @@ typedef struct  s_Ray {
 }    			t_Ray;
 
 typedef struct  s_texture {
-	// unsigned int 	buffer[1200][800];
 	void			*texture;
 	int				*texture_adress;
 
