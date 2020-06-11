@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/05 14:27:22 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/11 16:24:40 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,5 +167,9 @@ int 	render_next_frame_structure(t_struct_m *main)
     main->img.img = mlx_new_image(main->vars.mlx, main->place.s_width, main->place.s_height);
     main->img.addr = mlx_get_data_addr(main->img.img, &main->img.bits_per_pixel, &main->img.line_length,
                                  &main->img.endian);
+    //press input
+
+    //press output
+
 	return (0);
 }
