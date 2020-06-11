@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/05 11:35:00 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/10 11:53:40 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/11 14:15:25 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -236,6 +236,8 @@ void		printmap(t_struct_m *main)
 {
 	int	y = 0;
 
+	// printf("\n");
+	// printf("c == [%c]", &main->place.cubemap[y][18]);
 	printf("\n");
 	while (y <= main->Ray.yy)
 	{

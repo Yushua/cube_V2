@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   set_location.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/04/29 13:02:14 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/06/11 14:47:03 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void	set_location(t_struct_m *main)
     
     main->Ray.posY = y;
     main->Ray.posX = x;
+    printf("before c == [%c] y == [%i] x == [%i]\n", main->cubecopy[y][x], y, x);
     main->Ray.posY += 0.5;
     main->Ray.posX -= 0.5;
 }

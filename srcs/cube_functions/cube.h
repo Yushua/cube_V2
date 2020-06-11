@@ -242,7 +242,7 @@ int     		ft_check_news(t_struct_m *main, char *map);
 void			set_location(t_struct_m *main);
 void			spritesnumb(t_struct_m *main);
 int				check_fill(t_struct_m *main);
-int				flood_fill(int x, int y, t_struct_m *main);
+void				flood_fill(int x, int y, t_struct_m *main);
 int				if_empty(int x, int y, t_struct_m *main);
 int     		ft_check_empty(int x, int y, t_struct_m *main);
 

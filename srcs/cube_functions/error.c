@@ -53,3 +53,49 @@ void        ft_error(t_struct_m *main)
     main->place.error_c = 0;
     //come sin ehre, error shoudl only happen once
 }
+
+// int		flood_fill(int x, int y, t_struct_m *main)
+// {
+// 	if (main->cubecopy[y][x] == '1')
+// 		return 0;
+// 	if (main->cubecopy[y][x] != '0')
+// 		return 0;
+// 	main->cubecopy[y][x] = 'X';
+//     if (y + 1 < main->Ray.yy)
+//         flood_fill(y + 1, x, main);
+// 	if (y - 1 >= 0)
+// 		flood_fill(y - 1, x, main);
+//     if (x + 1 >= ft_strlen(main->cubecopy[y]))
+// 		flood_fill(y, x + 1, main);
+// 	if (x - 1 >= 0)
+// 		flood_fill(y, x - 1, main);
+// }
+
+// int		flood_fill(int x, int y, t_struct_m *main)
+// {
+// 	if (y == 0 || x == 0 || y == main->Ray.yy - 1 || x == (ft_strlen(main->cubecopy[y]) - 1 ))
+// 		return 0;//error
+// 	if (main->cubecopy[y][x] != '1' && main->cubecopy[y][x] != ' ')
+// 	{
+// 		main->cubecopy[y][x] = 'X';
+// 		if (main->cubecopy[y + 1][x] != '1')
+// 			flood_fill(y + 1, x, main);
+// 		if (main->cubecopy[y - 1][x] != '1')
+// 			flood_fill(y - 1, x, main);
+
+// 		if (main->cubecopy[y][x + 1] != '1')
+// 			flood_fill(y, x + 1, main);
+// 		if (main->cubecopy[y][x - 1] != '1')
+// 			flood_fill(y, x - 1, main);
+
+// 		if (main->cubecopy[y + 1][x + 1] != '1')
+// 			flood_fill(y + 1, x + 1, main);
+// 		if (main->cubecopy[y - 1][x - 1] != '1')
+// 			flood_fill(y - 1, x - 1, main);
+
+// 		if (main->cubecopy[y + 1][x - 1] != '1')
+// 			flood_fill(y + 1, x - 1, main);
+// 		if (main->cubecopy[y - 1][x + 1] != '1')
+// 			flood_fill(y - 1, x + 1, main);
+// 	}
+// }
