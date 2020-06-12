@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/05 11:35:00 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/12 14:01:42 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/12 15:14:52 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,43 +107,83 @@ void        set_value_texture(t_struct_m *main)
 {
 	int i = 0;
 
-	int fd = open("srcs/cube_functions/textures/greenlight.xpm", O_RDONLY);//use to chekc if file is valid
-	printf("fd == %d\n", fd);
-	ft_putstr(main->place.NO);
+	int fd;
 	ft_putstr("NO");
-	if (ft_strnstr(main->place.NO, ".xpm", ft_strlen(main->place.NO)) != NULL)
+	ft_putstr(main->place.NO);
+	fd = open(main->place.NO, O_RDONLY);
+	if (fd != -1)
 	{
-		main->texture[0].texture = mlx_xpm_file_to_image(main->vars.mlx, main->place.NO, &(main->texture[0].texture_width), &(main->texture[0].texture_height));	
+		if (ft_strnstr(main->place.NO, ".xpm", ft_strlen(main->place.NO)) != NULL)
+		{
+			main->texture[0].texture = mlx_xpm_file_to_image(main->vars.mlx, main->place.NO, &(main->texture[0].texture_width), &(main->texture[0].texture_height));	
+		}
+		else if (ft_strnstr(main->place.NO, ".png", ft_strlen(main->place.NO)) != NULL)
+		{
+			main->texture[0].texture = mlx_png_file_to_image(main->vars.mlx, main->place.NO, &(main->texture[0].texture_width), &(main->texture[0].texture_height));	
+		}
 	}
 	i++;
 	ft_putstr("SO");
 	ft_putstr(main->place.SO);
-	if (ft_strnstr(main->place.SO, ".xpm", ft_strlen(main->place.SO)) != NULL)
+	fd = open(main->place.SO, O_RDONLY);
+	if (fd != -1)
 	{
-		main->texture[1].texture = mlx_xpm_file_to_image(main->vars.mlx, main->place.SO, &(main->texture[1].texture_width), &(main->texture[1].texture_height));	
+		if (ft_strnstr(main->place.SO, ".xpm", ft_strlen(main->place.SO)) != NULL)
+		{
+			main->texture[1].texture = mlx_xpm_file_to_image(main->vars.mlx, main->place.SO, &(main->texture[1].texture_width), &(main->texture[1].texture_height));	
+		}
+		else if (ft_strnstr(main->place.SO, ".png", ft_strlen(main->place.SO)) != NULL)
+		{
+			main->texture[1].texture = mlx_png_file_to_image(main->vars.mlx, main->place.SO, &(main->texture[1].texture_width), &(main->texture[1].texture_height));	
+		}
 	}
 	i++;
 	ft_putstr("WE");
 	ft_putstr(main->place.WE);
-	if (ft_strnstr(main->place.WE, ".xpm", ft_strlen(main->place.WE)) != NULL)
+	fd = open(main->place.WE, O_RDONLY);
+	if (fd != -1)
 	{
-		main->texture[2].texture = mlx_xpm_file_to_image(main->vars.mlx, main->place.WE, &(main->texture[2].texture_width), &(main->texture[2].texture_height));	
+		if (ft_strnstr(main->place.WE, ".xpm", ft_strlen(main->place.WE)) != NULL)
+		{
+			main->texture[2].texture = mlx_xpm_file_to_image(main->vars.mlx, main->place.WE, &(main->texture[2].texture_width), &(main->texture[2].texture_height));	
+		}
+		else if (ft_strnstr(main->place.WE, ".png", ft_strlen(main->place.WE)) != NULL)
+		{
+			main->texture[2].texture = mlx_png_file_to_image(main->vars.mlx, main->place.WE, &(main->texture[2].texture_width), &(main->texture[2].texture_height));	
+		}
 	}
 	i++;
 	ft_putstr("EA");
 	ft_putstr(main->place.EA);
-	if (ft_strnstr(main->place.EA, ".xpm", ft_strlen(main->place.EA)) != NULL)
+	fd = open(main->place.EA, O_RDONLY);
+	if (fd != -1)
 	{
-		main->texture[3].texture = mlx_xpm_file_to_image(main->vars.mlx, main->place.EA, &(main->texture[3].texture_width), &(main->texture[3].texture_height));	
+		if (ft_strnstr(main->place.EA, ".xpm", ft_strlen(main->place.EA)) != NULL)
+		{
+			main->texture[3].texture = mlx_xpm_file_to_image(main->vars.mlx, main->place.EA, &(main->texture[3].texture_width), &(main->texture[3].texture_height));	
+		}
+		else if (ft_strnstr(main->place.EA, ".png", ft_strlen(main->place.EA)) != NULL)
+		{
+			main->texture[3].texture = mlx_png_file_to_image(main->vars.mlx, main->place.EA, &(main->texture[3].texture_width), &(main->texture[3].texture_height));	
+		}
 	}
 	i++;
 	ft_putstr("S");
 	ft_putstr(main->place.S);
-	if (ft_strnstr(main->place.S, ".xpm", ft_strlen(main->place.S)) != NULL)
+	fd = open(main->place.S, O_RDONLY);
+	if (fd != -1)
 	{
-		main->texture[4].texture = mlx_xpm_file_to_image(main->vars.mlx, main->place.S, &main->texture[4].texture_width, &main->texture[4].texture_height);	
+		if (ft_strnstr(main->place.S, ".xpm", ft_strlen(main->place.S)) != NULL)
+		{
+			main->texture[4].texture = mlx_xpm_file_to_image(main->vars.mlx, main->place.S, &main->texture[4].texture_width, &main->texture[4].texture_height);	
+		}
+		else if (ft_strnstr(main->place.S, ".png", ft_strlen(main->place.S)) != NULL)
+		{
+			main->texture[4].texture = mlx_png_file_to_image(main->vars.mlx, main->place.S, &main->texture[4].texture_width, &main->texture[4].texture_height);	
+		}
 	}
 
+	//check for NULL
 	if (main->texture[0].texture == NULL || main->texture[1].texture == NULL || main->texture[2].texture == NULL || main->texture[3].texture == NULL || main->texture[4].texture == NULL)
 	{
 		main->place.error_c == 14;
