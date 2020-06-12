@@ -6,20 +6,32 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/12 13:06:40 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/12 15:33:12 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-static void    ft_end_function(main)
+static void    ft_end_function(t_struct_m *main)
 {
     exit(0);
 }
 
-int             ft_release(int keycode, t_struct_m *main)
+int             ft_push_key(int keycode, t_struct_m *main)
 {
     
+    return (0);
+}
+
+int             ft_release_key(int keycode, t_struct_m *main)
+{
+    
+    return (0);
+}
+
+int             ft_close(int keycode, t_struct_m *main)
+{
+    ft_end_function(main);
     return (0);
 }
 
@@ -56,8 +68,9 @@ int     main(void)
 
     //game
     //keys
-    mlx_hook(main->vars.win, 2, 1L<<0, wasd_2, main);
-    mlx_hook(main->vars.win, 3, 1L<<1, ft_release, main);
+    mlx_hook(main->vars.win, 2, 1L<<0, ft_push_key, main);
+    mlx_hook(main->vars.win, 3, 1L<<1, ft_release_key, main);
+    mlx_hook(main->vars.win, 17, 1L<<0, ft_close, main);
 
     //frames
 	// mlx_loop_hook(main->vars.mlx, render_next_frame, main);
