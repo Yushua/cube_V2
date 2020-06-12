@@ -262,6 +262,7 @@ void			space_cubemap(t_struct_m *main);
 
 int 	        render_next_frame(t_struct_m *main);
 int             wasd_2(int keycode, t_struct_m *main);
+int             ft_release(int keycode, t_struct_m *main);
 void    		verLine(int x, int  drawStart, int  drawEnd, int col, t_struct_m *main);
 int				create_trgb(int r, int g, int b);
 

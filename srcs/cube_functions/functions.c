@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/05 11:35:00 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/11 14:15:25 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/12 14:01:42 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,32 +107,43 @@ void        set_value_texture(t_struct_m *main)
 {
 	int i = 0;
 
-	ft_putstr(main->place.NO);
-	ft_putstr("NO");
 	int fd = open("srcs/cube_functions/textures/greenlight.xpm", O_RDONLY);//use to chekc if file is valid
 	printf("fd == %d\n", fd);
-	main->texture[0].texture = mlx_xpm_file_to_image(main->vars.mlx, "srcs/cube_functions/textures/wall_1.xpm", &(main->texture[0].texture_width), &(main->texture[0].texture_height));
-	printf("NO width == [%d] height == [%d]\n",main->texture[0].texture_width, main->texture[0].texture_height);
+	ft_putstr(main->place.NO);
+	ft_putstr("NO");
+	if (ft_strnstr(main->place.NO, ".xpm", ft_strlen(main->place.NO)) != NULL)
+	{
+		main->texture[0].texture = mlx_xpm_file_to_image(main->vars.mlx, main->place.NO, &(main->texture[0].texture_width), &(main->texture[0].texture_height));	
+	}
 	i++;
-	ft_putstr(main->place.SO);
 	ft_putstr("SO");
-	main->texture[1].texture = mlx_xpm_file_to_image(main->vars.mlx, "srcs/cube_functions/textures/wall_4.xpm", &(main->texture[1].texture_width), &(main->texture[1].texture_height));
-	printf("width == [%d] height == [%d]\n",main->texture[1].texture_width, main->texture[1].texture_height);
+	ft_putstr(main->place.SO);
+	if (ft_strnstr(main->place.SO, ".xpm", ft_strlen(main->place.SO)) != NULL)
+	{
+		main->texture[1].texture = mlx_xpm_file_to_image(main->vars.mlx, main->place.SO, &(main->texture[1].texture_width), &(main->texture[1].texture_height));	
+	}
 	i++;
-	ft_putstr(main->place.WE);
 	ft_putstr("WE");
-	main->texture[2].texture = mlx_xpm_file_to_image(main->vars.mlx, "srcs/cube_functions/textures/wall_2.xpm", &(main->texture[2].texture_width), &(main->texture[2].texture_height));
-	printf("width == [%d] height == [%d]\n",main->texture[2].texture_width, main->texture[2].texture_height);
-	i++;
 	ft_putstr(main->place.WE);
-	ft_putstr("EA");
-	main->texture[3].texture = mlx_xpm_file_to_image(main->vars.mlx, "srcs/cube_functions/textures/wall_3.xpm", &(main->texture[3].texture_width), &(main->texture[3].texture_height));
-	printf("width == [%d] height == [%d]\n",main->texture[3].texture_width, main->texture[3].texture_height);
+	if (ft_strnstr(main->place.WE, ".xpm", ft_strlen(main->place.WE)) != NULL)
+	{
+		main->texture[2].texture = mlx_xpm_file_to_image(main->vars.mlx, main->place.WE, &(main->texture[2].texture_width), &(main->texture[2].texture_height));	
+	}
 	i++;
-	ft_putstr(main->place.S);
+	ft_putstr("EA");
+	ft_putstr(main->place.EA);
+	if (ft_strnstr(main->place.EA, ".xpm", ft_strlen(main->place.EA)) != NULL)
+	{
+		main->texture[3].texture = mlx_xpm_file_to_image(main->vars.mlx, main->place.EA, &(main->texture[3].texture_width), &(main->texture[3].texture_height));	
+	}
+	i++;
 	ft_putstr("S");
-	main->texture[4].texture = mlx_xpm_file_to_image(main->vars.mlx, "srcs/cube_functions/textures/pillar.xpm", &main->texture[4].texture_width, &main->texture[4].texture_height);
-	printf("width == [%d] height == [%d]\n",main->texture[4].texture_width, main->texture[4].texture_height);
+	ft_putstr(main->place.S);
+	if (ft_strnstr(main->place.S, ".xpm", ft_strlen(main->place.S)) != NULL)
+	{
+		main->texture[4].texture = mlx_xpm_file_to_image(main->vars.mlx, main->place.S, &main->texture[4].texture_width, &main->texture[4].texture_height);	
+	}
+
 	if (main->texture[0].texture == NULL || main->texture[1].texture == NULL || main->texture[2].texture == NULL || main->texture[3].texture == NULL || main->texture[4].texture == NULL)
 	{
 		main->place.error_c == 14;

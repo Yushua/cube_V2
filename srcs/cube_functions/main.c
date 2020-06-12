@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/11 14:38:57 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/12 13:06:40 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 static void    ft_end_function(main)
 {
     exit(0);
+}
+
+int             ft_release(int keycode, t_struct_m *main)
+{
+    
+    return (0);
 }
 
 int     main(void)
@@ -47,8 +53,16 @@ int     main(void)
                                  &main->img.endian);
     set_value_texture(main);
 	ft_putstr("done");
+
+    //game
+    //keys
+    mlx_hook(main->vars.win, 2, 1L<<0, wasd_2, main);
+    mlx_hook(main->vars.win, 3, 1L<<1, ft_release, main);
+
+    //frames
 	// mlx_loop_hook(main->vars.mlx, render_next_frame, main);
     mlx_loop_hook(main->vars.mlx, render_next_frame_structure, main);
-    mlx_hook(main->vars.win, 2, 1L<<0, wasd_2, main);
+    
+    //end
     mlx_loop(main->vars.mlx);
 }
