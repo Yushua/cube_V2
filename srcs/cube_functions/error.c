@@ -50,6 +50,16 @@ void        ft_error(t_struct_m *main)
         ft_putstr("map incorrect, not surroudned by 1's, right side wrong");
     else if (main->place.error_c == 18)
         ft_putstr("map incorrect");
+    else if (main->place.error_c == 19)
+        ft_putstr("link in map file incorrect at NO, fd is -1");
+    else if (main->place.error_c == 20)
+        ft_putstr("link in map file incorrect at SO, fd is -1");
+    else if (main->place.error_c == 21)
+        ft_putstr("link in map file incorrect at WE, fd is -1");
+    else if (main->place.error_c == 22)
+        ft_putstr("link in map file incorrect at EA, fd is -1");
+    else if (main->place.error_c == 23)
+        ft_putstr("link in map file incorrect at S, fd is -1");
     main->place.error_c = 0;
     //come sin ehre, error shoudl only happen once
 }

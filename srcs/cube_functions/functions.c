@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/05 11:35:00 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/12 15:14:52 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/12 15:27:06 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void		spritesnumb(t_struct_m *main)
 	{
 		while (main->place.cubemap[y][x])
 		{
-			// ft_putstr("hello");
 			if (main->place.cubemap[y][x] == '2')//place with the where yu look
 			{
 				main->numSprites++;
@@ -89,14 +88,6 @@ void        bubble_sort(t_struct_m *main)
 				swap(main, j);
 				swapped = 1;
 			}
-			// if ((main->ray.dir_y > 0 && main->ray.plane_y < 0 && main->ray.dir_x < 0 && main->ray.plane_x > 0) || (main->ray.dir_y > 0 && main->ray.plane_y > 0 && main->ray.dir_x < 0 && main->ray.plane_x > 0))
-			// {
-			//  if ((main->spriteDistance)[j] > (main->spriteDistance)[j + 1])
-			// {
-			//  swap(main, j);
-			//  swapped = 1;
-			// }
-			// }
 			j++;
 		}
 		i++;
@@ -122,6 +113,11 @@ void        set_value_texture(t_struct_m *main)
 			main->texture[0].texture = mlx_png_file_to_image(main->vars.mlx, main->place.NO, &(main->texture[0].texture_width), &(main->texture[0].texture_height));	
 		}
 	}
+	else
+	{
+		main->place.error_c = 19;//right
+		ft_error(main);
+	}
 	i++;
 	ft_putstr("SO");
 	ft_putstr(main->place.SO);
@@ -136,6 +132,11 @@ void        set_value_texture(t_struct_m *main)
 		{
 			main->texture[1].texture = mlx_png_file_to_image(main->vars.mlx, main->place.SO, &(main->texture[1].texture_width), &(main->texture[1].texture_height));	
 		}
+	}
+	else
+	{
+		main->place.error_c = 20;//right
+		ft_error(main);
 	}
 	i++;
 	ft_putstr("WE");
@@ -152,6 +153,11 @@ void        set_value_texture(t_struct_m *main)
 			main->texture[2].texture = mlx_png_file_to_image(main->vars.mlx, main->place.WE, &(main->texture[2].texture_width), &(main->texture[2].texture_height));	
 		}
 	}
+	else
+	{
+		main->place.error_c = 21;//right
+		ft_error(main);
+	}
 	i++;
 	ft_putstr("EA");
 	ft_putstr(main->place.EA);
@@ -166,6 +172,11 @@ void        set_value_texture(t_struct_m *main)
 		{
 			main->texture[3].texture = mlx_png_file_to_image(main->vars.mlx, main->place.EA, &(main->texture[3].texture_width), &(main->texture[3].texture_height));	
 		}
+	}
+	else
+	{
+		main->place.error_c = 22;//right
+		ft_error(main);
 	}
 	i++;
 	ft_putstr("S");
@@ -182,7 +193,11 @@ void        set_value_texture(t_struct_m *main)
 			main->texture[4].texture = mlx_png_file_to_image(main->vars.mlx, main->place.S, &main->texture[4].texture_width, &main->texture[4].texture_height);	
 		}
 	}
-
+	else
+	{
+		main->place.error_c = 23;//right
+		ft_error(main);
+	}
 	//check for NULL
 	if (main->texture[0].texture == NULL || main->texture[1].texture == NULL || main->texture[2].texture == NULL || main->texture[3].texture == NULL || main->texture[4].texture == NULL)
 	{
