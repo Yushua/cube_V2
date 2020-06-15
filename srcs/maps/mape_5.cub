@@ -1,4 +1,4 @@
-R 800 1200
+R 501 501
 SO srcs/cube_functions/textures/wall_1.xpm
 NO srcs/cube_functions/textures/wall_2.xpm
 EA srcs/cube_functions/textures/wall_3.xpm

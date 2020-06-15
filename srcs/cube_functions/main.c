@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/15 14:10:24 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/15 14:43:08 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,8 +105,8 @@ int     main(int argc, char **argv)
 	// 	ft_bmp(main);
 	// 	ft_putstr("screenshot finished");
 	// }
-	ft_bmp(main);
-	ft_end_function(main);
+	// ft_bmp(main);
+	// ft_end_function(main);
 	main->vars.win = mlx_new_window(main->vars.mlx, main->place.s_width, main->place.s_height, "cube");
 	main->img.img = mlx_new_image(main->vars.mlx, main->place.s_width, main->place.s_height);
 	if (!main->img.img)
