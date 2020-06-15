@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/15 11:48:56 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/15 12:25:24 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,7 @@ void    verLine_structure(t_struct_m *main)
     int h   = main->place.s_height / 2;
     int i   = 0;
     int     colour;
-
-    colour = create_trgb(main->place.Fcol1, main->place.Fcol2, main->place.Fcol3);//floor
-    while (i <= h)
-    {
-        my_mlx_pixel_put(main, main->Ray.x, i, colour);
-        i++;
-    }
-    colour = create_trgb(main->place.Ccol1, main->place.Ccol2, main->place.Ccol3);//cealing
-    while (i != main->place.s_height)
-    {
-        my_mlx_pixel_put(main, main->Ray.x, i, colour);
-        i++;
-    }
+    
     if (main->Ray.side == 0)
     {
         if(main->Ray.posX > main->Ray.mapX)//N
@@ -87,6 +75,7 @@ int 	ft_raycasting(t_struct_m *main)
     double time = 0; //time of current frame
     double oldTime = 0; //time of previous frame
     wasd_2(main);
+    ft_floor_casting(main);
     while (main->Ray.x < main->place.s_width)
     {
         main->Ray.cameraX = 2 * main->Ray.x / (double)main->place.s_width - 1;//x-coordinate in camera space
