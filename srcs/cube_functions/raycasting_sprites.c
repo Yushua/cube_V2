@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/12 12:50:27 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/15 13:56:33 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,7 @@ int         render_next_frame_sprites(t_struct_m *main)
 					if (colour != 0)
 						my_mlx_pixel_put(main, main->sprite.stripe, y, colour);
 					y++;
-				}
-				
+				}	
 			}
 			main->sprite.stripe++;
 		}

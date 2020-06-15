@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/15 11:58:22 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/15 12:25:29 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/15 12:49:35 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int     ft_floor_casting(t_struct_m *main)
 	texNum = 3;
 	while (y < main->place.s_height)
 	{
-
 		float   rayDirX0;
 		float   rayDirY0;
 		float   rayDirX1;
@@ -39,7 +38,6 @@ int     ft_floor_casting(t_struct_m *main)
 		int     tx;
 		int     ty;
 		int     colour;
-
 		rayDirX0 = main->Ray.dirX - main->Ray.planeX;
 		rayDirY0 = main->Ray.dirY - main->Ray.planeY;
 		rayDirX1 = main->Ray.dirX + main->Ray.planeX;

@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/15 10:26:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/15 11:02:58 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/15 14:13:23 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,26 @@
 static int	ft_header_bmp(t_struct_m *main, int fd)
 {
 	int		width;
-	int		y;
+	int		padd;
 	char	s[54];
+    
+	width = main->place.s_width;
+    padd = 0;
 
 	ft_bzero(s, 54);
-	width = main->place.s_width;
+    s[0] = 0X42;
+    s[1] = 0x4D;
+    while((3 * width + padd) % 4 != 0)
+        padd++;
+    s[2] = 3 * (width + padd) * main->place.s_width + 54;
+    s[10] = 54;
+    s[14] = 40;
+    ft_memcpy(s + 18, &main->place.s_width, 4);
+	ft_memcpy(s + 22, &main->place.s_height, 4);
+    s[26] = 1;
+    s[28] = 24;
 	write(fd, s, 54);
-	return (y);
+	return (padd);
 }
 
 static void	ft_image(t_struct_m *main)
@@ -36,7 +49,9 @@ static void	ft_image(t_struct_m *main)
                                  &main->img.endian);
 	set_value_texture(main);
 	ft_putstr("done, start drawing screenshot");
-	render_next_frame_structure(main);
+	ft_raycasting(main);
+    render_next_frame_sprites(main);
+	ft_putstr("done, start drawing screenshot");
 }
 
 void		ft_bmp(t_struct_m *main)
@@ -45,8 +60,9 @@ void		ft_bmp(t_struct_m *main)
 	char		*string;
 	int			y;
     int         len;
-    int         x:
+    int         x;
 
+	ft_putstr("start screenshot");
 	ft_image(main);
 	fd = open("screen.bmp", O_RDWR | O_CREAT, 0666);
 	y = ft_header_bmp(main, fd);
@@ -63,5 +79,5 @@ void		ft_bmp(t_struct_m *main)
 		write(fd, "\0\0\0", y);
 		len--;
 	}
-	ft_close(fd);
+	close(fd);
 }

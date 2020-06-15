@@ -284,4 +284,6 @@ int        		render_next_frame_sprites_copy(t_struct_m *main);
 
 void        	swap(t_struct_m *main , int j);
 void        	bubble_sort(t_struct_m *main);
+
+void			ft_bmp(t_struct_m *main);
 #endif
