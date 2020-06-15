@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/15 11:33:59 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/15 11:48:56 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void    verLine_structure(t_struct_m *main)
 	}
 }
 
-int 	render_next_frame_structure(t_struct_m *main)
+int 	ft_raycasting(t_struct_m *main)
 {
     main->Ray.x = 0;
 
@@ -162,15 +162,17 @@ int 	render_next_frame_structure(t_struct_m *main)
         main->ZBuffer[main->Ray.x] = main->Ray.perpWallDist; //perpendicular distance is used
         main->Ray.x++;
     }
+	return (0);
+}
+
+int 	render_next_frame_structure(t_struct_m *main)
+{
+    ft_raycasting(main);
     render_next_frame_sprites(main);
 	mlx_put_image_to_window(main->vars.mlx, main->vars.win, main->img.img, 0, 0);
     mlx_destroy_image(main->vars.mlx, main->img.img);
     main->img.img = mlx_new_image(main->vars.mlx, main->place.s_width, main->place.s_height);
     main->img.addr = mlx_get_data_addr(main->img.img, &main->img.bits_per_pixel, &main->img.line_length,
                                  &main->img.endian);
-    //press input
-
-    //press output
-
-	return (0);
+    return (0);
 }

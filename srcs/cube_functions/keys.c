@@ -4,7 +4,6 @@ int             wasd_2(t_struct_m *main)
 {
 	double moveSpeed = 0.07;
 	double rotSpeed = 0.07;
-    printf(" w == [%d] s == [%d] A == [%d] D == [%d]\n", main->keys.W, main->keys.S, main->keys.A, main->keys.D);
     if (main->keys.W)
     {
         if(main->place.cubemap[(int)(main->Ray.posY)][(int)(main->Ray.posX + main->Ray.dirX * moveSpeed)] != '1')

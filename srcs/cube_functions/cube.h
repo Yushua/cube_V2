@@ -246,7 +246,7 @@ int     		ft_check_news(t_struct_m *main, char *map);
 void			set_location(t_struct_m *main);
 void			spritesnumb(t_struct_m *main);
 int				check_fill(t_struct_m *main);
-void				flood_fill(int x, int y, t_struct_m *main);
+void			flood_fill(int x, int y, t_struct_m *main);
 int				if_empty(int x, int y, t_struct_m *main);
 int     		ft_check_empty(int x, int y, t_struct_m *main);
 
@@ -260,11 +260,11 @@ char			*ft_cp_string(char *str, int i, int lenght);
 void 			ft_putchar(char *str);
 void 			ft_putstr(char *str);
 void			space_cubemap(t_struct_m *main);
-// int				ft_strlen_cube(const char *s);
 
 //raycasting
 
 int 	        render_next_frame(t_struct_m *main);
+int 			ft_raycasting(t_struct_m *main);
 int             wasd_2(t_struct_m *main);
 int             ft_push_key(int keycode, t_struct_m *main);
 int             ft_release_key(int keycode, t_struct_m *main);
