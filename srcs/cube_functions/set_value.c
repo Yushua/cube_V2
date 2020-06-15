@@ -66,4 +66,13 @@ void		set_value(t_struct_m *main)
 	main->place.mapc = -1;
 
 	main->place.cubemap = NULL;
+
+	main->keys.W = 0;
+	main->keys.S = 0;
+	main->keys.A = 0;
+	main->keys.D = 0;
+	main->keys.UP = 0;
+	main->keys.DOW = 0;
+	main->keys.LEF = 0;
+	main->keys.RIG = 0;
 }

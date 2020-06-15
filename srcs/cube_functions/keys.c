@@ -1,38 +1,25 @@
 #include "cube.h"
 
-#define D 2
-#define A 0
-#define W 13
-#define S 1
-#define esc 53
-
-int             wasd_2(int keycode, t_struct_m *main)
+int             wasd_2(t_struct_m *main)
 {
-	double moveSpeed = 0.1;
-	double rotSpeed = 0.1;
-    printf("keycode == %d\n", keycode);
-    if (keycode > 0)
-        background(main);
-    if (keycode == 99)//C
-    {
-        main->place.crouch == 1;
-        printf("C pressed\n");
-    }
-    if (keycode == W || keycode == 119)
+	double moveSpeed = 0.07;
+	double rotSpeed = 0.07;
+    printf(" w == [%d] s == [%d] A == [%d] D == [%d]\n", main->keys.W, main->keys.S, main->keys.A, main->keys.D);
+    if (main->keys.W)
     {
         if(main->place.cubemap[(int)(main->Ray.posY)][(int)(main->Ray.posX + main->Ray.dirX * moveSpeed)] != '1')
             main->Ray.posX += main->Ray.dirX * moveSpeed;
         if(main->place.cubemap[(int)(main->Ray.posY + main->Ray.dirY * moveSpeed)][(int)(main->Ray.posX)] != '1')
             main->Ray.posY += main->Ray.dirY * moveSpeed;
     }
-    else if (keycode == S || keycode == 115)
+    if (main->keys.S)
     {
         if(main->place.cubemap[(int)(main->Ray.posY)][(int)(main->Ray.posX - main->Ray.dirX * moveSpeed)] != '1')
             main->Ray.posX -= main->Ray.dirX * moveSpeed;
         if(main->place.cubemap[(int)(main->Ray.posY - main->Ray.dirY * moveSpeed)][(int)(main->Ray.posX)] != '1')
             main->Ray.posY -= main->Ray.dirY * moveSpeed;        
     }
-    else if (keycode == D || keycode == 100)
+    if (main->keys.D)
     {
         double oldDirX = main->Ray.dirX;
 
@@ -44,7 +31,7 @@ int             wasd_2(int keycode, t_struct_m *main)
         main->Ray.planeX = main->Ray.planeX * cos(rotSpeed) - main->Ray.planeY * sin(rotSpeed);
         main->Ray.planeY = oldplanex * sin(rotSpeed) + main->Ray.planeY * cos(rotSpeed);        
     }
-    else if (keycode == A || keycode == 97)
+    if (main->keys.A)
     {
         //both camera direction and camera plane must be rotated
         double olddirx = main->Ray.dirX;
@@ -56,11 +43,6 @@ int             wasd_2(int keycode, t_struct_m *main)
                             
         main->Ray.planeX = main->Ray.planeX * cos(-rotSpeed) - main->Ray.planeY * sin(-rotSpeed);
         main->Ray.planeY = oldplanex * sin(-rotSpeed) + main->Ray.planeY * cos(-rotSpeed);        
-    }
-    if (keycode == esc || keycode == 65307)
-    {
-        mlx_destroy_window(main->vars.mlx, main->vars.win);
-        exit(0);
     }
     return (0);
 }

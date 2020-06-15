@@ -11,15 +11,6 @@
 #include "../get_next_line/get_next_line.h"
 #include "../libft/libft.h"
 
-#define ESC 65307
-#define W_KEY 119
-#define A_KEY 97
-#define S_KEY 115
-#define D_KEY 100
-
-#define texWidth 64
-#define texHeight 64
-
 typedef struct  s_data {
 	void        *img;
 	char        *addr;
@@ -145,14 +136,13 @@ typedef struct  s_Ray {
 }    			t_Ray;
 
 typedef struct  s_texture {
-	void			*texture;
-	int				*texture_adress;
-
-	int				line_lenght;
-	int				bits_per_pixel;
-	int				texture_width;
-	int				texture_height;
-	int				endian;
+	void		*texture;
+	int			*texture_adress;
+	int			line_lenght;
+	int			bits_per_pixel;
+	int			texture_width;
+	int			texture_height;
+	int			endian;
 
 }               t_texture;
 
@@ -192,6 +182,19 @@ typedef struct  s_sprites {
 
 }               t_sprites;
 
+typedef struct  s_keys {
+
+	int 		W;
+	int			S;
+	int			A;
+	int			D;
+	int			UP;
+	int			DOW;
+	int			LEF;
+	int			RIG;
+
+}               t_keys;
+
 typedef struct  s_struct_m {
 	t_data		img;
 	t_vars		vars;
@@ -201,6 +204,7 @@ typedef struct  s_struct_m {
 	t_texture	texture[5];
 	t_sprite	sprite;
 	t_sprites	*sprites;
+	t_keys		keys;
 
 	//sprites
 	int			numSprites;//don't foget to malloc them AFTER you know the numSprites
@@ -211,7 +215,7 @@ typedef struct  s_struct_m {
 	int			count;
 }               t_struct_m;
 
-void            my_mlx_pixel_put(t_data *data, int x, int y, int color);
+void            my_mlx_pixel_put(t_struct_m *main, int x, int y, int color);
 int             wasd(int keycode, t_struct_m *main);
 
 void            cube(t_struct_m *main);
@@ -261,7 +265,7 @@ void			space_cubemap(t_struct_m *main);
 //raycasting
 
 int 	        render_next_frame(t_struct_m *main);
-int             wasd_2(int keycode, t_struct_m *main);
+int             wasd_2(t_struct_m *main);
 int             ft_push_key(int keycode, t_struct_m *main);
 int             ft_release_key(int keycode, t_struct_m *main);
 int             ft_close(int keycode, t_struct_m *main);

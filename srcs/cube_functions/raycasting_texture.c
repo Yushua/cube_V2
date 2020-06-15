@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/11 16:24:40 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/15 11:33:59 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ int 	render_next_frame_structure(t_struct_m *main)
 
     double time = 0; //time of current frame
     double oldTime = 0; //time of previous frame
+    wasd_2(main);
     while (main->Ray.x < main->place.s_width)
     {
         main->Ray.cameraX = 2 * main->Ray.x / (double)main->place.s_width - 1;//x-coordinate in camera space
