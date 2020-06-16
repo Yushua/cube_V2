@@ -6,13 +6,13 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 15:08:39 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/16 18:00:41 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/16 19:34:57 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cube.h"
 
-void     ft_read_C(t_struct_m *main, char *map)
+int     ft_read_C(t_struct_m *main, char *map)
 {
     int     i;
     int     r;
@@ -34,7 +34,7 @@ void     ft_read_C(t_struct_m *main, char *map)
             i++;
         while (map[i])
         {
-            if(map[i] >= '1' && map[i] <= '9')
+            if(map[i] >= '0' && map[i] <= '9')
             {
                 i = ft_isalnummer(i, map);
                 if (i < 0)
@@ -81,5 +81,6 @@ void     ft_read_C(t_struct_m *main, char *map)
 		ft_error(main);
 		return (0);  
 	}
+    printf(" c = [%d][%d][%d]\n", main->place.Ccol1, main->place.Ccol2, main->place.Ccol3);
     return (0);
 }

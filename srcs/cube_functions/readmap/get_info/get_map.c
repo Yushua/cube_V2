@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 14:08:37 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/16 14:08:41 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/16 18:48:59 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int     ft_check_news(t_struct_m *main, char *map)
     int     x;
 
     x = 0;
-    while (map[x] != '\0' || map[x] != '\n' || map[x] != NULL)
+    while (map[x])
     {
         if (map[x] == '/' || map[x] == ',')
         {
@@ -54,13 +54,13 @@ int     get_size_map(t_struct_m *main, char *map)
     i = 0;
     b = 0;
 
-    while (map[i] != '\0' || map[i] != '\n')
+    while (map[i])
     {
         while (map[i] == ' ')
             i++;
         if (map[i] != '1')
             b = 1;
-        else if (map[i] != '\0' || map[i] != '\n')
+        else if (map[i])
             break ;
         break ;
     }
@@ -69,7 +69,7 @@ int     get_size_map(t_struct_m *main, char *map)
     else if (b == 0)
     {
         main->place.mapp = 0;
-        while(map[x] != '\0' || map[x] != '\n')
+        while(map[x])
         {
             if (map[x] == ' ')
                 x++;

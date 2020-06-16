@@ -6,13 +6,13 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 15:08:39 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/16 18:11:07 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/16 19:01:55 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cube.h"
 
-void     ft_read_WE(t_struct_m *main, char *map)
+int     ft_read_WE(t_struct_m *main, char *map)
 {
     int     i;
     int     r;
@@ -28,7 +28,9 @@ void     ft_read_WE(t_struct_m *main, char *map)
     {
         while (map[i] == ' ')
             i++;
-        while (map[i] == 'WE')
+        if (map[i] == 'W')
+            i++;
+        if (map[i] == 'E')
             i++;
         while (map[i] == ' ')
                 i++;
@@ -46,5 +48,6 @@ void     ft_read_WE(t_struct_m *main, char *map)
             ft_error(main);    
         }
     }
+    printf("WE == [%s]\n", main->place.WE);
     return (0);    
 }

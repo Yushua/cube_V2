@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 14:09:41 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/16 15:27:19 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/16 19:43:32 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ int     ft_check_for_map(char *map)
     {
         if (map[x] == '0' || map[x] == '1' || map[x] == '2')
 			return (1);
-        x++;
+        else
+            return (2);
     }
 	return (0);
 }
@@ -64,21 +65,24 @@ int     ft_get_info(t_struct_m *main, char *map)
         x++;
 	if (map[x])
 	{
-		if (ft_strnstr(map, "R", strlen(map)) == 1)
+		if (ft_strnstr_map(map, "R", strlen(map)) == 1)
+        {
+            printf("1\n");
 			ft_read_R(main, map);
-		else if (ft_strnstr(map, "F", strlen(map)) == 1)
+        }
+		else if (ft_strnstr_map(map, "F", strlen(map)) == 1)
 			ft_read_F(main, map);
-		else if (ft_strnstr(map, "C", strlen(map)) == 1)
+		else if (ft_strnstr_map(map, "C", strlen(map)) == 1)
 			ft_read_C(main, map);
-		else if (ft_strnstr(map, "S", strlen(map)) == 1)
+		else if (ft_strnstr_map(map, "S", strlen(map)) == 1)
 			ft_read_S(main, map);
-		else if (ft_strnstr(map, "NO", strlen(map)) == 1)
+		else if (ft_strnstr_map(map, "NO", strlen(map)) == 1)
 			ft_read_NO(main, map);
-		else if (ft_strnstr(map, "SO", strlen(map)) == 1)
+		else if (ft_strnstr_map(map, "SO", strlen(map)) == 1)
 			ft_read_SO(main, map);
-		else if (ft_strnstr(map, "EA", strlen(map)) == 1)
+		else if (ft_strnstr_map(map, "EA", strlen(map)) == 1)
 			ft_read_EA(main, map);
-		else if (ft_strnstr(map, "WE", strlen(map)) == 1)
+		else if (ft_strnstr_map(map, "WE", strlen(map)) == 1)
 			ft_read_WE(main, map);
 	}
 	else
@@ -89,27 +93,18 @@ int     ft_get_info(t_struct_m *main, char *map)
 	return (0);
 }
 
-int    ft_read_map(t_struct_m *main, char *map)
+int    ft_read_map_where(t_struct_m *main, char *map)
 {
     //read every string, make sure which you've gotten, if you get map before you've got everything, then error
     int     i;
 
     i = ft_check_for_map(map);
-    if (i == 1)
-    {
-        if (main->Double.D_R == 1 && main->Double.D_NO == 1 && main->Double.D_SO == 1 &&
+    if (main->Double.D_R == 1 && main->Double.D_NO == 1 && main->Double.D_SO == 1 &&
         main->Double.D_EA == 1 && main->Double.D_S == 1 && main->Double.D_WE == 1 &&
-        main->Double.D_F == 1 && main->Double.D_C == 1)
-            read_cube(main, map);
-        else
-        {
-            main->place.error = 25;//not enough information
-            ft_error(main);
-			return (2)
-        }
-    }
-    else if (ft_get_info(main, map) == 2)//read de info and stores it
-			return (2);
+        main->Double.D_F == 1 && main->Double.D_C == 1 && ft_check_for_map(map) == 1)
+        return (0);
+    if (ft_get_info(main, map) == 2)//read de info and stores it
+		return (2);
 	return (0);
 }
 
@@ -118,6 +113,9 @@ int     ft_read_map(t_struct_m *main)
     int count;
     int fd;
     char *map;
+    int     i;
+
+    i = 0;
     count = 1;
     fd = open("./srcs/maps/mape_5.cub", O_RDONLY);
     if (fd < 0)
@@ -139,11 +137,12 @@ int     ft_read_map(t_struct_m *main)
             }
             else
             {
-                count = ft_read_map(main, map);
+                i = ft_read_map_where(main, map);
                 free(map);
             }
-			if (count == 2)//not enough information so stop program
+			if (i == 2)//not enough information so stop program
 				return (2);
         }
     }
+    return (0);
 }

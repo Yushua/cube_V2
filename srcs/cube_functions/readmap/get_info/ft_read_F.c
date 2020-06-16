@@ -6,13 +6,13 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 15:08:39 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/16 18:00:47 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/16 20:00:40 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cube.h"
 
-int     t_read_F(t_struct_m *main, char *map)
+int     ft_read_F(t_struct_m *main, char *map)
 {
 	int     i;
 	int		r;
@@ -31,10 +31,10 @@ int     t_read_F(t_struct_m *main, char *map)
 		while (map[i] == 'F')
 			i++;
 		while (map[i] == ' ')
-			i++;
+				i++;
 		while (map[i])
 		{
-			if(map[i] >= '1' && map[i] <= '9')
+			if(map[i] >= '0' && map[i] <= '9')
 			{
 				i = ft_isalnummer(i, map);
 				if (i < 0)
@@ -47,39 +47,46 @@ int     t_read_F(t_struct_m *main, char *map)
 					if (r == 0)
 					{
 						main->place.Fcol1 = ft_atoi_cube(map, main, i);
+						printf("c1ol == [%d]\n", main->place.Fcol1);
 						i = main->place.i;
 						main->place.i = 0;
+						i++;
 					}
 					else if (r == 1)
 					{
 						main->place.Fcol2 = ft_atoi_cube(map, main, i);
+						printf("c1ol == [%d]\n", main->place.Fcol2);
 						i = main->place.i;
 						main->place.i = 0;
+						i++;
 					}
 					else if (r == 2)
 					{
 						main->place.Fcol3 = ft_atoi_cube(map, main, i);
+						printf("c1ol == [%d]\n", main->place.Fcol3);
 						i = main->place.i;
 						main->place.i = 0;
 						main->Double.D_F = 1;
+						i++;
 					}
-					else
+					if (map[i] != '\0' && r == 2)
 					{
 						main->place.error = 30;//not enough information r too much
 						ft_error(main);
 						return (0);
 					}
-					i++;
 				}
 			}
 			r++;
 		}
 	}
+	printf("2\n");
 	if (main->Double.D_F != 1)
 	{
 		main->place.error = 32;//not enough information
 		ft_error(main);
 		return (0);  
 	}
+	printf("F = [%d][%d][%d]\n", main->place.Fcol1, main->place.Fcol2, main->place.Fcol3);
 	return (0);
 }

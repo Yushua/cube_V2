@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/16 14:45:29 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/16 19:04:32 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int             ft_close(int keycode, t_struct_m *main)
 	return (0);
 }
 
-int     main(int argc, char **argv)
+int     main()
 {       
 	t_struct_m *main;
 	
@@ -31,21 +31,18 @@ int     main(int argc, char **argv)
 	
 	background(main);
 	set_value(main);
-	// ft_size_store_map(main);
 	// readmap(main);
+	ft_read_map(main);
+	ft_size_store_map(main);
 	if (ft_read_map(main) == 2)
 	{
 		ft_putstr(" not enough information");
 		ft_end_function(main);
 	}
 	set_location(main);
-	ft_putstr("this means my other functions stil work\n");
 	spritesnumb(main);
-	ft_putstr("begin fill check");
 	check_fill(main);
 	printmap(main);
-	if (main->place.error == -1)
-		ft_putstr("no error\n");
 	// else if (main->place.error_c == 0) //don't forget to free wrong with error
 	//     ft_end_function(main);
 	ft_putstr("data");

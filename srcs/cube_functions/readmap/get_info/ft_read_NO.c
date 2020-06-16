@@ -6,13 +6,13 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 15:08:39 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/16 18:13:43 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/16 19:00:17 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cube.h"
 
-void     ft_read_NO(t_struct_m *main, char *map)
+int     ft_read_NO(t_struct_m *main, char *map)
 {
     int     i;
     int     r;
@@ -28,7 +28,9 @@ void     ft_read_NO(t_struct_m *main, char *map)
     {
         while (map[i] == ' ')
             i++;
-        while (map[i] == 'NO')
+        if (map[i] == 'N')
+            i++;
+        if (map[i] == 'O')
             i++;
         while (map[i] == ' ')
                 i++;
@@ -46,5 +48,6 @@ void     ft_read_NO(t_struct_m *main, char *map)
             ft_error(main);    
         }
     }
+    printf("NO == [%s]\n", main->place.NO);
     return (0);
 }

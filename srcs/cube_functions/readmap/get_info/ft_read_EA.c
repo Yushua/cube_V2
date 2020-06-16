@@ -6,13 +6,13 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 15:08:39 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/16 18:14:18 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/16 18:59:22 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cube.h"
 
-void     ft_read_EA(t_struct_m *main, char *map)
+int     ft_read_EA(t_struct_m *main, char *map)
 {
     int     i;
     int     r;
@@ -28,7 +28,9 @@ void     ft_read_EA(t_struct_m *main, char *map)
     {
         while (map[i] == ' ')
             i++;
-        while (map[i] == 'EA')
+        if (map[i] == 'E')
+            i++;
+        if (map[i] == 'A')
             i++;
         while (map[i] == ' ')
                 i++;
@@ -46,5 +48,6 @@ void     ft_read_EA(t_struct_m *main, char *map)
             ft_error(main);    
         }
     }
+    printf("EA == [%s]\n", main->place.EA);
     return (0);
 }

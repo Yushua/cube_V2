@@ -6,13 +6,13 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 15:08:39 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/16 18:10:57 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/16 19:47:52 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cube.h"
 
-void     ft_read_SO(t_struct_m *main, char *map)
+int     ft_read_SO(t_struct_m *main, char *map)
 {
     int     i;
     int     r;
@@ -28,7 +28,9 @@ void     ft_read_SO(t_struct_m *main, char *map)
     {
         while (map[i] == ' ')
             i++;
-        while (map[i] == 'SO')
+        if (map[i] == 'S')
+            i++;
+        if (map[i] == 'O')
             i++;
         while (map[i] == ' ')
                 i++;
@@ -46,5 +48,6 @@ void     ft_read_SO(t_struct_m *main, char *map)
             ft_error(main);    
         }
     }
+    printf("SO == [%s]\n", main->place.SO);
     return (0);
 }

@@ -7,6 +7,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <sys/types.h>
+#include <string.h>
 #include "../mlx/mlx.h"
 #include "../get_next_line/get_next_line.h"
 #include "../libft/libft.h"
@@ -233,7 +234,21 @@ int 	        background(t_struct_m *main);
 
 //read_map_real
 
-int     ft_read_map(t_struct_m *main);
+int    	ft_read_map(t_struct_m *main);
+int    	ft_read_map_where(t_struct_m *main, char *map);
+int     ft_get_info(t_struct_m *main, char *map);
+int		ft_strnstr_map(const char *haystack, const char *needle, size_t len);
+int     ft_check_for_map(char *map);
+
+int     ft_read_EA(t_struct_m *main, char *map);
+int     ft_read_C(t_struct_m *main, char *map);
+int     ft_read_F(t_struct_m *main, char *map);
+int     ft_read_NO(t_struct_m *main, char *map);
+int     ft_read_R(t_struct_m *main, char *map);
+int     ft_read_S(t_struct_m *main, char *map);
+int     ft_read_SO(t_struct_m *main, char *map);
+int     ft_read_WE(t_struct_m *main, char *map);
+void    ft_read_cubecube(t_struct_m *main, char *map);
 
 //end
 void            readmap(t_struct_m *main);
