@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/05 11:49:54 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/05 11:49:55 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/16 13:28:17 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,11 +103,7 @@ static void        get_cubemap_x(t_struct_m *main)
         get_x_map(main, map);
         if (main->place.mapc == 0)
         {
-            printf("begin malloc\n");
-            // main->place.mapx = main->place.mapx - main->place.mapE;//to many emty lines added
-            printf("x: %d E: %d\n", main->place.mapx, main->place.mapE);
             ft_substr_save(map, main, y);
-            printf("line == [%s]\n", main->place.cubemap[y]);
             y++;
         }
         printf("\n");

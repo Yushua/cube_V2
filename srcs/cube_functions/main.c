@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/15 14:43:08 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/16 13:28:48 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ static void    ft_end_function(t_struct_m *main)
 
 int             ft_push_key(int keycode, t_struct_m *main)
 {
-	// printf("keycode == %d\n", keycode);
 	if (keycode == ESC)
 	{
 		mlx_destroy_window(main->vars.mlx, main->vars.win);
@@ -87,7 +86,6 @@ int     main(int argc, char **argv)
 	readmap(main);
 	set_location(main);
 	ft_putstr("this means my other functions stil work\n");
-	//map_correct(main);
 	spritesnumb(main);
 	ft_putstr("begin fill check");
 	check_fill(main);
@@ -118,8 +116,10 @@ int     main(int argc, char **argv)
 								 &main->img.endian);
 	set_value_texture(main);
 	ft_putstr("done");
-	// if (main->place.error == 0)
+	// if (main->place.error_c == 0)
 	// 	ft_end_function(main);
+	
+	ft_putstr(" no error");
 	mlx_hook(main->vars.win, 2, 1L<<0, ft_push_key, main);
 	mlx_hook(main->vars.win, 3, 1L<<1, ft_release_key, main);
 	mlx_hook(main->vars.win, 17, 1L<<0, ft_close, main);

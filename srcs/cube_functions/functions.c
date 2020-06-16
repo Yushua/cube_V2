@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/05 11:35:00 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/12 15:27:06 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/16 13:30:52 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -268,27 +268,6 @@ int			ft_strleng(char *str, int i)
 	return (r);
 }
 
-char		*ft_cp_string(char *str, int i, int lenght)
-{
-	int 	j;
-	char 	*copy;
-
-	j = 0;
-	copy = NULL;
-	copy = (char *)malloc((lenght + 1) * sizeof(char));
-	//don't forget error check
-	printf("[copy] [str]\n");
-	while (j < lenght)
-	{
-		printf("[%c] [%c] [%d]\n", copy[j], str[i], j);
-		copy[j] = str[i];
-		j++;
-		i++;
-	}
-	copy[j] == '\0';
-	return (copy);
-}
-
 void ft_putstr(char *str)
 {
 	int i;
@@ -302,22 +281,19 @@ void		printmap(t_struct_m *main)
 {
 	int	y = 0;
 
-	// printf("\n");
-	// printf("c == [%c]", &main->place.cubemap[y][18]);
-	printf("\n");
+	ft_putstr("-original-");
 	while (y <= main->Ray.yy)
 	{
-		printf("[%s]\n", main->place.cubemap[y]);
+		ft_putstr(main->place.cubemap[y]);
 		y++;
 	}
-	printf("\ncopy\n");
+	ft_putstr("-copy-");
 	y = 0;
 	while (y <= main->Ray.yy)
 	{
-		printf("[%s]\n", main->cubecopy[y]);
+		ft_putstr(main->cubecopy[y]);
 		y++;
 	}
-	printf("end\n");
 }
 
 int		create_trgb(int r, int g, int b)

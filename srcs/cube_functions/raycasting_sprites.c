@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/15 13:56:33 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/16 13:26:16 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ int         render_next_frame_sprites(t_struct_m *main)
 					d = (y) * 256 - main->place.s_height * 128 + main->sprite.spriteHeight * 128;
 					texY = ((d * main->texture[4].texture_height) / main->sprite.spriteHeight) / 256;
 					colour	= main->texture[4].texture_adress[main->texture[4].texture_width * texY + texX];
-					// printf("[%d]\n", colour);
 					if (colour != 0)
 						my_mlx_pixel_put(main, main->sprite.stripe, y, colour);
 					y++;

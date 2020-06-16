@@ -70,7 +70,7 @@ void     read_string(t_struct_m *main, char *map)
     if (main->Double.D_R == 1 && main->Double.D_NO == 1 && main->Double.D_SO == 1 && main->Double.D_EA == 1 &&
         main->Double.D_S == 1 && main->Double.D_WE == 1 && main->Double.D_F == 1 && main->Double.D_C == 1)
     {
-        printf("read map\n");
+        ft_putstr(" read map");
     }
     else
     {
@@ -96,12 +96,7 @@ void        readmap(t_struct_m *main)
     while (count > 0)
     {
         count = get_next_line(fd, &map);
-        printf("R: %d NO: %d SO: %d EA: %d S: %d WE: %d F: %d C: %d\n",
-                main->Double.D_R, main->Double.D_NO, main->Double.D_SO, main->Double.D_EA,
-                main->Double.D_S, main->Double.D_WE, main->Double.D_F, main->Double.D_C);
-        printf("%d | %s\n", count, map);
         read_string(main, map);
-        printf("--new--\n\n");
         main->place.error = 0;
         free(map);
     }

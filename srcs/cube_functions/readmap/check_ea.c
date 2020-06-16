@@ -23,7 +23,6 @@ int     check_EA(t_struct_m *main, char *map, int i)
         {
             r = ft_strleng(map, i);
             main->place.EA = ft_substr(map, i, r);//ft_strdup
-            printf("[s->EA] == [%s]\n", main->place.EA);
             i = i + r;
         }
         if (map[i] != '\0')

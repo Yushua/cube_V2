@@ -49,7 +49,6 @@ int     check_F(t_struct_m *main, char *map, int i)
                     if (!map[i])
                     {
                         main->place.error = 9;
-                        printf("error r\n");
                         ft_error(main);
                         break ;
                     }

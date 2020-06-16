@@ -31,7 +31,6 @@ int     check_R(t_struct_m *main, char *map, int i)
                 }
                 else if (i == -1)
                 {
-                    printf("error i\n");
                     main->place.error = 3;
                     ft_error(main);
                     break ;
@@ -41,7 +40,6 @@ int     check_R(t_struct_m *main, char *map, int i)
                     if (!map[i])
                     {
                         main->place.error = 3;
-                        printf("error r\n");
                         ft_error(main);
                         break ;
                     }

@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/15 10:26:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/15 14:35:15 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/16 13:00:14 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,13 @@ void		ft_bmp(t_struct_m *main)
 {
 	int			fd;
 	char		*string;
-	int			y;
+	int			padd;
     int         len;
     int         x;
 
 	ft_image(main);
 	fd = open("screen.bmp", O_RDWR | O_CREAT, 0666);
-	y = ft_header_bmp(main, fd);
+	padd = ft_header_bmp(main, fd);
 	len = main->place.s_height - 1;
 	while (len >= 0)
 	{
@@ -75,7 +75,7 @@ void		ft_bmp(t_struct_m *main)
 			write(fd, string, 3);
 			x++;
 		}
-		write(fd, "\0\0\0", y);
+		write(fd, "\0\0\0", padd);
 		len--;
 	}
 	close(fd);

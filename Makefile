@@ -6,7 +6,7 @@
 #    By: ybakker <ybakker@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/03/05 10:59:00 by ybakker       #+#    #+#                  #
-#    Updated: 2020/06/15 14:05:15 by ybakker       ########   odam.nl          #
+#    Updated: 2020/06/16 13:23:31 by ybakker       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,6 @@ $(NAME): $(OBJ)
 	@$(CC) -L srcs/mlx/ -lmlx -framework OpenGL -framework AppKit  \
 	$(OBJ) libft.a -o $(NAME)
 %.o: %.c
-	@printf "Compiling $?\n"
 	@gcc $(CFLAGS) -I srcs/mlx -I srcs/libft -c $? -o $@
 clean:
 	@$(RM) $(OBJ)
