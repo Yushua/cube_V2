@@ -84,6 +84,26 @@ void        ft_error(t_struct_m *main)
         ft_putstr("too many inputs in F, fix F");
     else if (main->place.error_c == 35)
         ft_putstr("double C");
+    else if (main->place.error_c == 36)
+        ft_putstr("double SO");
+    else if (main->place.error_c == 37)
+        ft_putstr("SO line has info after its link, fix line by removing this information");
+    else if (main->place.error_c == 38)
+        ft_putstr("double WE");
+    else if (main->place.error_c == 39)
+        ft_putstr("WE line has info after its link, fix line by removing this information");
+    else if (main->place.error_c == 40)
+        ft_putstr("double NO");
+    else if (main->place.error_c == 41)
+        ft_putstr("NO line has info after its link, fix line by removing this information");
+    else if (main->place.error_c == 42)
+        ft_putstr("double EA");
+    else if (main->place.error_c == 43)
+        ft_putstr("EA line has info after its link, fix line by removing this information");
+    else if (main->place.error_c == 44)
+        ft_putstr("double S");
+    else if (main->place.error_c == 45)
+        ft_putstr("S line has info after its link, fix line by removing this information");
     main->place.error_c = 0;
     //come sin ehre, error shoudl only happen once
 }

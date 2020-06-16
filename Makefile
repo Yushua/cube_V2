@@ -6,7 +6,7 @@
 #    By: ybakker <ybakker@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/03/05 10:59:00 by ybakker       #+#    #+#                  #
-#    Updated: 2020/06/16 14:07:13 by ybakker       ########   odam.nl          #
+#    Updated: 2020/06/16 18:18:28 by ybakker       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,15 @@ SRC = ./srcs/cube_functions/main.c\
 		./srcs/cube_functions/readmap/trash_read_files/check_f.c\
 		./srcs/cube_functions/readmap/trash_read_files/check_c.c\
 		./srcs/cube_functions/readmap/trash_read_files/space_cubemap.c\
+		./srcs/cube_functions/readmap/get_info/ft_read_C.c\
+		./srcs/cube_functions/readmap/get_info/ft_read_EA.c\
+		./srcs/cube_functions/readmap/get_info/ft_read_F.c\
+		./srcs/cube_functions/readmap/get_info/ft_read_NO.c\
+		./srcs/cube_functions/readmap/get_info/ft_read_R.c\
+		./srcs/cube_functions/readmap/get_info/ft_read_S.c\
+		./srcs/cube_functions/readmap/get_info/ft_read_SO.c\
+		./srcs/cube_functions/readmap/get_info/ft_read_WE.c\
+		./srcs/cube_functions/readmap/ft_read_map.c\
 		./srcs/get_next_line/get_next_line_utils.c\
 		./srcs/get_next_line/get_next_line.c\
 

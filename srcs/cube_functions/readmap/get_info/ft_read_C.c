@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 15:08:39 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/16 17:58:59 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/16 18:00:41 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,6 @@ void     ft_read_C(t_struct_m *main, char *map)
             }
             r++;
         }
-        else
-        {
-           main->place.error = 10;//not enough information
-           ft_error(main);
-            return (0);  
-        }
-
     }
     if (main->Double.D_C != 1)
 	{
