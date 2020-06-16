@@ -1,4 +1,16 @@
-#include "../cube.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   get_map.c                                          :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2020/06/16 14:08:37 by ybakker       #+#    #+#                 */
+/*   Updated: 2020/06/16 14:08:41 by ybakker       ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../../cube.h"
 
 void     ft_map_line(t_struct_m *main, char *map)//gets the zsize of the line
 {

@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/05 11:35:00 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/16 13:30:52 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/16 15:35:53 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -232,7 +232,7 @@ int	ft_isalnummer(int i, char *str)	//check if everything is a number
 	int y;
 
 	y = i;
-	while (str[i] != '\n' || str[i] != '\0')
+	while (str[i])
 	{
 		if (str[i] >= '0' && str[i] <= '9')
 		{

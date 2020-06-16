@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/11 14:47:03 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/16 13:39:34 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	set_location(t_struct_m *main)
     y = 0;
     x = 0;
 
-    printf("hello\n");
     while (r != 1)
     {
         while (main->place.cubemap[y][x] != '\0' && r != 1)
@@ -69,7 +68,6 @@ void	set_location(t_struct_m *main)
     
     main->Ray.posY = y;
     main->Ray.posX = x;
-    printf("before c == [%c] y == [%i] x == [%i]\n", main->cubecopy[y][x], y, x);
     main->Ray.posY += 0.5;
     main->Ray.posX -= 0.5;
 }

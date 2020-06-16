@@ -1,4 +1,4 @@
-#include "../cube.h"
+#include "../../cube.h"
 
 void     ft_check(t_struct_m *main, char *map)
 {
@@ -67,8 +67,9 @@ void     ft_check(t_struct_m *main, char *map)
 
 void     read_string(t_struct_m *main, char *map)
 {
-    if (main->Double.D_R == 1 && main->Double.D_NO == 1 && main->Double.D_SO == 1 && main->Double.D_EA == 1 &&
-        main->Double.D_S == 1 && main->Double.D_WE == 1 && main->Double.D_F == 1 && main->Double.D_C == 1)
+    if (main->Double.D_R == 1 && main->Double.D_NO == 1 && main->Double.D_SO == 1 &&
+        main->Double.D_EA == 1 && main->Double.D_S == 1 && main->Double.D_WE == 1 &&
+        main->Double.D_F == 1 && main->Double.D_C == 1)
     {
         ft_putstr(" read map");
     }

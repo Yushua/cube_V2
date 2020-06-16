@@ -11,6 +11,16 @@
 #include "../get_next_line/get_next_line.h"
 #include "../libft/libft.h"
 
+#define ESC 53
+#define W_KEY 13
+#define S_KEY 1
+#define A_KEY 0
+#define D_KEY 2
+#define UP_KEY 126
+#define DOW_KEY 125
+#define LEF_KEY 123
+#define RIG_KEY 124
+
 typedef struct  s_data {
 	void        *img;
 	char        *addr;
@@ -221,6 +231,11 @@ int             wasd(int keycode, t_struct_m *main);
 void            cube(t_struct_m *main);
 int 	        background(t_struct_m *main);
 
+//read_map_real
+
+int     ft_read_map(t_struct_m *main);
+
+//end
 void            readmap(t_struct_m *main);
 void     		read_string(t_struct_m *main, char *map);
 void     		ft_check(t_struct_m *main, char *map);
@@ -286,4 +301,6 @@ void        	swap(t_struct_m *main , int j);
 void        	bubble_sort(t_struct_m *main);
 
 void			ft_bmp(t_struct_m *main);
+
+void    		ft_end_function(t_struct_m *main);
 #endif

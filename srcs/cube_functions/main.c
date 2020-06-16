@@ -6,66 +6,15 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/16 13:28:48 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/16 14:45:29 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-#define ESC 53
-#define W_KEY 13
-#define S_KEY 1
-#define A_KEY 0
-#define D_KEY 2
-#define UP_KEY 126
-#define DOW_KEY 125
-#define LEF_KEY 123
-#define RIG_KEY 124
-
-static void    ft_end_function(t_struct_m *main)
+void    ft_end_function(t_struct_m *main)
 {
 	exit(0);
-}
-
-int             ft_push_key(int keycode, t_struct_m *main)
-{
-	if (keycode == ESC)
-	{
-		mlx_destroy_window(main->vars.mlx, main->vars.win);
-		ft_end_function(main);
-	}
-	if (keycode == W_KEY && main->keys.S != 1)
-	{
-		main->keys.W = 1;
-	}
-	if (keycode == S_KEY && main->keys.W != 1)
-		main->keys.S = 1;
-	if (keycode == A_KEY && main->keys.D != 1)
-		main->keys.A = 1;
-	if (keycode == D_KEY && main->keys.A != 1)
-		main->keys.D = 1;
-	if (keycode == LEF_KEY && main->keys.RIG != 1)
-		main->keys.LEF = 1;
-	if (keycode == RIG_KEY && main->keys.LEF != 1)
-		main->keys.RIG = 1;
-	return (0);
-}
-
-int             ft_release_key(int keycode, t_struct_m *main)
-{
-	if (keycode == W_KEY)
-		main->keys.W = 0;
-	if (keycode == S_KEY)
-		main->keys.S = 0;
-	if (keycode == A_KEY)
-		main->keys.A = 0;
-	if (keycode == D_KEY)
-		main->keys.D = 0;
-	if (keycode == LEF_KEY)
-		main->keys.LEF = 0;
-	if (keycode == RIG_KEY)
-		main->keys.RIG = 0;
-	return (0);
 }
 
 int             ft_close(int keycode, t_struct_m *main)
@@ -82,8 +31,13 @@ int     main(int argc, char **argv)
 	
 	background(main);
 	set_value(main);
-	ft_size_store_map(main);
-	readmap(main);
+	// ft_size_store_map(main);
+	// readmap(main);
+	if (ft_read_map(main) == 2)
+	{
+		ft_putstr(" not enough information");
+		ft_end_function(main);
+	}
 	set_location(main);
 	ft_putstr("this means my other functions stil work\n");
 	spritesnumb(main);

@@ -15,7 +15,7 @@ void        ft_error(t_struct_m *main)
         main->place.check_double = 0;
     }
     else if (main->place.error_c == 2)
-        ft_putstr("unknown line in map, fix your map");
+        ft_putstr("unknown input in map, or clutter fix your map");
     else if (main->place.error_c == 3)
         ft_putstr("unacceptable command in line R, fix your map");
     else if (main->place.error_c == 4)
@@ -60,6 +60,18 @@ void        ft_error(t_struct_m *main)
         ft_putstr("link in map file incorrect at EA, fd is -1");
     else if (main->place.error_c == 23)
         ft_putstr("link in map file incorrect at S, fd is -1");
+    else if (main->place.error_c == 24)
+        ft_putstr("error in fd, read map, fd < 0");
+    else if (main->place.error_c == 25)
+        ft_putstr("not all information was given, or map is in wrong location");
+    else if (main->place.error_c == 26)
+        ft_putstr("double R");
+    else if (main->place.error_c == 27)
+        ft_putstr("first set numbers in R is incorrect");
+    else if (main->place.error_c == 28)
+        ft_putstr("too many inputs in R, fix R");
+    else if (main->place.error_c == 29)
+        ft_putstr("double F");
     main->place.error_c = 0;
     //come sin ehre, error shoudl only happen once
 }

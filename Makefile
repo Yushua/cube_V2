@@ -6,7 +6,7 @@
 #    By: ybakker <ybakker@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/03/05 10:59:00 by ybakker       #+#    #+#                  #
-#    Updated: 2020/06/16 13:23:31 by ybakker       ########   odam.nl          #
+#    Updated: 2020/06/16 14:07:13 by ybakker       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,17 +24,17 @@ SRC = ./srcs/cube_functions/main.c\
 		./srcs/cube_functions/raycasting_sprites.c\
 		./srcs/cube_functions/floor_casting.c\
 		./srcs/cube_functions/create_bmp.c\
-		./srcs/cube_functions/readmap/read_map.c\
-		./srcs/cube_functions/readmap/get_map.c\
-		./srcs/cube_functions/readmap/check_r.c\
-		./srcs/cube_functions/readmap/check_no.c\
-		./srcs/cube_functions/readmap/check_so.c\
-		./srcs/cube_functions/readmap/check_s.c\
-		./srcs/cube_functions/readmap/check_we.c\
-		./srcs/cube_functions/readmap/check_ea.c\
-		./srcs/cube_functions/readmap/check_f.c\
-		./srcs/cube_functions/readmap/check_c.c\
-		./srcs/cube_functions/readmap/space_cubemap.c\
+		./srcs/cube_functions/readmap/trash_read_files/read_map.c\
+		./srcs/cube_functions/readmap/trash_read_files/get_map.c\
+		./srcs/cube_functions/readmap/trash_read_files/check_r.c\
+		./srcs/cube_functions/readmap/trash_read_files/check_no.c\
+		./srcs/cube_functions/readmap/trash_read_files/check_so.c\
+		./srcs/cube_functions/readmap/trash_read_files/check_s.c\
+		./srcs/cube_functions/readmap/trash_read_files/check_we.c\
+		./srcs/cube_functions/readmap/trash_read_files/check_ea.c\
+		./srcs/cube_functions/readmap/trash_read_files/check_f.c\
+		./srcs/cube_functions/readmap/trash_read_files/check_c.c\
+		./srcs/cube_functions/readmap/trash_read_files/space_cubemap.c\
 		./srcs/get_next_line/get_next_line_utils.c\
 		./srcs/get_next_line/get_next_line.c\
 

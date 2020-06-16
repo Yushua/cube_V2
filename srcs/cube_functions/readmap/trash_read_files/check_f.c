@@ -1,4 +1,4 @@
-#include "../cube.h"
+#include "../../cube.h"
 
 int     check_F(t_struct_m *main, char *map, int i)
 {
