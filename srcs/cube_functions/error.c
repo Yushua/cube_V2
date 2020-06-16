@@ -72,6 +72,18 @@ void        ft_error(t_struct_m *main)
         ft_putstr("too many inputs in R, fix R");
     else if (main->place.error_c == 29)
         ft_putstr("double F");
+    else if (main->place.error_c == 30)
+        ft_putstr("too many inputs in F, fix F");
+    else if (main->place.error_c == 31)
+        ft_putstr("first set numbers in F is incorrect");
+    else if (main->place.error_c == 32)
+        ft_putstr("fnot enough inputs in R");
+    else if (main->place.error_c == 33)
+        ft_putstr("fnot enough inputs in C");
+    else if (main->place.error_c == 34)
+        ft_putstr("too many inputs in F, fix F");
+    else if (main->place.error_c == 35)
+        ft_putstr("double C");
     main->place.error_c = 0;
     //come sin ehre, error shoudl only happen once
 }
