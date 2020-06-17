@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/17 17:54:18 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/17 18:01:32 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ int 	ft_raycasting(t_struct_m *main)
 
     double time = 0; //time of current frame
     double oldTime = 0; //time of previous frame
+
     wasd_2(main);
     ft_floor_casting(main);
     while (main->Ray.x < main->place.s_width)
