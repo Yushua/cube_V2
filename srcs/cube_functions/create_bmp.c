@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/15 10:26:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/16 13:00:14 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/16 20:15:37 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void		ft_bmp(t_struct_m *main)
 
 	ft_image(main);
 	fd = open("screen.bmp", O_RDWR | O_CREAT, 0666);
+	//check fd
 	padd = ft_header_bmp(main, fd);
 	len = main->place.s_height - 1;
 	while (len >= 0)
