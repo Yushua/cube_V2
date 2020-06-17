@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 15:08:39 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/16 19:31:00 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/17 13:20:22 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int     ft_read_R(t_struct_m *main, char *map)
 
     i = 0;
     r = 0;
+    printf("hello\n");
     if (main->Double.D_R > 0)
     {
         main->place.error = 26;//not enough information
@@ -28,13 +29,13 @@ int     ft_read_R(t_struct_m *main, char *map)
     {
         while (map[i] == ' ')
             i++;
-        while (map[i] == 'R')
+        if (map[i] == 'R')
             i++;
         while(map[i])
         {
             while (map[i] == ' ')
-                    i++;
-            if(map[i] >= '1' && map[i] <= '9')
+                i++;
+            if(map[i] >= '0' && map[i] <= '9')
             {
                 i = ft_isalnummer(i, map);
                 if (i < 0)
@@ -49,6 +50,7 @@ int     ft_read_R(t_struct_m *main, char *map)
                         main->place.s_height = ft_atoi_cube(map, main, i);
                         i = main->place.i;
                         main->place.i = 0;
+                        i++;
                     }
                     else if (r == 1)
                     {
@@ -56,14 +58,15 @@ int     ft_read_R(t_struct_m *main, char *map)
                         i = main->place.i;
                         main->place.i = 0;
                         main->Double.D_R = 1;
+                        i++;
                     }
-                    else
+                    printf(" c == [%c] i == [%i]\n", map[i], i);
+                    if (map[i] != '\0' && r == 1)
                     {
                         main->place.error = 28;//not enough information
                         ft_error(main);
                         return (0);
                     }
-                    i++;
                 }
                 r++;
             }
@@ -75,6 +78,6 @@ int     ft_read_R(t_struct_m *main, char *map)
 		ft_error(main);
 		return (0);  
 	}
-    printf("R == [%d][%d]\n", main->place.s_height, main->place.s_width);
+    printf("R = [%d][%d]\n", main->place.s_height, main->place.s_width);
     return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/15 12:25:24 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/17 13:01:12 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,29 +38,19 @@ void    verLine_structure(t_struct_m *main)
     else
         main->Ray.wallX = main->Ray.posX + main->Ray.perpWallDist * main->Ray.rayDirX;
     main->Ray.wallX -= floor(main->Ray.wallX);
-
-    //x coordinate on the texture
     main->Ray.texX = (int)(main->Ray.wallX * (double)(main->texture[main->Ray.texNum].texture_width));
     if(main->Ray.side == 0 && main->Ray.rayDirX > 0)
         main->Ray.texX = main->texture[main->Ray.texNum].texture_width - main->Ray.texX - 1;
     if(main->Ray.side == 1 && main->Ray.rayDirY < 0)
         main->Ray.texX = main->texture[main->Ray.texNum].texture_width - main->Ray.texX - 1;
-
-    // How much to increase the texture coordinate per screen pixel
     main->Ray.step = 1.0 * main->texture[main->Ray.texNum].texture_height / main->Ray.lineHeight;
-
-    // // Starting texture coordinate
-
     main->Ray.texPos = (main->Ray.drawStart - main->place.s_height / 2 + main->Ray.lineHeight / 2) * main->Ray.step;
-    // set_value_texture(main);
 	while (main->Ray.drawStart < main->Ray.drawEnd)
 	{
         // Cast the texture coordinate to integer, and mask with (texHeight - 1) in case of overflow
         main->Ray.texY = (int)(main->Ray.texPos) & (main->texture[main->Ray.texNum].texture_height - 1);
         main->Ray.texPos += main->Ray.step;
-        //make sure it now makes the correct texture
         colour = (main->texture[main->Ray.texNum].texture_adress[main->texture[main->Ray.texNum].texture_height * main->Ray.texY + main->Ray.texX]);
-        //make colour darker for y-sides: R, G and B byte each divided through two with a "shift" and an "and"
         my_mlx_pixel_put(main, main->Ray.x, main->Ray.drawStart, colour);
         main->Ray.drawStart++;
 	}

@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 15:08:39 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/16 20:00:40 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/17 12:22:28 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,16 @@ int     ft_read_F(t_struct_m *main, char *map)
 	{
 		while (map[i] == ' ')
 			i++;
-		while (map[i] == 'F')
+		if (map[i] == 'F')
 			i++;
 		while (map[i] == ' ')
-				i++;
+			i++;
 		while (map[i])
 		{
 			if(map[i] >= '0' && map[i] <= '9')
 			{
 				i = ft_isalnummer(i, map);
-				if (i < 0)
+				if (i == -1)
 				{
 					main->place.error = 31;//not enough information
 					ft_error(main);
@@ -47,7 +47,6 @@ int     ft_read_F(t_struct_m *main, char *map)
 					if (r == 0)
 					{
 						main->place.Fcol1 = ft_atoi_cube(map, main, i);
-						printf("c1ol == [%d]\n", main->place.Fcol1);
 						i = main->place.i;
 						main->place.i = 0;
 						i++;
@@ -55,7 +54,6 @@ int     ft_read_F(t_struct_m *main, char *map)
 					else if (r == 1)
 					{
 						main->place.Fcol2 = ft_atoi_cube(map, main, i);
-						printf("c1ol == [%d]\n", main->place.Fcol2);
 						i = main->place.i;
 						main->place.i = 0;
 						i++;
@@ -63,7 +61,6 @@ int     ft_read_F(t_struct_m *main, char *map)
 					else if (r == 2)
 					{
 						main->place.Fcol3 = ft_atoi_cube(map, main, i);
-						printf("c1ol == [%d]\n", main->place.Fcol3);
 						i = main->place.i;
 						main->place.i = 0;
 						main->Double.D_F = 1;
@@ -80,7 +77,6 @@ int     ft_read_F(t_struct_m *main, char *map)
 			r++;
 		}
 	}
-	printf("2\n");
 	if (main->Double.D_F != 1)
 	{
 		main->place.error = 32;//not enough information
