@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/17 13:01:12 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/17 16:59:51 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,17 @@ void    verLine_structure(t_struct_m *main)
         main->Ray.wallX = main->Ray.posX + main->Ray.perpWallDist * main->Ray.rayDirX;
     main->Ray.wallX -= floor(main->Ray.wallX);
     main->Ray.texX = (int)(main->Ray.wallX * (double)(main->texture[main->Ray.texNum].texture_width));
+    
     if(main->Ray.side == 0 && main->Ray.rayDirX > 0)
         main->Ray.texX = main->texture[main->Ray.texNum].texture_width - main->Ray.texX - 1;
+    
     if(main->Ray.side == 1 && main->Ray.rayDirY < 0)
         main->Ray.texX = main->texture[main->Ray.texNum].texture_width - main->Ray.texX - 1;
+    
     main->Ray.step = 1.0 * main->texture[main->Ray.texNum].texture_height / main->Ray.lineHeight;
     main->Ray.texPos = (main->Ray.drawStart - main->place.s_height / 2 + main->Ray.lineHeight / 2) * main->Ray.step;
-	while (main->Ray.drawStart < main->Ray.drawEnd)
+	
+    while (main->Ray.drawStart < main->Ray.drawEnd)
 	{
         // Cast the texture coordinate to integer, and mask with (texHeight - 1) in case of overflow
         main->Ray.texY = (int)(main->Ray.texPos) & (main->texture[main->Ray.texNum].texture_height - 1);

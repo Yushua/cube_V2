@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 13:26:33 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/16 13:48:09 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/17 16:58:24 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ int             ft_push_key(int keycode, t_struct_m *main)
 		ft_end_function(main);
 	}
 	if (keycode == W_KEY && main->keys.S != 1)
-	{
 		main->keys.W = 1;
-	}
 	if (keycode == S_KEY && main->keys.W != 1)
 		main->keys.S = 1;
 	if (keycode == A_KEY && main->keys.D != 1)
@@ -33,6 +31,16 @@ int             ft_push_key(int keycode, t_struct_m *main)
 		main->keys.LEF = 1;
 	if (keycode == RIG_KEY && main->keys.LEF != 1)
 		main->keys.RIG = 1;
+    // if (keycode == DOW_KEY && main->keys.UP != 1)
+    // {
+	// 	main->keys.DOW = 1;
+    //     main->Ray.look -= 5;
+    // }
+	// if (keycode == UP_KEY && main->keys.DOW != 1)
+    // {
+	// 	main->keys.UP = 1;
+    //     main->Ray.look += 5;
+    // }
 	return (0);
 }
 
@@ -50,6 +58,10 @@ int             ft_release_key(int keycode, t_struct_m *main)
 		main->keys.LEF = 0;
 	if (keycode == RIG_KEY)
 		main->keys.RIG = 0;
+    // if (keycode == UP_KEY)
+	// 	main->keys.UP = 0;
+    // if (keycode == DOW_KEY)
+	// 	main->keys.DOW = 0;
 	return (0);
 }
 

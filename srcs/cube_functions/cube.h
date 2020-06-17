@@ -208,6 +208,27 @@ typedef struct  s_keys {
 
 }               t_keys;
 
+// typedef struct  s_floor {
+
+// 	float   rayDirX0;
+// 	float   rayDirY0;
+// 	float   rayDirX1;
+// 	float   rayDirY1;
+// 	int     p;
+// 	float   posZ;
+// 	float   rowDistance;
+// 	float   floorStepX;
+// 	float   floorStepY;
+// 	float   floorX;
+// 	float   floorY;
+// 	int     cellX;
+// 	int     cellY;
+// 	int     tx;
+// 	int     ty;
+// 	int     colour;
+
+// }               t_floor;
+
 typedef struct  s_struct_m {
 	t_data		img;
 	t_vars		vars;
@@ -218,6 +239,7 @@ typedef struct  s_struct_m {
 	t_sprite	sprite;
 	t_sprites	*sprites;
 	t_keys		keys;
+	// t_floor		floor;
 
 	//sprites
 	int			numSprites;//don't foget to malloc them AFTER you know the numSprites

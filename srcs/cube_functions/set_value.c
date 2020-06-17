@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 13:26:52 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/17 15:45:12 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/17 16:50:09 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,5 @@ void		set_value(t_struct_m *main)
 	main->keys.DOW = 0;
 	main->keys.LEF = 0;
 	main->keys.RIG = 0;
+	main->Ray.look = 0;
 }
