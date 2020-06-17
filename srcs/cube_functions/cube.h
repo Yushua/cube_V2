@@ -144,6 +144,8 @@ typedef struct  s_Ray {
 
 	double 		step;
 	double 		texPos;
+
+	int			look;
 }    			t_Ray;
 
 typedef struct  s_texture {

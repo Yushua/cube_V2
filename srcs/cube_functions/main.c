@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/17 16:20:52 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/17 16:35:33 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ int     main()
 	spritesnumb(main);
 	check_fill(main);
 	printmap(main);
-	// else if (main->place.error_c == 0) //don't forget to free wrong with error
-	//     ft_end_function(main);
+	if (main->place.error_n == 0) //don't forget to free wrong with error
+	    ft_end_function(main);
 	ft_putstr("data");
 	int i = 0;
 	main->vars.mlx = mlx_init();
