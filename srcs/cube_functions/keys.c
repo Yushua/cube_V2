@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 13:26:33 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/17 18:03:14 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/17 19:06:32 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,10 @@ int             ft_push_key(int keycode, t_struct_m *main)
 	if (keycode == UP_KEY && main->keys.DOW != 1)
 		main->keys.UP = 1;
     if (main->keys.UP == 1)
-        main->Ray.look += 5;
+        main->Ray.look--;
     else if (main->keys.DOW == 1)
-        main->Ray.look -= 5;
+        main->Ray.look++;
+    printf(" look = [%d]\n", main->Ray.look);
 	return (0);
 }
 

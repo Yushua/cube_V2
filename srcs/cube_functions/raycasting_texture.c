@@ -6,11 +6,36 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/17 18:01:32 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/17 19:12:40 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
+
+static void    ft_look(t_struct_m *main)
+{
+    int     look;
+
+    look = main->Ray.look * 20;
+    if (look > 0)
+    {
+        main->Ray.drawStart += look;
+        main->Ray.drawEnd += look;
+        if (main->Ray.drawStart >= main->place.s_height)
+            main->Ray.drawStart = main->place.s_height - 1;
+        if (main->Ray.drawEnd >= main->place.s_height)
+            main->Ray.drawEnd = main->place.s_height - 1;
+    }
+    else if (look < 0)
+    {
+        main->Ray.drawStart += look;
+        main->Ray.drawEnd += look;
+        if (main->Ray.drawStart < 0)
+            main->Ray.drawStart = 0;
+        if (main->Ray.drawEnd < 0)
+            main->Ray.drawEnd = 0;
+    }
+}
 
 void    verLine_structure(t_struct_m *main)
 {
@@ -39,7 +64,6 @@ void    verLine_structure(t_struct_m *main)
         main->Ray.wallX = main->Ray.posX + main->Ray.perpWallDist * main->Ray.rayDirX;
     main->Ray.wallX -= floor(main->Ray.wallX);
     main->Ray.texX = (int)(main->Ray.wallX * (double)(main->texture[main->Ray.texNum].texture_width));
-    
     if(main->Ray.side == 0 && main->Ray.rayDirX > 0)
         main->Ray.texX = main->texture[main->Ray.texNum].texture_width - main->Ray.texX - 1;
     
@@ -47,7 +71,7 @@ void    verLine_structure(t_struct_m *main)
         main->Ray.texX = main->texture[main->Ray.texNum].texture_width - main->Ray.texX - 1;
     main->Ray.step = 1.0 * main->texture[main->Ray.texNum].texture_height / main->Ray.lineHeight;
     main->Ray.texPos = (main->Ray.drawStart - main->place.s_height / 2 + main->Ray.lineHeight / 2) * main->Ray.step;
-	while (main->Ray.drawStart < main->Ray.drawEnd)
+	while (main->Ray.drawStart <= main->Ray.drawEnd)
 	{
         // Cast the texture coordinate to integer, and mask with (texHeight - 1) in case of overflow
         main->Ray.texY = (int)(main->Ray.texPos) & (main->texture[main->Ray.texNum].texture_height - 1);
@@ -140,6 +164,7 @@ int 	ft_raycasting(t_struct_m *main)
         main->Ray.drawEnd = (main->Ray.lineHeight / 2 + main->place.s_height / 2);
         if(main->Ray.drawEnd >= main->place.s_height)
             main->Ray.drawEnd = main->place.s_height - 1;
+        ft_look(main);
         verLine_structure(main);
         main->ZBuffer[main->Ray.x] = main->Ray.perpWallDist; //perpendicular distance is used
         main->Ray.x++;
@@ -156,5 +181,9 @@ int 	render_next_frame_structure(t_struct_m *main)
     main->img.img = mlx_new_image(main->vars.mlx, main->place.s_width, main->place.s_height);
     main->img.addr = mlx_get_data_addr(main->img.img, &main->img.bits_per_pixel, &main->img.line_length,
                                  &main->img.endian);
+    if (main->keys.UP > 0)
+        main->keys.UP = -1;
+    else if (main->keys.DOW > 0)
+        main->keys.DOW = -1;
     return (0);
 }
