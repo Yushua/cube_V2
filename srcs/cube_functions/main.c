@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/16 19:04:32 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/17 16:20:52 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ int     main()
 	
 	background(main);
 	set_value(main);
-	// readmap(main);
-	ft_read_map(main);
 	ft_size_store_map(main);
 	if (ft_read_map(main) == 2)
 	{

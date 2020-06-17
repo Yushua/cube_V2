@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 13:26:52 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/16 13:26:53 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/17 15:45:12 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ void		set_value(t_struct_m *main)
 	main->place.Ccol3 = -1;
 
 	main->place.error = -1;
-	main->place.error_c = 1;
-	main->place.error_n = 0;
+	main->place.error_c = 0;
+	main->place.error_n = -1;
 	main->place.check_double = 0;
 
 //for cube

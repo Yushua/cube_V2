@@ -1,10 +1,10 @@
-            NO              srcs/cube_functions/textures/wall_2.xpm
+NO srcs/cube_functions/textures/wall_2.xpm
 SO srcs/cube_functions/textures/wall_1.xpm
 WE srcs/cube_functions/textures/wall_4.xpm
 EA srcs/cube_functions/textures/wall_3.xpm
-S             srcs/cube_functions/textures/sprite_1.xpm
-F          220,100,0
-R   501  501
+S  srcs/cube_functions/textures/sprite_1.xpm
+F 220,100,0
+R 501 501
 C 225,30,0
 
 11111111111111111111111111111

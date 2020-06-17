@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 15:08:39 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/17 13:20:22 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/17 15:54:41 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int     ft_read_R(t_struct_m *main, char *map)
 
     i = 0;
     r = 0;
-    printf("hello\n");
     if (main->Double.D_R > 0)
     {
         main->place.error = 26;//not enough information
@@ -58,11 +57,10 @@ int     ft_read_R(t_struct_m *main, char *map)
                         i = main->place.i;
                         main->place.i = 0;
                         main->Double.D_R = 1;
-                        i++;
                     }
-                    printf(" c == [%c] i == [%i]\n", map[i], i);
                     if (map[i] != '\0' && r == 1)
                     {
+                        printf("i == [%i]\n", i);
                         main->place.error = 28;//not enough information
                         ft_error(main);
                         return (0);
