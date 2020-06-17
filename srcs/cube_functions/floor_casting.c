@@ -6,13 +6,13 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/15 11:58:22 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/17 19:13:45 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/17 19:46:29 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-static void    ft_wall_position(t_struct_m *main)
+static void    ft_wall_posZ(t_struct_m *main)
 {
     int     look;
 
@@ -61,9 +61,18 @@ int     ft_floor_casting(t_struct_m *main)
 		rayDirY0 = main->Ray.dirY - main->Ray.planeY;
 		rayDirX1 = main->Ray.dirX + main->Ray.planeX;
 		rayDirY1 = main->Ray.dirY + main->Ray.planeY;
-		p = y - main->place.s_height / 2;
-		main->keys.posZ = 0.5 * main->place.s_height;
-		ft_wall_position(main);
+
+		if (main->Ray.look < 0)
+		{
+			p = y - (main->place.s_height + main->Ray.look * 40) / 2;
+			main->keys.posZ = 0.5 * (main->place.s_height + main->Ray.look * 40);
+		}
+		else if  (main->Ray.look >= 0)
+		{
+			p = y - (main->place.s_height - main->Ray.look * 40) / 2;
+			main->keys.posZ = 0.5 * (main->place.s_height - main->Ray.look * 40);
+		}
+		ft_wall_posZ(main);
 		rowDistance = main->keys.posZ / p;
 		
 		floorStepX = rowDistance * (rayDirX1 - rayDirX0) / main->place.s_width;
