@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/05 11:35:00 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/18 14:53:06 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/18 16:22:20 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,7 +151,7 @@ int			ft_strleng(char *str, int i)
 	return (r);
 }
 
-void ft_putstr(char *str)
+void		ft_putstr(char *str)
 {
 	int i;
 
@@ -162,8 +162,9 @@ void ft_putstr(char *str)
 
 void		printmap(t_struct_m *main)
 {
-	int	y = 0;
+	int	y;
 
+	y = 0;
 	ft_putstr("-original-");
 	while (y <= main->Ray.yy)
 	{
@@ -181,5 +182,5 @@ void		printmap(t_struct_m *main)
 
 int		create_trgb(int r, int g, int b)
 {
-	return(r << 16 | g << 8 | b);
+	return (r << 16 | g << 8 | b);
 }

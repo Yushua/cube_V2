@@ -6,13 +6,13 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/15 10:26:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/18 14:13:36 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/18 16:29:39 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-static int	ft_header_bmp(t_struct_m *main, int fd)
+static int		ft_header_bmp(t_struct_m *main, int fd)
 {
 	int		width;
 	int		padd;
@@ -36,7 +36,7 @@ static int	ft_header_bmp(t_struct_m *main, int fd)
 	return (padd);
 }
 
-static void	ft_image(t_struct_m *main)
+static void		ft_image(t_struct_m *main)
 {
 	main->img.img = mlx_new_image(main->vars.mlx, main->place.s_width,
 	main->place.s_height);
@@ -49,6 +49,7 @@ static void	ft_image(t_struct_m *main)
 	&main->img.line_length, &main->img.endian);
 	set_value_texture(main);
 	ft_putstr("done, start drawing screenshot");
+	ft_floor_casting(main);
 	ft_raycasting(main);
 	render_next_frame_sprites(main);
 	ft_putstr("done, start drawing screenshot");
@@ -82,13 +83,14 @@ void		ft_bmp(t_struct_m *main)
 {
 	int			fd;
 
-	ft_image(main);
+	printf("open/n");
 	fd = open("screen.bmp", O_RDWR | O_CREAT, 0666);
 	if (fd < 0)
 	{
 		ft_putstr("screenshot fd is incorrect");
 		close(fd);
 	}
+	ft_image(main);
 	ft_bmp_draw_screenshot(main, fd);
 	close(fd);
 }
