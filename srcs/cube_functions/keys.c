@@ -6,13 +6,13 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 13:26:33 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/17 19:06:32 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/18 15:45:34 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-int             ft_push_key(int keycode, t_struct_m *main)
+int				ft_push_key(int keycode, t_struct_m *main)
 {
 	if (keycode == ESC)
 	{
@@ -31,19 +31,14 @@ int             ft_push_key(int keycode, t_struct_m *main)
 		main->keys.LEF = 1;
 	if (keycode == RIG_KEY && main->keys.LEF != 1)
 		main->keys.RIG = 1;
-    if (keycode == DOW_KEY && main->keys.UP != 1)
+	if (keycode == DOW_KEY && main->keys.UP != 1)
 		main->keys.DOW = 1;
 	if (keycode == UP_KEY && main->keys.DOW != 1)
 		main->keys.UP = 1;
-    if (main->keys.UP == 1)
-        main->Ray.look--;
-    else if (main->keys.DOW == 1)
-        main->Ray.look++;
-    printf(" look = [%d]\n", main->Ray.look);
 	return (0);
 }
 
-int             ft_release_key(int keycode, t_struct_m *main)
+int				ft_release_key(int keycode, t_struct_m *main)
 {
 	if (keycode == W_KEY)
 		main->keys.W = 0;
@@ -57,69 +52,31 @@ int             ft_release_key(int keycode, t_struct_m *main)
 		main->keys.LEF = 0;
 	if (keycode == RIG_KEY)
 		main->keys.RIG = 0;
-    if (keycode == UP_KEY)
+	if (keycode == UP_KEY)
 		main->keys.UP = 0;
-    if (keycode == DOW_KEY)
+	if (keycode == DOW_KEY)
 		main->keys.DOW = 0;
 	return (0);
 }
 
-int             wasd_2(t_struct_m *main)
+int				wasd_2(t_struct_m *main)
 {
-	double moveSpeed = 0.07;
-	double rotSpeed = 0.05;
-    if (main->keys.W)
-    {
-        if(main->place.cubemap[(int)(main->Ray.posY)][(int)(main->Ray.posX + main->Ray.dirX * moveSpeed)] != '1')
-            main->Ray.posX += main->Ray.dirX * moveSpeed;
-        if(main->place.cubemap[(int)(main->Ray.posY + main->Ray.dirY * moveSpeed)][(int)(main->Ray.posX)] != '1')
-            main->Ray.posY += main->Ray.dirY * moveSpeed;
-    }
-    if (main->keys.S)
-    {
-        if(main->place.cubemap[(int)(main->Ray.posY)][(int)(main->Ray.posX - main->Ray.dirX * moveSpeed)] != '1')
-            main->Ray.posX -= main->Ray.dirX * moveSpeed;
-        if(main->place.cubemap[(int)(main->Ray.posY - main->Ray.dirY * moveSpeed)][(int)(main->Ray.posX)] != '1')
-            main->Ray.posY -= main->Ray.dirY * moveSpeed;        
-    }
-    if (main->keys.D)
-    {
-        double oldDirX = main->Ray.dirX;
+	double movesp;
+	double rotsp;
 
-        main->Ray.dirX = main->Ray.dirX * cos(rotSpeed) - main->Ray.dirY * sin(rotSpeed);
-        main->Ray.dirY = oldDirX * sin(rotSpeed) + main->Ray.dirY * cos(rotSpeed);
-
-        double oldplanex = main->Ray.planeX;
-                            
-        main->Ray.planeX = main->Ray.planeX * cos(rotSpeed) - main->Ray.planeY * sin(rotSpeed);
-        main->Ray.planeY = oldplanex * sin(rotSpeed) + main->Ray.planeY * cos(rotSpeed);        
-    }
-    if (main->keys.A)
-    {
-        //both camera direction and camera plane must be rotated
-        double olddirx = main->Ray.dirX;
-
-        main->Ray.dirX = main->Ray.dirX * cos(-rotSpeed) - main->Ray.dirY * sin(-rotSpeed);
-        main->Ray.dirY = olddirx * sin(-rotSpeed) + main->Ray.dirY * cos(-rotSpeed);
-
-        double oldplanex = main->Ray.planeX;
-                            
-        main->Ray.planeX = main->Ray.planeX * cos(-rotSpeed) - main->Ray.planeY * sin(-rotSpeed);
-        main->Ray.planeY = oldplanex * sin(-rotSpeed) + main->Ray.planeY * cos(-rotSpeed);        
-    }
-    if (main->keys.RIG)
-    {
-        if(main->place.cubemap[(int)(main->Ray.posY)][(int)(main->Ray.posX + main->Ray.planeX * moveSpeed)] != '1')
-            main->Ray.posX += main->Ray.planeX * moveSpeed;
-        if(main->place.cubemap[(int)(main->Ray.posY + main->Ray.planeY * moveSpeed)][(int)(main->Ray.posX)] != '1')
-            main->Ray.posY += main->Ray.planeY * moveSpeed;       
-    }
-    if (main->keys.LEF)
-    {
-        if(main->place.cubemap[(int)(main->Ray.posY)][(int)(main->Ray.posX - main->Ray.planeX * moveSpeed)] != '1')
-            main->Ray.posX -= main->Ray.planeX * moveSpeed;
-        if(main->place.cubemap[(int)(main->Ray.posY - main->Ray.planeY * moveSpeed)][(int)(main->Ray.posX)] != '1')
-            main->Ray.posY -= main->Ray.planeY * moveSpeed;     
-    }
-    return (0);
+	movesp = 0.07;
+	rotsp = 0.05;
+	if (main->keys.W)
+	{
+		if (main->place.cubemap[(int)(main->Ray.posY)][(int)(main->Ray.posX
+		+ main->Ray.dirX * movesp)] != '1')
+			main->Ray.posX += main->Ray.dirX * movesp;
+		if (main->place.cubemap[(int)(main->Ray.posY + main->Ray.dirY
+		* movesp)][(int)(main->Ray.posX)] != '1')
+			main->Ray.posY += main->Ray.dirY * movesp;
+	}
+	wasd_s_d(main, movesp, rotsp);
+	wasd_a(main, movesp, rotsp);
+	wasd_r_l(main, movesp, rotsp);
+	return (0);
 }
