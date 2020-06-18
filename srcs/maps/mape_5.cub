@@ -4,7 +4,7 @@ WE srcs/cube_functions/textures/wall_4.xpm
 EA srcs/cube_functions/textures/wall_3.xpm
 S  srcs/cube_functions/textures/sprite_1.xpm
 F 220,100,0
-R 1500 1501
+R 1000 1501
 C 225,30,0
 
 11111111111111111111111111111

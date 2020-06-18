@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/15 11:58:22 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/18 13:20:31 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/18 14:03:48 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,6 @@ int     ft_floor_casting(t_struct_m *main)
 		p = y - main->place.s_height / 2;
 		main->keys.posZ = 0.5 * main->place.s_height;
 		rowDistance = main->keys.posZ / p;
-
-		// p = y - (main->place.s_height / 2 + main->Ray.look * 20);
-		// main->keys.posZ = 0.5 * main->place.s_height + main->Ray.look * 20;
-		// rowDistance = main->keys.posZ / p;
-		
 		// main->keys.posZ = (0.5 * main->place.s_height) + (main->Ray.look * 20);
 		// p = y - (main->place.s_height / 2 + (main->Ray.look * 20));
 		// if (y < main->keys.posZ + main->Ray.look * 20)
@@ -67,13 +62,17 @@ int     ft_floor_casting(t_struct_m *main)
 		{
 			cellX = (int)(floorX);
 			cellY = (int)(floorY);
-			tx = (int)(main->texture[3].texture_width * (floorX - cellX)) & (main->texture[3].texture_width - 1);
-			ty = (int)(main->texture[3].texture_height * (floorY - cellY)) & (main->texture[3].texture_height - 1);
+			tx = (int)(main->texture[3].texture_width * (floorX - cellX))
+			& (main->texture[3].texture_width - 1);
+			ty = (int)(main->texture[3].texture_height * (floorY - cellY))
+			& (main->texture[3].texture_height - 1);
 			floorX += floorStepX;
 			floorY += floorStepY;
-			colour = (main->texture[3].texture_adress[main->texture[3].texture_height * ty + tx]);
+			colour = (main->texture[3].texture_adress
+			[main->texture[3].texture_height* ty + tx]);//floor
 			my_mlx_pixel_put(main, x, y, colour);
-			colour = (main->texture[3].texture_adress[main->texture[3].texture_height * ty + tx]);
+			colour = (main->texture[3].texture_adress
+			[main->texture[3].texture_height * ty + tx]);//wall
 			my_mlx_pixel_put(main, x, main->place.s_height - y - 1, colour);
 			x++;
 		}

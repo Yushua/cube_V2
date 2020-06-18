@@ -195,9 +195,9 @@ typedef struct  s_sprites {
 
 }               t_sprites;
 
-typedef struct  s_keys {
+typedef	struct	s_keys {
 
-	int 		W;
+	int			W;
 	int			S;
 	int			A;
 	int			D;
@@ -222,7 +222,7 @@ typedef struct  s_keys {
 	int     ty;
 	int     colour;
 
-}               t_keys;
+}				t_keys;
 
 typedef struct  s_struct_m {
 	t_data		img;
@@ -267,6 +267,12 @@ int     ft_read_S(t_struct_m *main, char *map);
 int     ft_read_SO(t_struct_m *main, char *map);
 int     ft_read_WE(t_struct_m *main, char *map);
 void    ft_read_cubecube(t_struct_m *main, char *map);
+
+void			set_value_texture_no(t_struct_m *main, int fd);
+void			set_value_texture_so(t_struct_m *main, int fd);
+void			set_value_texture_we(t_struct_m *main, int fd);
+void			set_value_texture_s(t_struct_m *main, int fd);
+void			set_value_texture_ea(t_struct_m *main, int fd);
 
 //end
 void            readmap(t_struct_m *main);
@@ -324,17 +330,16 @@ int				create_trgb(int r, int g, int b);
 
 void			printmap(t_struct_m *main);
 int 			render_next_frame_structure(t_struct_m *main);
-void    		verLine_texture(int x, t_struct_m *main);
-void        	set_value_texture(t_struct_m *main);
-void    		verLine_structure(t_struct_m *main);
+void			verLine_texture(int x, t_struct_m *main);
+void			set_value_texture(t_struct_m *main);
+void			verline_structure(t_struct_m *main);
 
-int         	render_next_frame_sprites(t_struct_m *main);
-int        		render_next_frame_sprites_copy(t_struct_m *main);
-
-void        	swap(t_struct_m *main , int j);
-void        	bubble_sort(t_struct_m *main);
+int				render_next_frame_sprites(t_struct_m *main);
+int				render_next_frame_sprites_copy(t_struct_m *main);
+void			swap(t_struct_m *main , int j);
+void			bubble_sort(t_struct_m *main);
 
 void			ft_bmp(t_struct_m *main);
 
-void    		ft_end_function(t_struct_m *main);
+void			ft_end_function(t_struct_m *main);
 #endif

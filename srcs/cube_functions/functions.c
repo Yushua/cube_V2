@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/05 11:35:00 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/16 15:35:53 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/18 14:53:06 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,123 +92,6 @@ void        bubble_sort(t_struct_m *main)
 		}
 		i++;
 	}
-}
-
-void        set_value_texture(t_struct_m *main)
-{
-	int i = 0;
-
-	int fd;
-	ft_putstr("NO");
-	ft_putstr(main->place.NO);
-	fd = open(main->place.NO, O_RDONLY);
-	if (fd != -1)
-	{
-		if (ft_strnstr(main->place.NO, ".xpm", ft_strlen(main->place.NO)) != NULL)
-		{
-			main->texture[0].texture = mlx_xpm_file_to_image(main->vars.mlx, main->place.NO, &(main->texture[0].texture_width), &(main->texture[0].texture_height));	
-		}
-		else if (ft_strnstr(main->place.NO, ".png", ft_strlen(main->place.NO)) != NULL)
-		{
-			main->texture[0].texture = mlx_png_file_to_image(main->vars.mlx, main->place.NO, &(main->texture[0].texture_width), &(main->texture[0].texture_height));	
-		}
-	}
-	else
-	{
-		main->place.error_c = 19;//right
-		ft_error(main);
-	}
-	i++;
-	ft_putstr("SO");
-	ft_putstr(main->place.SO);
-	fd = open(main->place.SO, O_RDONLY);
-	if (fd != -1)
-	{
-		if (ft_strnstr(main->place.SO, ".xpm", ft_strlen(main->place.SO)) != NULL)
-		{
-			main->texture[1].texture = mlx_xpm_file_to_image(main->vars.mlx, main->place.SO, &(main->texture[1].texture_width), &(main->texture[1].texture_height));	
-		}
-		else if (ft_strnstr(main->place.SO, ".png", ft_strlen(main->place.SO)) != NULL)
-		{
-			main->texture[1].texture = mlx_png_file_to_image(main->vars.mlx, main->place.SO, &(main->texture[1].texture_width), &(main->texture[1].texture_height));	
-		}
-	}
-	else
-	{
-		main->place.error_c = 20;//right
-		ft_error(main);
-	}
-	i++;
-	ft_putstr("WE");
-	ft_putstr(main->place.WE);
-	fd = open(main->place.WE, O_RDONLY);
-	if (fd != -1)
-	{
-		if (ft_strnstr(main->place.WE, ".xpm", ft_strlen(main->place.WE)) != NULL)
-		{
-			main->texture[2].texture = mlx_xpm_file_to_image(main->vars.mlx, main->place.WE, &(main->texture[2].texture_width), &(main->texture[2].texture_height));	
-		}
-		else if (ft_strnstr(main->place.WE, ".png", ft_strlen(main->place.WE)) != NULL)
-		{
-			main->texture[2].texture = mlx_png_file_to_image(main->vars.mlx, main->place.WE, &(main->texture[2].texture_width), &(main->texture[2].texture_height));	
-		}
-	}
-	else
-	{
-		main->place.error_c = 21;//right
-		ft_error(main);
-	}
-	i++;
-	ft_putstr("EA");
-	ft_putstr(main->place.EA);
-	fd = open(main->place.EA, O_RDONLY);
-	if (fd != -1)
-	{
-		if (ft_strnstr(main->place.EA, ".xpm", ft_strlen(main->place.EA)) != NULL)
-		{
-			main->texture[3].texture = mlx_xpm_file_to_image(main->vars.mlx, main->place.EA, &(main->texture[3].texture_width), &(main->texture[3].texture_height));	
-		}
-		else if (ft_strnstr(main->place.EA, ".png", ft_strlen(main->place.EA)) != NULL)
-		{
-			main->texture[3].texture = mlx_png_file_to_image(main->vars.mlx, main->place.EA, &(main->texture[3].texture_width), &(main->texture[3].texture_height));	
-		}
-	}
-	else
-	{
-		main->place.error_c = 22;//right
-		ft_error(main);
-	}
-	i++;
-	ft_putstr("S");
-	ft_putstr(main->place.S);
-	fd = open(main->place.S, O_RDONLY);
-	if (fd != -1)
-	{
-		if (ft_strnstr(main->place.S, ".xpm", ft_strlen(main->place.S)) != NULL)
-		{
-			main->texture[4].texture = mlx_xpm_file_to_image(main->vars.mlx, main->place.S, &main->texture[4].texture_width, &main->texture[4].texture_height);	
-		}
-		else if (ft_strnstr(main->place.S, ".png", ft_strlen(main->place.S)) != NULL)
-		{
-			main->texture[4].texture = mlx_png_file_to_image(main->vars.mlx, main->place.S, &main->texture[4].texture_width, &main->texture[4].texture_height);	
-		}
-	}
-	else
-	{
-		main->place.error_c = 23;//right
-		ft_error(main);
-	}
-	//check for NULL
-	if (main->texture[0].texture == NULL || main->texture[1].texture == NULL || main->texture[2].texture == NULL || main->texture[3].texture == NULL || main->texture[4].texture == NULL)
-	{
-		main->place.error_c == 14;
-		ft_error(main);
-	}
-	main->texture[0].texture_adress = (int *)(mlx_get_data_addr(main->texture[0].texture, &main->texture[0].bits_per_pixel, &main->texture[0].line_lenght, &main->texture[0].endian));
-	main->texture[1].texture_adress = (int *)(mlx_get_data_addr(main->texture[1].texture, &main->texture[1].bits_per_pixel, &main->texture[1].line_lenght, &main->texture[1].endian));
-	main->texture[2].texture_adress = (int *)(mlx_get_data_addr(main->texture[2].texture, &main->texture[2].bits_per_pixel, &main->texture[2].line_lenght, &main->texture[2].endian));
-	main->texture[3].texture_adress = (int *)(mlx_get_data_addr(main->texture[3].texture, &main->texture[3].bits_per_pixel, &main->texture[3].line_lenght, &main->texture[3].endian));
-	main->texture[4].texture_adress = (int *)(mlx_get_data_addr(main->texture[4].texture, &main->texture[4].bits_per_pixel, &main->texture[4].line_lenght, &main->texture[4].endian));
 }
 
 int		ft_atoi_cube(char *str, t_struct_m *main, int i)
