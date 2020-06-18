@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/18 12:48:43 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/18 13:13:00 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int 	ft_raycasting(t_struct_m *main)
 
     wasd_2(main);
     ft_floor_casting(main);
-    // ft_cealing_casting(main);
+    ft_cealing_casting(main);
     while (main->Ray.x < main->place.s_width)
     {
         main->Ray.cameraX = 2 * main->Ray.x / (double)main->place.s_width - 1;//x-coordinate in camera space
@@ -159,13 +159,13 @@ int 	ft_raycasting(t_struct_m *main)
         main->Ray.lineHeight = (int)(main->place.s_height / main->Ray.perpWallDist);
 
         //calculate lowest and highest pixel to fill in current stripe
-        main->Ray.drawStart = (-main->Ray.lineHeight / 2 + main->place.s_height / 2);
+        main->Ray.drawStart = (-main->Ray.lineHeight / 2 + (main->place.s_height / 2 + main->Ray.look * 20));
         if(main->Ray.drawStart < 0)
             main->Ray.drawStart = 0;
-        main->Ray.drawEnd = (main->Ray.lineHeight / 2 + main->place.s_height / 2);
+        main->Ray.drawEnd = (main->Ray.lineHeight / 2 + (main->place.s_height / 2 + main->Ray.look * 20));
         if(main->Ray.drawEnd >= main->place.s_height)
             main->Ray.drawEnd = main->place.s_height - 1;
-        ft_look(main);
+        // ft_look(main);
         verLine_structure(main);
         main->ZBuffer[main->Ray.x] = main->Ray.perpWallDist; //perpendicular distance is used
         main->Ray.x++;

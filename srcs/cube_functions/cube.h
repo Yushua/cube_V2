@@ -314,7 +314,7 @@ void			space_cubemap(t_struct_m *main);
 int 	        render_next_frame(t_struct_m *main);
 int 			ft_raycasting(t_struct_m *main);
 int     		ft_floor_casting(t_struct_m *main);
-// int     		ft_cealing_casting(t_struct_m *main);
+int     		ft_cealing_casting(t_struct_m *main);
 int             wasd_2(t_struct_m *main);
 int             ft_push_key(int keycode, t_struct_m *main);
 int             ft_release_key(int keycode, t_struct_m *main);

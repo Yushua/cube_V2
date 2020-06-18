@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/15 11:58:22 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/18 12:43:05 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/18 13:06:27 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int     ft_floor_casting(t_struct_m *main)
 		// main->keys.posZ = 0.5 * main->place.s_height + main->Ray.look * 20;
 		// rowDistance = main->keys.posZ / p;
 		
-		main->keys.posZ = 0.5 * (main->place.s_height + main->Ray.look * 20);
+		main->keys.posZ = (0.5 * main->place.s_height) + (main->Ray.look * 20);
 		p = y - (main->place.s_height / 2 + (main->Ray.look * 20));
 		if (y < main->keys.posZ + main->Ray.look * 20)
 			rowDistance = 0 - main->keys.posZ / p;
@@ -74,11 +74,16 @@ int     ft_floor_casting(t_struct_m *main)
 			colour = (main->texture[3].texture_adress[main->texture[3].texture_height * ty + tx]);
 			my_mlx_pixel_put(main, x, y, colour);
 			// colour = (main->texture[3].texture_adress[main->texture[3].texture_height * ty + tx]);
-			my_mlx_pixel_put(main, x, main->place.s_height - y - 1, colour);
+			// my_mlx_pixel_put(main, x, main->place.s_height - y - 1, colour);
 			x++;
 		}
 		x = 0;
 		y++;
 	}
 	return (0);
+}
+
+int     ft_cealing_casting(t_struct_m *main)
+{
+
 }
