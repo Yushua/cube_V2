@@ -1,43 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   raycasting_texture.c                               :+:    :+:            */
+/*   secret_wall.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/18 13:17:32 by ybakker       ########   odam.nl         */
+/*   Created: 2020/06/18 13:16:09 by ybakker       #+#    #+#                 */
+/*   Updated: 2020/06/18 13:17:57 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-static void    ft_look(t_struct_m *main)
-{
-    int     look;
-
-    look = main->Ray.look * 20;
-    if (look > 0)
-    {
-        main->Ray.drawStart += look;
-        main->Ray.drawEnd += look;
-        if (main->Ray.drawStart >= main->place.s_height)
-            main->Ray.drawStart = main->place.s_height - 1;
-        if (main->Ray.drawEnd >= main->place.s_height)
-            main->Ray.drawEnd = main->place.s_height - 1;
-    }
-    else if (look < 0)
-    {
-        main->Ray.drawStart += look;
-        main->Ray.drawEnd += look;
-        if (main->Ray.drawStart < 0)
-            main->Ray.drawStart = 0;
-        if (main->Ray.drawEnd < 0)
-            main->Ray.drawEnd = 0;
-    }
-}
-
-void    verLine_structure(t_struct_m *main)
+static void    verLine_structure_secret(t_struct_m *main)
 {
     int h   = main->place.s_height / 2;
     int i   = 0;
@@ -82,7 +57,7 @@ void    verLine_structure(t_struct_m *main)
 	}
 }
 
-int 	ft_raycasting(t_struct_m *main)
+int 	ft_secret_wall(t_struct_m *main)
 {
     main->Ray.x = 0;
 
@@ -91,9 +66,6 @@ int 	ft_raycasting(t_struct_m *main)
     double time = 0; //time of current frame
     double oldTime = 0; //time of previous frame
 
-    wasd_2(main);
-    ft_floor_casting(main);
-    ft_cealing_casting(main);
     while (main->Ray.x < main->place.s_width)
     {
         main->Ray.cameraX = 2 * main->Ray.x / (double)main->place.s_width - 1;//x-coordinate in camera space
@@ -171,23 +143,4 @@ int 	ft_raycasting(t_struct_m *main)
         main->Ray.x++;
     }
 	return (0);
-}
-
-int 	render_next_frame_structure(t_struct_m *main)
-{
-    wasd_2(main);
-    ft_floor_casting(main);
-    ft_cealing_casting(main);
-    ft_raycasting(main);
-    render_next_frame_sprites(main);
-	mlx_put_image_to_window(main->vars.mlx, main->vars.win, main->img.img, 0, 0);
-    mlx_destroy_image(main->vars.mlx, main->img.img);
-    main->img.img = mlx_new_image(main->vars.mlx, main->place.s_width, main->place.s_height);
-    main->img.addr = mlx_get_data_addr(main->img.img, &main->img.bits_per_pixel, &main->img.line_length,
-                                 &main->img.endian);
-    if (main->keys.UP > 0)
-        main->keys.UP = -1;
-    else if (main->keys.DOW > 0)
-        main->keys.DOW = -1;
-    return (0);
 }
