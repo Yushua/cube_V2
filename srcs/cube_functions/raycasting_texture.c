@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/18 13:17:32 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/18 13:23:04 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void    verLine_structure(t_struct_m *main)
     if(main->Ray.side == 1 && main->Ray.rayDirY < 0)
         main->Ray.texX = main->texture[main->Ray.texNum].texture_width - main->Ray.texX - 1;
     main->Ray.step = 1.0 * main->texture[main->Ray.texNum].texture_height / main->Ray.lineHeight;
-    main->Ray.texPos = (main->Ray.drawStart - (main->place.s_height / 2 + main->Ray.look * 20) + main->Ray.lineHeight / 2) * main->Ray.step;
+    main->Ray.texPos = (main->Ray.drawStart - main->place.s_height / 2 + main->Ray.lineHeight / 2) * main->Ray.step;
 	while (main->Ray.drawStart <= main->Ray.drawEnd)
 	{
         // Cast the texture coordinate to integer, and mask with (texHeight - 1) in case of overflow
@@ -91,9 +91,6 @@ int 	ft_raycasting(t_struct_m *main)
     double time = 0; //time of current frame
     double oldTime = 0; //time of previous frame
 
-    wasd_2(main);
-    ft_floor_casting(main);
-    ft_cealing_casting(main);
     while (main->Ray.x < main->place.s_width)
     {
         main->Ray.cameraX = 2 * main->Ray.x / (double)main->place.s_width - 1;//x-coordinate in camera space
@@ -159,10 +156,10 @@ int 	ft_raycasting(t_struct_m *main)
         main->Ray.lineHeight = (int)(main->place.s_height / main->Ray.perpWallDist);
 
         //calculate lowest and highest pixel to fill in current stripe
-        main->Ray.drawStart = (-main->Ray.lineHeight / 2 + (main->place.s_height / 2 + main->Ray.look * 20));
+        main->Ray.drawStart = (-main->Ray.lineHeight / 2 + (main->place.s_height / 2));
         if(main->Ray.drawStart < 0)
             main->Ray.drawStart = 0;
-        main->Ray.drawEnd = (main->Ray.lineHeight / 2 + (main->place.s_height / 2 + main->Ray.look * 20));
+        main->Ray.drawEnd = (main->Ray.lineHeight / 2 + (main->place.s_height / 2));
         if(main->Ray.drawEnd >= main->place.s_height)
             main->Ray.drawEnd = main->place.s_height - 1;
         // ft_look(main);
