@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/05 11:35:00 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/18 16:22:20 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/23 11:59:52 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ int		ft_atoi_cube(char *str, t_struct_m *main, int i)
 	return (res);
 }
 
-int	ft_isalnummer(int i, char *str)	//check if everything is a number
+int			ft_isalnummer(int i, char *str)
 {
 	int y;
 
@@ -126,9 +126,10 @@ int	ft_isalnummer(int i, char *str)	//check if everything is a number
 		else
 			return (-1);
 	}
+	return (0);
 }
 
-int	ft_strlenght(char *s)
+int			ft_strlenght(char *s)
 {
 	int i;
 
@@ -156,7 +157,9 @@ void		ft_putstr(char *str)
 	int i;
 
 	i = ft_strlen(str);
+	write(1, "[", 1);
 	write(1, str, i);
+	write(1, "]", 1);
 	write(1, "\n", 1);
 }
 
@@ -178,9 +181,41 @@ void		printmap(t_struct_m *main)
 		ft_putstr(main->cubecopy[y]);
 		y++;
 	}
+	y = 0;
+	while (y <= (main->Ray.yy + 2))
+	{
+		ft_putstr(main->cubecopytwo[y]);
+		y++;
+	}
 }
 
 int		create_trgb(int r, int g, int b)
 {
 	return (r << 16 | g << 8 | b);
+}
+
+int				ft_strnstr_map(const char *haystack, const char
+*needle, size_t len)
+{
+	size_t	i;
+	size_t	j;
+
+	if (!(*needle))
+		return (0);
+	i = 0;
+	while (*(haystack + i) && i < len)
+	{
+		if (*needle == *(haystack + i))
+		{
+			j = 0;
+			while ((*(haystack + i + j) == *(needle + j)) && (i + j < len))
+			{
+				j += 1;
+				if (!(*(needle + j)))
+					return (1);
+			}
+		}
+		i += 1;
+	}
+	return (0);
 }

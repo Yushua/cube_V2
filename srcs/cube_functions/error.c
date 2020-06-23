@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/18 14:22:42 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/18 14:43:13 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/23 11:31:18 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,8 @@ static void		error_check_four(t_struct_m *main)
 		ft_putstr("double S");
 	else if (main->place.error_c == 45)
 		ft_putstr("S info after link, remove this info");
+	else if (main->place.error_c == 46)
+		ft_putstr("malloc error in check_fill");
 }
 
 void			ft_error(t_struct_m *main)

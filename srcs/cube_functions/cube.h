@@ -235,12 +235,12 @@ typedef struct  s_struct_m {
 	t_sprites	*sprites;
 	t_keys		keys;
 
-	//sprites
-	int			numSprites;//don't foget to malloc them AFTER you know the numSprites
+	int			numSprites;
 	double 		*ZBuffer;
 	int 		*spriteOrder;
 	double 		*spriteDistance;
 	char		**cubecopy;
+	char		**cubecopytwo;
 	int			count;
 }               t_struct_m;
 
@@ -252,11 +252,11 @@ int 	        background(t_struct_m *main);
 
 //read_map_real
 
-int    	ft_read_map(t_struct_m *main);
-int    	ft_read_map_where(t_struct_m *main, char *map);
-int     ft_get_info(t_struct_m *main, char *map);
+int		ft_read_map(t_struct_m *main);
+int		ft_read_map_where(t_struct_m *main, char *map);
+int		ft_get_info(t_struct_m *main, char *map);
 int		ft_strnstr_map(const char *haystack, const char *needle, size_t len);
-int     ft_check_for_map(char *map);
+int		ft_check_for_map(char *map);
 
 int				ft_read_EA(t_struct_m *main, char *map);
 int				ft_read_C(t_struct_m *main, char *map);

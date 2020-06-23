@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/18 16:23:28 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/23 11:30:20 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int			ft_close(int keycode, t_struct_m *main)
 	return (0);
 }
 
-
 void			ft_mlx_loop(t_struct_m *main)
 {
 	main->vars.mlx = mlx_init();
@@ -35,9 +34,9 @@ void			ft_mlx_loop(t_struct_m *main)
 	// 	ft_putstr("screenshot finished");
 	// 	ft_end_function(main);
 	// }
-	ft_bmp(main);
-	ft_putstr("screenshot finished");
-	ft_end_function(main);
+	// ft_bmp(main);
+	// ft_putstr("screenshot finished");
+	// ft_end_function(main);
 	main->vars.win = mlx_new_window(main->vars.mlx, main->place.s_width,
 	main->place.s_height, "cube");
 	main->img.img = mlx_new_image(main->vars.mlx, main->place.s_width,
@@ -50,9 +49,9 @@ void			ft_mlx_loop(t_struct_m *main)
 	main->img.addr = mlx_get_data_addr(main->img.img, &main->img.bits_per_pixel,
 	&main->img.line_length, &main->img.endian);
 	set_value_texture(main);
-	mlx_hook(main->vars.win, 2, 1L<<0, ft_push_key, main);
-	mlx_hook(main->vars.win, 3, 1L<<1, ft_release_key, main);
-	mlx_hook(main->vars.win, 17, 1L<<0, ft_close, main);
+	mlx_hook(main->vars.win, 2, 1L << 0, ft_push_key, main);
+	mlx_hook(main->vars.win, 3, 1L << 1, ft_release_key, main);
+	mlx_hook(main->vars.win, 17, 1L << 0, ft_close, main);
 	mlx_loop_hook(main->vars.mlx, render_next_frame_structure, main);
 	mlx_loop(main->vars.mlx);
 }
@@ -69,13 +68,17 @@ static void		read_map(t_struct_m *main)
 	}
 	set_location(main);
 	spritesnumb(main);
-	check_fill(main);
+	if (check_fill(main) == 1)
+	{
+		ft_putstr("error in check_fill");
+		ft_end_function(main);
+	}
 	printmap(main);
 	if (main->place.error_n == 0)
 		ft_end_function(main);
 }
 
-int				main()
+int				main(void)
 {
 	t_struct_m *main;
 
