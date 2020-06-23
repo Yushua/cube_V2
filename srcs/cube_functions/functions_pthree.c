@@ -1,27 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   check_fill_copy.c                                  :+:    :+:            */
+/*   functions_pthree.c                                 :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/06/23 16:59:57 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/23 17:16:49 by ybakker       ########   odam.nl         */
+/*   Created: 2020/06/23 18:50:30 by ybakker       #+#    #+#                 */
+/*   Updated: 2020/06/23 18:50:48 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-char		*map_copy_top(t_struct_m *main, int y, int len)
+int			ft_isalnummer(int i, char *str)
 {
-	char	*str;
+	int y;
 
-	str = NULL;
-	y = 0;
-	len = (ft_strlen(main->cubecopy[y]) + 2);
-	str = (char *)malloc((len + 1) * sizeof(char));
-	empty_map_two(str, y, len);
-	ft_putstr("start");
-	ft_putstr(str);
-	return (str);
+	y = i;
+	while (str[i])
+	{
+		if (str[i] >= '0' && str[i] <= '9')
+		{
+			while (str[i] >= '0' && str[i] <= '9')
+				i++;
+			return (y);
+		}
+		else
+			return (-1);
+	}
+	return (0);
+}
+
+int			ft_strlenght(char *s)
+{
+	int i;
+
+	i = 0;
+	while (s[i] != ' ')
+		i += 1;
+	return (i);
 }

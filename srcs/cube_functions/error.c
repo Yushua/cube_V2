@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/18 14:22:42 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/23 18:01:17 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/23 19:08:21 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,8 @@ static void		error_check_four(t_struct_m *main)
 		ft_putstr("S info after link, remove this info");
 	else if (main->place.error == 46)
 		ft_putstr("malloc error in check_fill");
+	else if (main->place.error == 47)
+		ft_putstr("empty line in map");
 }
 
 void			ft_error(t_struct_m *main)

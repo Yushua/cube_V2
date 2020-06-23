@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/23 17:55:57 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/23 19:36:34 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void			ft_mlx_loop(t_struct_m *main)
 	main->place.s_height);
 	if (!main->img.img)
 	{
-		main->place.error_c = 24;
+		main->place.error = 24;
 		ft_error(main);
 	}
 	main->img.addr = mlx_get_data_addr(main->img.img, &main->img.bits_per_pixel,

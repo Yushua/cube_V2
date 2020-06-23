@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   cube.h                                             :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2020/06/23 18:37:30 by ybakker       #+#    #+#                 */
+/*   Updated: 2020/06/23 19:26:00 by ybakker       ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CUBE_H
 # define CUBE_H
 
-#include <stdio.h>
+#include<stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include <sys/stat.h>
@@ -84,7 +96,7 @@ typedef struct	s_Double {
 	int			D_C;
 }				t_Double;
 
-typedef struct 	s_Ray {
+typedef struct	s_Ray {
 
 	double		posX;
 	double		posY;
@@ -121,7 +133,7 @@ typedef struct 	s_Ray {
 	int			look;
 }				t_Ray;
 
-typedef struct  s_texture {
+typedef struct	s_texture {
 	void		*texture;
 	int			*texture_adress;
 	int			line_lenght;
@@ -132,7 +144,7 @@ typedef struct  s_texture {
 
 }				t_texture;
 
-typedef struct  s_sprite {
+typedef struct	s_sprite {
 
 	double		spritex;
 	double		spritey;
@@ -161,7 +173,7 @@ typedef struct  s_sprite {
 	int			end;
 }				t_sprite;
 
-typedef struct 	s_sprites {
+typedef struct	s_sprites {
 
 	double		x;
 	double		y;
@@ -270,6 +282,7 @@ void			ft_map_line(t_struct_m *main, char *map);
 int				ft_check_news(t_struct_m *main, char *map);
 void			set_location(t_struct_m *main);
 void			spritesnumb(t_struct_m *main);
+void			get_spritenumber(t_struct_m *main, int y, int x);
 int				check_fill(t_struct_m *main);
 void			flood_fill(int x, int y, t_struct_m *main);
 int				if_empty(int x, int y, t_struct_m *main);
@@ -311,4 +324,5 @@ char			*map_copy_top(t_struct_m *main, int y, int len);
 int				map_copy_two(t_struct_m *main);
 char			copy_map_two(char **copy, char **org, int y);
 void			empty_map_two(t_struct_m *main, int n, int len);
+int				ft_empty_space(t_struct_m *main);
 #endif

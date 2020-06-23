@@ -6,7 +6,7 @@
 #    By: ybakker <ybakker@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/03/05 10:59:00 by ybakker       #+#    #+#                  #
-#    Updated: 2020/06/23 17:11:31 by ybakker       ########   odam.nl          #
+#    Updated: 2020/06/23 19:31:53 by ybakker       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,8 @@ SRC = ./srcs/cube_functions/main.c\
 		./srcs/cube_functions/keys.c\
 		./srcs/cube_functions/error.c\
 		./srcs/cube_functions/functions.c\
+		./srcs/cube_functions/functions_ptwo.c\
+		./srcs/cube_functions/functions_pthree.c\
 		./srcs/cube_functions/set_value.c\
 		./srcs/cube_functions/map_check.c\
 		./srcs/cube_functions/raycasting_texture.c\
@@ -29,7 +31,7 @@ SRC = ./srcs/cube_functions/main.c\
 		./srcs/cube_functions/create_bmp.c\
 		./srcs/cube_functions/check_fill.c\
 		./srcs/cube_functions/key_input.c\
-		./srcs/cube_functions/check_fill_copy.c\
+		./srcs/cube_functions/ft_empty_space.c\
 		./srcs/cube_functions/readmap/get_info/ft_read_C.c\
 		./srcs/cube_functions/readmap/get_info/ft_read_EA.c\
 		./srcs/cube_functions/readmap/get_info/ft_read_F.c\
