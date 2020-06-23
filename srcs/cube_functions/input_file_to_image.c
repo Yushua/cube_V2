@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/18 15:16:25 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/18 15:19:09 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/23 18:01:36 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void			set_value_texture_no(t_struct_m *main, int fd)
 	}
 	else
 	{
-		main->place.error_c = 19;
+		main->place.error = 19;
 		ft_error(main);
 	}
 }
@@ -65,7 +65,7 @@ void			set_value_texture_so(t_struct_m *main, int fd)
 	}
 	else
 	{
-		main->place.error_c = 20;
+		main->place.error = 20;
 		ft_error(main);
 	}
 }
@@ -94,7 +94,7 @@ void			set_value_texture_we(t_struct_m *main, int fd)
 	}
 	else
 	{
-		main->place.error_c = 21;
+		main->place.error = 21;
 		ft_error(main);
 	}
 }
@@ -123,7 +123,7 @@ void			set_value_texture_s(t_struct_m *main, int fd)
 	}
 	else
 	{
-		main->place.error_c = 23;
+		main->place.error = 23;
 		ft_error(main);
 	}
 }
@@ -152,7 +152,7 @@ void			set_value_texture_ea(t_struct_m *main, int fd)
 	}
 	else
 	{
-		main->place.error_c = 22;
+		main->place.error = 22;
 		ft_error(main);
 	}
 }

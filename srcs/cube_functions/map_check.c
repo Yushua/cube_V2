@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/10 11:53:18 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/23 11:13:29 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/23 18:02:22 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int			if_empty(int x, int y, t_struct_m *main)
 		return (0);
 	else if (main->cubecopy[y][x] == ' ')
 	{
-		main->place.error_c = 18;
+		main->place.error = 18;
 		ft_error(main);
 		return (0);
 	}

@@ -58,7 +58,6 @@ typedef struct  s_place {
 	int			Fcol1;
 	int			Fcol2;
 	int			Fcol3;
-	
 	int			Ccol1;
 	int			Ccol2;
 	int			Ccol3;

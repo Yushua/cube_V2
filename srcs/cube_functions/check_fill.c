@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 11:13:15 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/23 17:52:36 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/23 18:04:15 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ int					check_fill(t_struct_m *main)
 	flood_fill(x, y, main);
 	if (map_copy_two(main) == 1)
 	{
-		main->place.error_c = 46;
+		main->place.error = 46;
 		ft_error(main);
 		return (1);
 	}
@@ -103,14 +103,6 @@ int					check_fill(t_struct_m *main)
 		main->cubecopytwo[y] = ft_strjoin(main->cubecopytwo[y], " ");
 		y++;
 	}
-	y = 0;
-	ft_putstr("start the print");
-	while (y <= (main->Ray.yy + 1))
-	{
-		ft_putstr(main->cubecopytwo[y]);
-		y++;
-	}
-	ft_putstr("end the print\n");
 	y = 0;
 	while (y < main->Ray.yy)
 	{
