@@ -6,18 +6,17 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 11:13:15 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/23 16:35:17 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/23 17:48:23 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-static void			empty_map_two(t_struct_m *main, int n, int len)
+void			empty_map_two(t_struct_m *main, int n, int len)
 {
 	int		i;
 
 	i = 0;
-	// len = len + 1;
 	while (len != 0)
 	{
 		main->cubecopytwo[n][i] = ' ';
@@ -27,7 +26,7 @@ static void			empty_map_two(t_struct_m *main, int n, int len)
 	main->cubecopytwo[n][i] = '\0';
 }
 
-static char			copy_map_two(char **copy, char **org, int y)
+char			copy_map_two(char **copy, char **org, int y)
 {
 	int		i;
 	int		x;
@@ -46,8 +45,23 @@ static char			copy_map_two(char **copy, char **org, int y)
 	return (0);
 }
 
-static int			fill_middle_copy(t_struct_m *main, int y, int yy, int len)
+int			map_copy_two(t_struct_m *main)
 {
+	int		y;
+	int		yy;
+	int		len;
+
+	yy = (main->Ray.yy + 2);
+	if (!main->cubecopy)
+		return (1);
+	main->cubecopytwo = (char**)malloc(sizeof(char*) * (yy + 1));
+	if (!main->cubecopytwo)
+		return (1);
+	y = 0;
+	len = (ft_strlen(main->cubecopy[y]) + 2);
+	main->cubecopytwo[y] = (char *)malloc((len + 1) * sizeof(char));
+	empty_map_two(main, y, len);
+	y = 1;
 	while (y < (yy - 1))
 	{
 		len = ft_strlen(main->cubecopy[y - 1]) + 2;
@@ -56,37 +70,12 @@ static int			fill_middle_copy(t_struct_m *main, int y, int yy, int len)
 			return (1);
 		empty_map_two(main, y, len);
 		copy_map_two(main->cubecopytwo, main->cubecopy, y);
-		ft_putstr(main->cubecopytwo[y]);
 		y++;
 	}
-	main->cubecopytwo[yy] = (char *)malloc((len + 1) * sizeof(char));
-	if (!main->cubecopytwo[yy])
+	main->cubecopytwo[y] = (char *)malloc((len + 1) * sizeof(char));
+	if (!main->cubecopytwo[y])
 		return (1);
-	empty_map_two(main, yy, len);
-	ft_putstr(main->cubecopytwo[yy]);
-	return (0);
-}
-
-static int			map_copy_two(t_struct_m *main)
-{
-	int		y;
-	int		yy;
-	int		len;
-
-	y = 1;
-	yy = (main->Ray.yy + 2);
-	main->cubecopytwo = NULL;
-	if (!main->cubecopy)
-		return (1);
-	main->cubecopytwo = (char**)malloc(sizeof(char*) * (yy + 1));
-	if (!main->cubecopytwo)
-		return (1);
-	len = ft_strlen(main->cubecopy[0]) + 2;
-	main->cubecopytwo[0] = (char *)malloc((len + 1) * sizeof(char));
-	empty_map_two(main, 0, len);
-	ft_putstr(main->cubecopytwo[0]);
-	if (fill_middle_copy(main, y, yy, len) == 1)
-		return (1);
+	empty_map_two(main, y, len);
 	return (0);
 }
 
@@ -108,17 +97,25 @@ int					check_fill(t_struct_m *main)
 	}
 	y = 0;
 	x = 0;
-	while (y < (main->Ray.yy + 2))
+	ft_putstr("start");
+	while (y < (main->Ray.yy))
 	{
-		main->cubecopy[y] = ft_strjoin(main->cubecopy[y], " ");
+		main->cubecopytwo[y] = ft_strjoin(main->cubecopytwo[y], " ");
+		y++;
+	}
+	y = 0;
+	ft_putstr("start the print");
+	while (y <= (main->Ray.yy + 2))
+	{
+		ft_putstr(main->cubecopytwo[y]);
 		y++;
 	}
 	y = 0;
 	while (y < main->Ray.yy)
 	{
-		while (main->cubecopy[y][x])
+		while (main->cubecopytwo[y][x])
 		{
-			if (main->cubecopy[y][x] == 'X')
+			if (main->cubecopytwo[y][x] == 'X')
 				ft_check_empty(x, y, main);
 			x++;
 		}

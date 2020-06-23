@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 13:26:52 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/17 16:50:09 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/23 17:01:52 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ void		set_value(t_struct_m *main)
 	main->place.mapc = -1;
 
 	main->place.cubemap = NULL;
+	main->cubecopytwo = NULL;
 
 	main->keys.W = 0;
 	main->keys.S = 0;

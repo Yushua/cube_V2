@@ -6,7 +6,7 @@
 #    By: ybakker <ybakker@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/03/05 10:59:00 by ybakker       #+#    #+#                  #
-#    Updated: 2020/06/23 11:17:25 by ybakker       ########   odam.nl          #
+#    Updated: 2020/06/23 17:11:31 by ybakker       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SRC = ./srcs/cube_functions/main.c\
 		./srcs/cube_functions/create_bmp.c\
 		./srcs/cube_functions/check_fill.c\
 		./srcs/cube_functions/key_input.c\
+		./srcs/cube_functions/check_fill_copy.c\
 		./srcs/cube_functions/readmap/get_info/ft_read_C.c\
 		./srcs/cube_functions/readmap/get_info/ft_read_EA.c\
 		./srcs/cube_functions/readmap/get_info/ft_read_F.c\
