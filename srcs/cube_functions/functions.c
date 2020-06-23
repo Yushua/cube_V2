@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/05 11:35:00 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/23 11:59:52 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/23 14:10:43 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,11 +182,11 @@ void		printmap(t_struct_m *main)
 		y++;
 	}
 	y = 0;
-	while (y <= (main->Ray.yy + 2))
-	{
-		ft_putstr(main->cubecopytwo[y]);
-		y++;
-	}
+	// while (y <= (main->Ray.yy + 2))
+	// {
+	// 	ft_putstr(main->cubecopytwo[y]);
+	// 	y++;
+	// }
 }
 
 int		create_trgb(int r, int g, int b)

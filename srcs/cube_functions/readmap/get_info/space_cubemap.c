@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/05 11:49:54 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/23 12:52:22 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/23 14:09:51 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,9 +113,15 @@ static void        get_cubemap_x(t_struct_m *main)
 
 void		space_cubemap(t_struct_m *main)
 {
+	int		y;
+	int		x;
+	int		b;
 	int		i;
 
 	i = 0;
+	y = main->place.mapy;
+	x = main->place.mapx;
+	b = main->place.mapE;
 	main->place.cubemap = (char**)malloc(sizeof(char*) *
 	(main->place.mapy + 1));
 	main->cubecopy = (char**)malloc(sizeof(char*) * (main->place.mapy + 1));

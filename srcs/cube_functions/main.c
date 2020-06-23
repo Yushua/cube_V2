@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/23 11:30:20 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/23 14:12:59 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,10 @@ static void		read_map(t_struct_m *main)
 	}
 	printmap(main);
 	if (main->place.error_n == 0)
+	{
+		ft_putstr(" error after map print");
 		ft_end_function(main);
+	}
 }
 
 int				main(void)

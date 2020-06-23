@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 11:13:15 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/23 14:03:48 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/23 14:09:13 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,15 +56,15 @@ static int			map_copy_two(t_struct_m *main)
 	main->cubecopytwo = NULL;
 	if (!main->cubecopy)
 		return (1);
-	main->cubecopytwo = (char**)malloc(sizeof(char*) * (yy + 1));//malloc y
+	main->cubecopytwo = (char**)malloc(sizeof(char*) * (yy + 1));
 	if (!main->cubecopytwo)
 		return (1);
 	ft_putstr("start");
-	len = ft_strlen(main->cubecopy[0]) + 2;//len before map + 2
+	len = ft_strlen(main->cubecopy[0]) + 2;
 	main->cubecopytwo[0] = (char *)malloc((len + 1) * sizeof(char));
 	empty_map_two(main->cubecopytwo, 0, len);
 	ft_putstr(main->cubecopytwo[0]);
-	while (y < yy)
+	while (y < (yy - 1))
 	{
 		len = ft_strlen(main->cubecopy[y - 1]) + 2;
 		main->cubecopytwo[y] = (char *)malloc((len + 1) * sizeof(char));
@@ -75,14 +75,12 @@ static int			map_copy_two(t_struct_m *main)
 		ft_putstr(main->cubecopytwo[y]);
 		y++;
 	}
-	printf("[%i][%i]\n", len, y);
-	len = ft_strlen(main->cubecopy[y - 1]) + 2;
 	main->cubecopytwo[yy] = (char *)malloc((len + 1) * sizeof(char));
 	if (!main->cubecopytwo[yy])
 		return (1);
-	ft_putstr("end");
 	empty_map_two(main->cubecopytwo, yy, len);
 	ft_putstr(main->cubecopytwo[yy]);
+	return (0);
 }
 
 int					check_fill(t_struct_m *main)
@@ -97,12 +95,12 @@ int					check_fill(t_struct_m *main)
 	flood_fill(x, y, main);
 	y = 0;
 	x = 0;
-	if (map_copy_two(main) == 1)
-	{
-		main->place.error_c = 46;
-		ft_error(main);
-		return (1);
-	}
+	// if (map_copy_two(main) == 1)
+	// {
+	// 	main->place.error_c = 46;
+	// 	ft_error(main);
+	// 	return (1);
+	// }
 	while (y < main->Ray.yy)
 	{
 		while (main->cubecopy[y][x])
