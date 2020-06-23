@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 11:13:15 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/23 17:48:23 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/23 17:52:36 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,11 +105,12 @@ int					check_fill(t_struct_m *main)
 	}
 	y = 0;
 	ft_putstr("start the print");
-	while (y <= (main->Ray.yy + 2))
+	while (y <= (main->Ray.yy + 1))
 	{
 		ft_putstr(main->cubecopytwo[y]);
 		y++;
 	}
+	ft_putstr("end the print\n");
 	y = 0;
 	while (y < main->Ray.yy)
 	{
