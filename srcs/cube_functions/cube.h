@@ -99,6 +99,7 @@ typedef struct 	s_Ray {
 	int			mapY;
 	double		sideDistX;
 	double		sideDistY;
+	double		deltaDistX;
 	double		deltaDistY;
 	double		perpWallDist;
 	int			stepX;

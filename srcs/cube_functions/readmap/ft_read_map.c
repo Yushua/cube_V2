@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 14:09:41 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/23 10:47:18 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/23 18:27:33 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,26 @@ int				ft_check_for_map(char *map)
 			return (2);
 	}
 	return (0);
+}
+
+static void			check_map_symbol(t_struct_m *main, char *map)
+{
+	if (ft_strnstr_map(map, "R ", strlen(map)) == 1)
+		ft_read_R(main, map);
+	else if (ft_strnstr_map(map, "SO ", strlen(map)) == 1)
+		ft_read_SO(main, map);
+	else if (ft_strnstr_map(map, "S ", strlen(map)) == 1)
+		ft_read_S(main, map);
+	else if (ft_strnstr_map(map, "NO ", strlen(map)) == 1)
+		ft_read_NO(main, map);
+	else if (ft_strnstr_map(map, "EA ", strlen(map)) == 1)
+		ft_read_EA(main, map);
+	else if (ft_strnstr_map(map, "WE ", strlen(map)) == 1)
+		ft_read_WE(main, map);
+	else if (ft_strnstr_map(map, "F ", strlen(map)) == 1)
+		ft_read_F(main, map);
+	else if (ft_strnstr_map(map, "C ", strlen(map)) == 1)
+		ft_read_C(main, map);
 }
 
 int				ft_get_info(t_struct_m *main, char *map)

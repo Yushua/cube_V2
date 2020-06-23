@@ -6,13 +6,13 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/15 10:26:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/23 18:01:30 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/23 18:25:04 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-static int		ft_header_bmp(t_struct_m *main, int fd)
+static int			ft_header_bmp(t_struct_m *main, int fd)
 {
 	int		width;
 	int		padd;
@@ -36,7 +36,7 @@ static int		ft_header_bmp(t_struct_m *main, int fd)
 	return (padd);
 }
 
-static void		ft_image(t_struct_m *main)
+static void			ft_image(t_struct_m *main)
 {
 	main->img.img = mlx_new_image(main->vars.mlx, main->place.s_width,
 	main->place.s_height);
@@ -55,7 +55,7 @@ static void		ft_image(t_struct_m *main)
 	ft_putstr("done, start drawing screenshot");
 }
 
-static void		ft_bmp_draw_screenshot(t_struct_m *main, int fd)
+static void			ft_bmp_draw_screenshot(t_struct_m *main, int fd)
 {
 	char		*string;
 	int			padd;
@@ -79,7 +79,7 @@ static void		ft_bmp_draw_screenshot(t_struct_m *main, int fd)
 	}
 }
 
-void		ft_bmp(t_struct_m *main)
+void				ft_bmp(t_struct_m *main)
 {
 	int			fd;
 
