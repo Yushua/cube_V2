@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 19:09:40 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/23 20:11:58 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/23 20:37:04 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,13 @@ static int		map_top_bottom(t_struct_m *main, int y, int yy, int len)
 		if (!main->cubecopytwo[y])
 			return (1);
 		empty_map_two(main, y, len);
-		ft_putstr(main->cubecopytwo[y]);
 		y++;
 	}
 	main->cubecopytwo[y] = (char *)malloc((len + 1) * sizeof(char));
 	if (!main->cubecopytwo[y])
 		return (1);
 	empty_map_two(main, y, len);
-	ft_putstr(main->cubecopytwo[y]);
+	return (0);
 }
 
 int				map_copy_two(t_struct_m *main)
@@ -75,7 +74,9 @@ int				map_copy_two(t_struct_m *main)
 	int		yy;
 	int		len;
 
+	printf("yy == [%i]\n", main->Ray.yy);
 	yy = (main->Ray.yy + 2);
+	printf("yy == [%i]\n", yy);
 	if (!main->cubecopy)
 		return (1);
 	main->cubecopytwo = (char**)malloc(sizeof(char*) * (yy + 1));
@@ -85,24 +86,8 @@ int				map_copy_two(t_struct_m *main)
 	len = (ft_strlen(main->cubecopy[y]) + 2);
 	main->cubecopytwo[y] = (char *)malloc((len + 1) * sizeof(char));
 	empty_map_two(main, y, len);
-	ft_putstr(main->cubecopytwo[y]);
-	// if (map_top_bottom(main, y, yy, len) == 1)
-	// 	return (1);
-	while (y <= (yy - 2))
-	{
-		len = (ft_strlen(main->cubecopy[y]) + 2);
-		main->cubecopytwo[y] = (char *)malloc((len + 1) * sizeof(char));
-		if (!main->cubecopytwo[y])
-			return (1);
-		empty_map_two(main, y, len);
-		ft_putstr(main->cubecopytwo[y]);
-		y++;
-	}
-	main->cubecopytwo[y] = (char *)malloc((len + 1) * sizeof(char));
-	if (!main->cubecopytwo[y])
+	y++;
+	if (map_top_bottom(main, y, yy, len) == 1)
 		return (1);
-	empty_map_two(main, y, len);
-	ft_putstr(main->cubecopytwo[y]);
-	printf("y == [%i]\n", y);
 	return (0);
 }

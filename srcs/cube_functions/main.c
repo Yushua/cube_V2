@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/23 19:36:34 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/23 20:35:29 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ static void		read_map(t_struct_m *main)
 		ft_putstr("error in check_fill");
 		ft_end_function(main);
 	}
-	printmap(main);
+	// printmap(main);
 	if (main->place.error_n == 0)
 	{
 		ft_putstr(" error after map print");

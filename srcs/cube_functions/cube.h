@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 18:37:30 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/23 19:26:00 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/23 20:27:11 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -325,4 +325,5 @@ int				map_copy_two(t_struct_m *main);
 char			copy_map_two(char **copy, char **org, int y);
 void			empty_map_two(t_struct_m *main, int n, int len);
 int				ft_empty_space(t_struct_m *main);
+void			map_fill_two(t_struct_m *main);
 #endif
