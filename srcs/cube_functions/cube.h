@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 18:37:30 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/24 12:49:23 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/24 13:17:48 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,7 @@ typedef struct	s_Ray {
 	int			h;
 	int			x;
 	int			yy;
+	int			xx;
 	int			lineHeight;
 	int			drawStart;
 	int			drawEnd;

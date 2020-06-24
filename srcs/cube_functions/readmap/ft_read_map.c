@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 14:09:41 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/23 18:41:08 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/24 13:20:03 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int				ft_get_info(t_struct_m *main, char *map)
 	return (0);
 }
 
-static int		ft_check_empty_line(char *map)
+static int		ft_check_empty_line_check(char *map)
 {
 	int		i;
 
@@ -108,7 +108,7 @@ int				ft_read_map(t_struct_m *main)
 		while (count > 0)
 		{
 			count = get_next_line(fd, &map);
-			if (ft_check_empty_line(map) == 1)
+			if (ft_check_empty_line_check(map) == 1)
 				count = count;
 			else if (main->Double.D_R == 1 && main->Double.D_NO == 1 &&
 					main->Double.D_SO == 1 && main->Double.D_EA == 1 &&

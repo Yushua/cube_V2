@@ -6,19 +6,19 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 14:08:37 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/24 13:16:08 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/24 12:57:05 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cube.h"
 
-void     ft_map_line(t_struct_m *main, char *map)
+void     ft_map_line(t_struct_m *main, char *map)//gets the zsize of the line
 {
 	int		x;
 
 	x = 0;
-	while (map[x] == '1' || map[x] == '0' || map[x] == 'N' || map[x] == 'S'
-	|| map[x] == 'E' || map[x] == 'W' || map[x] == ' ')
+	while (map[x] == '1' || map[x] == '0'|| map[x] == 'N' || map[x] == 'S'
+	|| map[x] == 'E' || map [x] == 'W' || map [x] == ' ')
 	{
 		if (map[x] == 'N' || map[x] == 'S' || map[x] == 'E' || map[x] == 'W')
 			main->place.mapp++;
@@ -68,6 +68,26 @@ int     get_size_map(t_struct_m *main, char *map)
 		return (0);
 	else if (b == 0)
 	{
+		main->place.mapp = 0;
+		while (map[x])
+		{
+			if (map[x] == ' ')
+				x++;
+			if (main->place.mapE == 0 || i < main->place.mapE)
+				main->place.mapE = i;
+			if (map[x] == '1' && main->place.mapp == 0)
+			{
+				if (main->place.mapp == 0)
+					main->place.mapp = 1;
+				ft_map_line(main, map);
+				break ;
+			}
+			else if (map[x] == '1' && main->place.mapp == 1)
+			{
+				ft_map_line(main, map);
+				break ;
+			}
+		}
 	}
 	if (main->place.mapp > 2)
 	{
@@ -76,15 +96,13 @@ int     get_size_map(t_struct_m *main, char *map)
 	}
 }
 
-void			ft_size_store_map(t_struct_m *main)
+void        ft_size_store_map(t_struct_m *main)
 {
 	int count;
 	int fd;
 	char *map;
-
 	count = 1;
 	fd = open("./srcs/maps/mape_5.cub", O_RDONLY);
-	// printf("yy = [%i]\n", main->Ray.yy);
 	while (count > 0)
 	{
 		count = get_next_line(fd, &map);
