@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/05 11:35:00 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/23 20:04:19 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/24 11:15:52 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,6 @@ void			printmap(t_struct_m *main)
 	while (y <= main->Ray.yy)
 	{
 		ft_putstr(main->cubecopy[y]);
-		y++;
-	}
-	y = 0;
-	ft_putstr("-copy check-");
-	while (y < (main->Ray.yy + 2))
-	{
-		ft_putstr(main->cubecopytwo[y]);
 		y++;
 	}
 }

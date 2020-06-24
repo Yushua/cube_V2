@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/18 14:22:42 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/23 19:08:21 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/24 11:35:37 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,9 @@ static void		error_check_three(t_struct_m *main)
 	else if (main->place.error == 31)
 		ft_putstr("first set numbers in F is incorrect");
 	else if (main->place.error == 32)
-		ft_putstr("fnot enough inputs in R");
+		ft_putstr("not enough inputs in R");
 	else if (main->place.error == 33)
-		ft_putstr("fnot enough inputs in C");
+		ft_putstr("not enough inputs in C");
 	else if (main->place.error == 34)
 		ft_putstr("too many inputs in F, fix F");
 	else if (main->place.error == 35)
