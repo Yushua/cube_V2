@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/18 14:22:42 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/24 11:35:37 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/24 13:34:51 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void		error_check_one(t_struct_m *main)
 		ft_putstr("unacceptable command in line C, fix your map\n");
 	else if (main->place.error == 11)
 		ft_putstr("INCORRECT input of position input, fix your map\n");
-	else if (main->place.error == 12)
+	else if (main->place.error == 48)
 		ft_putstr("double inputs after inputs or wrong input, fix your map\n");
 	else if (main->place.error == 12)
 		ft_putstr("wrong input in map, can't read map, fix your map\n");

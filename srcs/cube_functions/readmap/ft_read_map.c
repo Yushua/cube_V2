@@ -6,13 +6,13 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 14:09:41 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/24 13:20:03 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/24 13:27:41 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cube.h"
 
-int				ft_check_for_map(char *map)
+int				ft_check_for_map(char *map, t_struct_m *main)
 {
 	int		x;
 
@@ -97,6 +97,7 @@ int				ft_read_map(t_struct_m *main)
 
 	i = 0;
 	count = 1;
+	main->Ray.yyy = 0;
 	fd = open("./srcs/maps/mape_5.cub", O_RDONLY);
 	if (fd < 0)
 	{
@@ -108,13 +109,14 @@ int				ft_read_map(t_struct_m *main)
 		while (count > 0)
 		{
 			count = get_next_line(fd, &map);
+			main->Ray.yyy++;
 			if (ft_check_empty_line_check(map) == 1)
 				count = count;
 			else if (main->Double.D_R == 1 && main->Double.D_NO == 1 &&
 					main->Double.D_SO == 1 && main->Double.D_EA == 1 &&
 					main->Double.D_S == 1 && main->Double.D_WE == 1 &&
 					main->Double.D_F == 1 && main->Double.D_C == 1 &&
-					ft_check_for_map(map) == 1)
+					ft_check_for_map(map, main) == 1)
 				return (0);
 			else if (count < 0)
 			{

@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 18:37:30 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/24 13:17:48 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/24 14:09:37 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,7 @@ typedef struct	s_Ray {
 	int			h;
 	int			x;
 	int			yy;
+	int			yyy;
 	int			xx;
 	int			lineHeight;
 	int			drawStart;
@@ -240,7 +241,7 @@ int				ft_read_map_where(t_struct_m *main, char *map);
 int				ft_get_info(t_struct_m *main, char *map);
 int				ft_strnstr_map(const char *haystack, const char *needle,
 size_t len);
-int				ft_check_for_map(char *map);
+int				ft_check_for_map(char *map, t_struct_m *main);
 
 int				ft_read_EA(t_struct_m *main, char *map);
 int				ft_read_C(t_struct_m *main, char *map);
@@ -277,10 +278,9 @@ void			set_value(t_struct_m *main);
 
 void			ft_error(t_struct_m *main);
 
-void			ft_size_store_map(t_struct_m *main);
+int				ft_size_store_map(t_struct_m *main);
 int				get_size_map(t_struct_m *main, char *map);
-void			ft_map_line(t_struct_m *main, char *map);
-int				ft_check_news(t_struct_m *main, char *map);
+int				ft_map_line(t_struct_m *main, char *map);
 void			set_location(t_struct_m *main);
 void			spritesnumb(t_struct_m *main);
 void			get_spritenumber(t_struct_m *main, int y, int x);
@@ -306,7 +306,7 @@ int				ft_push_key(int keycode, t_struct_m *main);
 int				ft_release_key(int keycode, t_struct_m *main);
 int				ft_close(int keycode, t_struct_m *main);
 void			verLine(int x, int drawStart, int drawEnd,
-int col, t_struct_m *main);
+				int col, t_struct_m *main);
 int				create_trgb(int r, int g, int b);
 
 void			printmap(t_struct_m *main);
@@ -323,5 +323,6 @@ void			ft_bmp(t_struct_m *main);
 void			ft_end_function(t_struct_m *main);
 char			*map_copy_top(t_struct_m *main, int y, int len);
 int				ft_empty_space(t_struct_m *main);
-int			ft_check_empty_line(t_struct_m *main);
+int				ft_check_empty_line(t_struct_m *main);
+int				ft_map_line_get_x(char *map);
 #endif
