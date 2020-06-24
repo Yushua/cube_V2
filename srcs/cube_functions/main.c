@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/24 11:21:21 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/24 12:35:24 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,9 @@ static void		read_map(t_struct_m *main)
 	}
 	set_location(main);
 	spritesnumb(main);
-	if (check_fill(main) == 1)
+	if (check_fill(main) == 1 || ft_check_empty_line(main) == 1)
 	{
-		ft_putstr("error in check_fill");
+		ft_putstr("error in check_fill or empty_line");
 		ft_end_function(main);
 	}
 	printmap(main);

@@ -6,37 +6,79 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 11:13:15 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/24 11:54:38 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/24 12:29:00 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-int				check_fill(t_struct_m *main)
+static int		check_fill_bottom(t_struct_m *main)
 {
 	int	x;
 	int	y;
 
-	x = (int)(main->Ray.posX);
-	y = (int)(main->Ray.posY);
-	main->cubecopy[y][x] = '0';
-	flood_fill(x, y, main);
-	y = 0;
-	while (y <= main->Ray.yy)//left
+	y = main->Ray.yy;
+	x = 0;
+	while (main->cubecopy[y][x])
 	{
-		while (main->cubecopy[y][x])
+		if (main->cubecopy[y][x] == 'X')
 		{
-			if (main->cubecopy[y][x] == 'X')
-			{
-				main->place.error = 16;
-				ft_error(main);
-				return (1);
-			}
-			x++;
+			main->place.error = 17;
+			ft_error(main);
+			return (1);
+		}
+		x++;
+	}
+	return (0);
+}
+
+static int		check_fill_top(t_struct_m *main)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	x = 0;
+	while (main->cubecopy[0][x])
+	{
+		if (main->cubecopy[0][x] == 'X')
+		{
+			main->place.error = 17;
+			ft_error(main);
+			return (1);
+		}
+		x++;
+	}
+	return (0);
+}
+
+static	int		check_fill_left(t_struct_m *main)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	x = 0;
+	while (y <= main->Ray.yy)
+	{
+		if (main->cubecopy[y][x] == 'X')
+		{
+			main->place.error = 16;
+			ft_error(main);
+			return (1);
 		}
 		y++;
 	}
-	while (y <= main->Ray.yy)//right
+	return (0);
+}
+
+static int		check_fill_right(t_struct_m *main)
+{
+	int	x;
+	int	y;
+
+	y = main->Ray.yy;
+	while (y <= main->Ray.yy)
 	{
 		x = ft_strlen(main->cubecopy[y]);
 		if (main->cubecopy[y][x] == 'X')
@@ -47,28 +89,31 @@ int				check_fill(t_struct_m *main)
 		}
 		y++;
 	}
-	x = 0;
-	while (main->cubecopy[0][x])//top
-	{
-		if (main->cubecopy[0][x] == 'X')
-		{
-			main->place.error = 17;
-			ft_error(main);
-			return (1);
-		}
-		x++;
-	}
-	y = main->Ray.yy;
-	while (main->cubecopy[y][x])//bottom
-	{
-		if (main->cubecopy[y][x] == 'X')
-		{
-			main->place.error = 17;
-			ft_error(main);
-			return (1);
-		}
-		x++;
-	}
-	ft_putstr("done");
 	return (0);
+}
+
+int				check_fill(t_struct_m *main)
+{
+	int	x;
+	int	y;
+
+	x = (int)(main->Ray.posX);
+	y = (int)(main->Ray.posY);
+	main->cubecopy[y][x] = '0';
+	flood_fill(x, y, main);
+	ft_putstr("-copy-");
+	y = 0;
+	while (y <= main->Ray.yy)
+	{
+		ft_putstr(main->cubecopy[y]);
+		y++;
+	}
+	ft_putstr("start check");
+	x = 0;
+	if (check_fill_right(main) == 1
+	|| check_fill_left(main) == 1
+	|| check_fill_top(main) == 1
+	|| check_fill_bottom(main) == 1)
+		x = 1;
+	return (x);
 }
