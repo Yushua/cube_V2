@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/24 14:00:46 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/24 15:19:50 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,19 @@ static void		read_map(t_struct_m *main)
 	ft_size_store_map(main);
 	set_location(main);
 	spritesnumb(main);
-	if (ft_size_store_map(main) == 1 || check_fill(main) == 1 ||
-	ft_check_empty_line(main) == 1)
+	if (ft_size_store_map(main) == 1)
 	{
-		ft_putstr("size store error or error in check_fill or empty_line");
+		ft_putstr("size store error");
+		ft_end_function(main);
+	}
+	if (check_fill(main) == 1)
+	{
+		ft_putstr("error in check_fill");
+		ft_end_function(main);
+	}
+	if (ft_check_empty_line(main) == 1)
+	{
+		ft_putstr("error in empty_line");
 		ft_end_function(main);
 	}
 	printmap(main);
@@ -87,6 +96,7 @@ int				main(void)
 	t_struct_m *main;
 
 	main = ft_calloc(1, sizeof(t_struct_m));
+	main->map = ft_strdup("./srcs/maps/mape_5.cub");
 	read_map(main);
 	ft_mlx_loop(main);
 }

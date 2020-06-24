@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 14:08:37 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/24 14:10:31 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/24 16:57:23 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int				ft_map_line(t_struct_m *main, char *map)
 	while (map[x])
 	{
 		if (map[x] == 'N' || map[x] == 'S' || map[x] == 'E' || map[x] == 'W')
+			main->place.mapp++;
+		if (main->place.mapp > 1)
 			return (1);
 		x++;
 	}
@@ -45,6 +47,7 @@ int				get_size_map(t_struct_m *main, char *map)
 	{
 		main->place.error = 48;
 		ft_error(main);
+		return (1);
 	}
 	x = ft_map_line_get_x(map);
 	if (x > main->Ray.xx)
@@ -61,10 +64,14 @@ int			ft_size_store_map(t_struct_m *main)
 
 	count = 1;
 	y = main->Ray.yyy;
-	main->place.mapp = 0;
-	main->Ray.yy = 0;
-	main->Ray.xx = 0;
-	fd = open("./srcs/maps/mape_5.cub", O_RDONLY);
+	main->Ray.eh = 0;
+	printf("hello y=[%i]\n", y);
+	fd = open(main->map, O_RDONLY);
+	if (fd < 0)
+	{
+		main->place.error = 24;
+		ft_error(main);
+	}
 	while (count > 0)
 	{
 		count = get_next_line(fd, &map);
@@ -72,12 +79,24 @@ int			ft_size_store_map(t_struct_m *main)
 			y--;
 		else
 		{
+			if (map[0] == '\0')
+				main->Ray.eh++;
+			else if (ft_check_for_map(map, main) == 1 && main->Ray.eh > 0)
+			{
+				main->place.error = 47;
+				ft_error(main);
+				return (1);
+			}
 			main->Ray.yy++;
 			if (get_size_map(main, map) == 1)
+			{
+				free(map);
 				return (1);
+			}
 		}
 		free(map);
 	}
+	main->Ray.yy = main->Ray.yy - main->Ray.eh;
 	printf("y=[%i]x=[%i]\n", main->Ray.yy, main->Ray.xx);
 	space_cubemap(main);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/18 14:22:42 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/24 13:34:51 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/24 16:54:05 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ static void		error_check_four(t_struct_m *main)
 	else if (main->place.error == 46)
 		ft_putstr("malloc error in check_fill");
 	else if (main->place.error == 47)
-		ft_putstr("empty line in map");
+		ft_putstr("empty horiontal line in map");
 }
 
 void			ft_error(t_struct_m *main)

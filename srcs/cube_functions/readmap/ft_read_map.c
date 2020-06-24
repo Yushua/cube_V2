@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 14:09:41 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/24 13:27:41 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/24 16:23:09 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,8 @@ int				ft_check_for_map(char *map, t_struct_m *main)
 	x = 0;
 	while (map[x] == ' ')
 		x++;
-	while (map[x])
-	{
-		if (map[x] == '0' || map[x] == '1' || map[x] == '2')
-			return (1);
-		else
-			return (2);
-	}
+	if (map[x] == '0' || map[x] == '1' || map[x] == '2')
+		return (1);
 	return (0);
 }
 
@@ -59,7 +54,7 @@ int				ft_get_info(t_struct_m *main, char *map)
 	while (map[x] == ' ')
 		x++;
 	if (map[x])
-		check_map_symbol(main, map);
+		check_map_symbol(main, map);//don't forget check if there is something else
 	else
 	{
 		main->place.error = 2;
@@ -68,7 +63,7 @@ int				ft_get_info(t_struct_m *main, char *map)
 	return (0);
 }
 
-static int		ft_check_empty_line_check(char *map)
+static int		ft_check_empty_line_check(t_struct_m *main, char *map)
 {
 	int		i;
 
@@ -84,7 +79,9 @@ static int		ft_check_empty_line_check(char *map)
 int				ft_read_map_where(t_struct_m *main, char *map)
 {
 	if (ft_get_info(main, map) == 2)
+	{
 		return (2);
+	}
 	return (0);
 }
 
@@ -94,45 +91,50 @@ int				ft_read_map(t_struct_m *main)
 	int		fd;
 	char	*map;
 	int		i;
+	int		ii;
 
 	i = 0;
+	ii = 0;
 	count = 1;
 	main->Ray.yyy = 0;
-	fd = open("./srcs/maps/mape_5.cub", O_RDONLY);
+	fd = open(main->map, O_RDONLY);
 	if (fd < 0)
 	{
 		main->place.error = 24;
 		ft_error(main);
+		return (2);
 	}
-	else
+	while (count > 0)
 	{
-		while (count > 0)
+		count = get_next_line(fd, &map);
+		if (count < 0)
 		{
-			count = get_next_line(fd, &map);
-			main->Ray.yyy++;
-			if (ft_check_empty_line_check(map) == 1)
-				count = count;
-			else if (main->Double.D_R == 1 && main->Double.D_NO == 1 &&
-					main->Double.D_SO == 1 && main->Double.D_EA == 1 &&
-					main->Double.D_S == 1 && main->Double.D_WE == 1 &&
-					main->Double.D_F == 1 && main->Double.D_C == 1 &&
-					ft_check_for_map(map, main) == 1)
-				return (0);
-			else if (count < 0)
-			{
-				main->place.error = 24;
-				ft_error(main);
-				free(map);
-				return (2);
-			}
-			else
-			{
-				i = ft_read_map_where(main, map);
-				free(map);
-			}
-			if (i == 2)
-				return (2);
+			main->place.error = 24;
+			ft_error(main);
+			free(map);
+			return (2);
 		}
+		if (ft_check_for_map(map, main) == 1)
+		{
+			ii = 1;
+			count = count;
+		}
+		if (ii != 1)
+		{
+			main->Ray.yyy++;
+			if (ft_check_empty_line_check(main, map) == 1)
+				count = count;
+			else if (ft_read_map_where(main, map) == 2)
+				i = 2;
+		}
+		free(map);
 	}
+	if (main->Double.D_R != 1 && main->Double.D_NO != 1 &&
+			main->Double.D_SO != 1 && main->Double.D_EA != 1 &&
+			main->Double.D_S != 1 && main->Double.D_WE != 1 &&
+			main->Double.D_F != 1 && main->Double.D_C != 1)
+		i = 2;
+	if (i == 2)
+		return (2);
 	return (0);
 }

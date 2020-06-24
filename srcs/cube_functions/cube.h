@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 18:37:30 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/24 14:09:37 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/24 16:30:23 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,7 @@ typedef struct	s_Ray {
 	int			yy;
 	int			yyy;
 	int			xx;
+	int			eh;
 	int			lineHeight;
 	int			drawStart;
 	int			drawEnd;
@@ -229,6 +230,7 @@ typedef struct	s_struct_m {
 	char		**cubecopy;
 	char		**cubecopytwo;
 	int			count;
+	char		*map;
 }				t_struct_m;
 
 void			my_mlx_pixel_put(t_struct_m *main, int x, int y, int color);
