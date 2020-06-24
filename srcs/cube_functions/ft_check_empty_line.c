@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/24 12:34:03 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/24 12:50:37 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/24 18:14:32 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,6 @@ int			ft_check_empty_line(t_struct_m *main)
 
 	y = 0;
 	x = 0;
-
-	//horizontal
-
 	//vertical
 	y = 0;
 	while (main->cubecopy[0][x])
@@ -40,4 +37,3 @@ int			ft_check_empty_line(t_struct_m *main)
 	}
 	return (0);
 }
-//main->cubecopy[y][x]

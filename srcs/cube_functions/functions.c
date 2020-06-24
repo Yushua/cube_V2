@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/05 11:35:00 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/24 11:15:52 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/24 18:09:53 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void			printmap(t_struct_m *main)
 	int	y;
 
 	y = 0;
+	main->Ray.yy--;
 	ft_putstr("-original-");
 	while (y <= main->Ray.yy)
 	{

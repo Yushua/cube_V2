@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 14:08:37 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/24 16:57:23 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/24 18:14:18 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ int			ft_size_store_map(t_struct_m *main)
 	count = 1;
 	y = main->Ray.yyy;
 	main->Ray.eh = 0;
-	printf("hello y=[%i]\n", y);
 	fd = open(main->map, O_RDONLY);
 	if (fd < 0)
 	{
@@ -97,7 +96,6 @@ int			ft_size_store_map(t_struct_m *main)
 		free(map);
 	}
 	main->Ray.yy = main->Ray.yy - main->Ray.eh;
-	printf("y=[%i]x=[%i]\n", main->Ray.yy, main->Ray.xx);
 	space_cubemap(main);
 	return (0);
 }
