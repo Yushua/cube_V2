@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/05 11:49:54 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/25 13:31:54 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/25 16:48:37 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ static int			ft_print_map(t_struct_m *main)
 	yy = main->Ray.yy;
 	yyy = 0;
 	fd = open(main->map, O_RDONLY);
-	printf("y=[%i]x=[%i]\n", main->Ray.yy, main->Ray.xx);
 	if (fd < 0)
 	{
 		main->place.error = 24;

@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/25 16:33:14 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/25 16:50:46 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void			ft_mlx_loop(t_struct_m *main)
 	main->img.addr = mlx_get_data_addr(main->img.img, &main->img.bits_per_pixel,
 	&main->img.line_length, &main->img.endian);
 	set_value_texture(main);
-	printf("n = [%i]\n", main->place.error_n);
 	if (main->place.error_n == 0)
 	{
 		ft_putstr(" error after map print");
@@ -72,13 +71,11 @@ void		read_map(t_struct_m *main)
 		ft_putstr("error in check_fill");
 		ft_end_function(main);
 	}
-	ft_putstr("error after");
 	if (ft_check_empty_line(main, 0, 0) == 1)
 	{
 		ft_putstr("error in empty_line");
 		ft_end_function(main);
 	}
-	ft_putstr("done");
 	printmap(main);
 	if (main->place.error_n == 0)
 	{
@@ -103,6 +100,7 @@ int				main(int argc, char **argv)
 		if (ft_strnstr_map(argv[2], "––save", strlen(argv[2])) == 1)
 			start_bmp(main);
 		ft_putstr("--save incorrectly written");
+		ft_end_function(main);
 	}
 	read_map(main);
 	ft_mlx_loop(main);

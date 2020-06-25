@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 15:08:39 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/16 18:59:22 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/25 16:47:12 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,5 @@ int     ft_read_EA(t_struct_m *main, char *map)
             ft_error(main);    
         }
     }
-    printf("EA == [%s]\n", main->place.EA);
     return (0);
 }

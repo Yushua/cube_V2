@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 18:42:02 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/25 13:37:30 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/25 16:50:22 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,8 @@ void			spritesnumb(t_struct_m *main)
 	x = 0;
 	numsprites = 0;
 	get_spritenumber(main, y, x);
-	ft_putstr("hello");
 	while (y < main->Ray.yy)
 	{
-
 		while (main->place.cubemap[y][x] != '\0')
 		{
 			if (main->place.cubemap[y][x] == '2')

@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 15:08:39 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/25 16:14:28 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/25 16:47:22 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ int     ft_read_F(t_struct_m *main, char *map)
 					}
 					if (map[i] != '\0' && r == 2)
 					{
-						printf("2\n");
 						main->place.error = 30;//not enough information r too much
 						ft_error(main);
 						return (0);
@@ -83,6 +82,5 @@ int     ft_read_F(t_struct_m *main, char *map)
 		ft_error(main);
 		return (0);  
 	}
-	printf("F = [%d][%d][%d]\n", main->place.Fcol1, main->place.Fcol2, main->place.Fcol3);
 	return (0);
 }

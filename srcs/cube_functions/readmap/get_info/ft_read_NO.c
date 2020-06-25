@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 15:08:39 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/16 19:00:17 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/25 16:47:27 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,5 @@ int     ft_read_NO(t_struct_m *main, char *map)
             ft_error(main);    
         }
     }
-    printf("NO == [%s]\n", main->place.NO);
     return (0);
 }

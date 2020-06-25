@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 15:08:39 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/23 17:57:50 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/25 16:47:07 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,5 @@ int     ft_read_C(t_struct_m *main, char *map)
 		ft_error(main);
 		return (0);  
 	}
-    printf("C = [%d][%d][%d]\n", main->place.Ccol1, main->place.Ccol2, main->place.Ccol3);
     return (0);
 }

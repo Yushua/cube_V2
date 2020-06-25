@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/15 10:26:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/25 16:32:28 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/25 16:46:56 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,6 @@ void				ft_bmp(t_struct_m *main)
 {
 	int			fd;
 
-	printf("open/n");
 	fd = open("screen.bmp", O_RDWR | O_CREAT, 0666);
 	if (fd < 0)
 	{

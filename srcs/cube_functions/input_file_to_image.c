@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/18 15:16:25 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/23 18:01:36 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/25 16:46:30 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void			set_value_texture_no(t_struct_m *main, int fd)
 {
-	ft_putstr("NO");
-	ft_putstr(main->place.NO);
 	fd = open(main->place.NO, O_RDONLY);
 	if (fd != -1)
 	{
@@ -43,8 +41,6 @@ void			set_value_texture_no(t_struct_m *main, int fd)
 
 void			set_value_texture_so(t_struct_m *main, int fd)
 {
-	ft_putstr("SO");
-	ft_putstr(main->place.SO);
 	fd = open(main->place.SO, O_RDONLY);
 	if (fd != -1)
 	{
@@ -72,8 +68,6 @@ void			set_value_texture_so(t_struct_m *main, int fd)
 
 void			set_value_texture_we(t_struct_m *main, int fd)
 {
-	ft_putstr("WE");
-	ft_putstr(main->place.WE);
 	fd = open(main->place.WE, O_RDONLY);
 	if (fd != -1)
 	{
@@ -101,8 +95,6 @@ void			set_value_texture_we(t_struct_m *main, int fd)
 
 void			set_value_texture_s(t_struct_m *main, int fd)
 {
-	ft_putstr("S");
-	ft_putstr(main->place.S);
 	fd = open(main->place.S, O_RDONLY);
 	if (fd != -1)
 	{
@@ -130,8 +122,6 @@ void			set_value_texture_s(t_struct_m *main, int fd)
 
 void			set_value_texture_ea(t_struct_m *main, int fd)
 {
-	ft_putstr("EA");
-	ft_putstr(main->place.EA);
 	fd = open(main->place.EA, O_RDONLY);
 	if (fd != -1)
 	{
