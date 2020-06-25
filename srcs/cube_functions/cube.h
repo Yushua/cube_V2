@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 18:37:30 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/25 16:23:58 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/25 18:38:20 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -231,6 +231,8 @@ typedef struct	s_struct_m {
 	char		**cubecopytwo;
 	int			count;
 	char		*map;
+	int			i;
+	int			ii;
 }				t_struct_m;
 
 void			my_mlx_pixel_put(t_struct_m *main, int x, int y, int color);
@@ -255,6 +257,8 @@ int				ft_read_S(t_struct_m *main, char *map);
 int				ft_read_SO(t_struct_m *main, char *map);
 int				ft_read_WE(t_struct_m *main, char *map);
 void			ft_read_cubecube(t_struct_m *main, char *map);
+void			check_map_symbol(t_struct_m *main, char *map);
+int				ft_clutter(t_struct_m *main, char *map);
 
 void			set_value_texture_no(t_struct_m *main, int fd);
 void			set_value_texture_so(t_struct_m *main, int fd);

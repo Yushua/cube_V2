@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/25 16:50:46 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/25 18:03:24 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,24 +84,25 @@ void		read_map(t_struct_m *main)
 	}
 }
 
-int				main(int argc, char **argv)
+int				main()
 {
 	t_struct_m *main;
 
 	main = ft_calloc(1, sizeof(t_struct_m));
-	if (argc == 1 || argc >= 4 || argv[1] == NULL)
-		ft_end_function(main);
-	if (ft_strnstr_map(argv[1], ".cub", strlen(argv[1])) != 1)
-		ft_end_function(main);
-	else
-		main->map = ft_strdup(argv[1]);
-	if (argv[2] != NULL)
-	{
-		if (ft_strnstr_map(argv[2], "––save", strlen(argv[2])) == 1)
-			start_bmp(main);
-		ft_putstr("--save incorrectly written");
-		ft_end_function(main);
-	}
+	// if (argc == 1 || argc >= 4 || argv[1] == NULL)
+	// 	ft_end_function(main);
+	// if (ft_strnstr_map(argv[1], ".cub", strlen(argv[1])) != 1)
+	// 	ft_end_function(main);
+	// else
+	// 	main->map = ft_strdup(argv[1]);
+	// if (argv[2] != NULL)
+	// {
+	// 	if (ft_strnstr_map(argv[2], "––save", strlen(argv[2])) == 1)
+	// 		start_bmp(main);
+	// 	ft_putstr("--save incorrectly written");
+	// 	ft_end_function(main);
+	// }
+	main->map = ft_strdup("./srcs/maps/mape_4.cub");
 	read_map(main);
 	ft_mlx_loop(main);
 }

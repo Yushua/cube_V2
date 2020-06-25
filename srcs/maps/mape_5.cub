@@ -1,4 +1,4 @@
-NO srcs/cube_functions/textures/wall_2.xpm
+NO srcs/cube_functions/textures/png-cute-cat--828.png
 SO srcs/cube_functions/textures/wall_1.xpm
 WE srcs/cube_functions/textures/wall_4.xpm
 EA srcs/cube_functions/textures/wall_3.xpm
@@ -10,7 +10,7 @@ C 225,30,0
 
 11111
 10N01
-10111 111111111
+10111
 10111
 10111
 10001

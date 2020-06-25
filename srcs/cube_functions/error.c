@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/18 14:22:42 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/25 16:40:04 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/25 18:37:14 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,8 @@ static void		error_check_four(t_struct_m *main)
 		ft_putstr("[46]malloc error in check_fill");
 	else if (main->place.error == 47)
 		ft_putstr("[47]empty horiontal line in map");
+	else if (main->place.error == 49)
+		ft_putstr("[49]no map inputs");
 }
 
 void			ft_error(t_struct_m *main)
@@ -138,5 +140,7 @@ void			ft_error(t_struct_m *main)
 	error_check_two(main);
 	error_check_three(main);
 	error_check_four(main);
+	if (main->place.error == 50)
+		ft_putstr("[50] clutter in the map file");
 	main->place.error = 0;
 }
