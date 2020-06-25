@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/15 10:26:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/23 18:25:04 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/25 16:32:28 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,19 @@ static void			ft_image(t_struct_m *main)
 	main->img.addr = mlx_get_data_addr(main->img.img, &main->img.bits_per_pixel,
 	&main->img.line_length, &main->img.endian);
 	set_value_texture(main);
-	ft_putstr("done, start drawing screenshot");
+	if (main->place.error_n == 0)
+	{
+		ft_putstr(" error after map print");
+		ft_end_function(main);
+	}
 	ft_floor_casting(main);
 	ft_raycasting(main);
 	render_next_frame_sprites(main);
-	ft_putstr("done, start drawing screenshot");
+	if (main->place.error_n == 0)
+	{
+		ft_putstr(" error after map print");
+		ft_end_function(main);
+	}
 }
 
 static void			ft_bmp_draw_screenshot(t_struct_m *main, int fd)
@@ -93,4 +101,13 @@ void				ft_bmp(t_struct_m *main)
 	ft_image(main);
 	ft_bmp_draw_screenshot(main, fd);
 	close(fd);
+}
+
+void				start_bmp(t_struct_m *main)
+{
+	read_map(main);
+	main->vars.mlx = mlx_init();
+	ft_bmp(main);
+	ft_end_function(main);
+	mlx_loop(main->vars.mlx);
 }

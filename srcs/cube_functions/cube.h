@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 18:37:30 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/25 14:23:55 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/25 16:23:58 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -234,6 +234,7 @@ typedef struct	s_struct_m {
 }				t_struct_m;
 
 void			my_mlx_pixel_put(t_struct_m *main, int x, int y, int color);
+void			read_map(t_struct_m *main);
 int				wasd(int keycode, t_struct_m *main);
 
 void			cube(t_struct_m *main);
@@ -322,9 +323,8 @@ int				render_next_frame_sprites_copy(t_struct_m *main);
 void			swap(t_struct_m *main, int j);
 void			bubble_sort(t_struct_m *main);
 void			ft_bmp(t_struct_m *main);
+void			start_bmp(t_struct_m *main);
 void			ft_end_function(t_struct_m *main);
-char			*map_copy_top(t_struct_m *main, int y, int len);
-int				ft_empty_space(t_struct_m *main);
 int				ft_check_empty_line(t_struct_m *main, int x, int y);
 int				ft_map_line_get_x(char *map);
 #endif

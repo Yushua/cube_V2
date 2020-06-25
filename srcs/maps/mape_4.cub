@@ -1,14 +1,14 @@
-R 800 700
-SO ./path_to_the_south_texture
-NO ./path_to_the_north_texture
-EA ./path
-S ./path_to_the_sprite_texture
-WE ./path_to_the_west_texture
+NO srcs/cube_functions/textures/wall_2.xpm
+SO srcs/cube_functions/textures/wall_1.xpm
+WE srcs/cube_functions/textures/wall_4.xpm
+EA srcs/cube_functions/textures/wall_3.xpm
+S  srcs/cube_functions/textures/sprite_1.xpm
 F 220,100,0
+R 1000 1501
 C 225,30,0
 
   
-0111111111111X
+11111111111111
 10000000000001
 10000000000001
 10000000000001
@@ -19,4 +19,4 @@ C 225,30,0
 10000000000001
 10000000000001
 10000000000001
-01111111111110
+11111111111111

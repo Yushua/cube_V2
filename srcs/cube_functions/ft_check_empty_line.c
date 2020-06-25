@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/24 12:34:03 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/25 14:34:31 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/25 14:36:21 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int			ft_check_empty_line(t_struct_m *main, int x, int y)
 		{
 			while (y < yy && main->cubecopy[y][x] == ' ')
 				y++;
-			printf("[%i][%i]\n", y, x);
 			if (main->cubecopy[y][x] == ' ')
 				return (1);
 		}

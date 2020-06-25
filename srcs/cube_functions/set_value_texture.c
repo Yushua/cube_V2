@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/18 14:47:45 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/23 18:03:13 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/25 16:40:51 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void				set_value_texture(t_struct_m *main)
 	{
 		main->place.error = 14;
 		ft_error(main);
+		ft_end_function(main);
 	}
 	set_data_adress_texture(main);
 }
