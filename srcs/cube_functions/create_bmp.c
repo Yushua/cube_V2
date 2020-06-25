@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/15 10:26:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/25 16:46:56 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/25 16:52:54 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,5 +108,4 @@ void				start_bmp(t_struct_m *main)
 	main->vars.mlx = mlx_init();
 	ft_bmp(main);
 	ft_end_function(main);
-	mlx_loop(main->vars.mlx);
 }
