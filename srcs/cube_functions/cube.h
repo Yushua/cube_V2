@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 18:37:30 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/24 16:30:23 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/25 14:23:55 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -325,6 +325,6 @@ void			ft_bmp(t_struct_m *main);
 void			ft_end_function(t_struct_m *main);
 char			*map_copy_top(t_struct_m *main, int y, int len);
 int				ft_empty_space(t_struct_m *main);
-int				ft_check_empty_line(t_struct_m *main);
+int				ft_check_empty_line(t_struct_m *main, int x, int y);
 int				ft_map_line_get_x(char *map);
 #endif

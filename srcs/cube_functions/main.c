@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/24 18:17:49 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/25 14:21:50 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,6 @@ static void		read_map(t_struct_m *main)
 		ft_putstr("size store error");
 		ft_end_function(main);
 	}
-	ft_putstr("map stored");
-	printmap(main);
-	ft_putstr("\n");
 	set_location(main);
 	spritesnumb(main);
 	if (check_fill(main) == 1)
@@ -80,11 +77,13 @@ static void		read_map(t_struct_m *main)
 		ft_putstr("error in check_fill");
 		ft_end_function(main);
 	}
-	if (ft_check_empty_line(main) == 1)
+	ft_putstr("error after");
+	if (ft_check_empty_line(main, 0, 0) == 1)
 	{
 		ft_putstr("error in empty_line");
 		ft_end_function(main);
 	}
+	ft_putstr("done");
 	printmap(main);
 	if (main->place.error_n == 0)
 	{

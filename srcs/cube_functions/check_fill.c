@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 11:13:15 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/24 12:29:00 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/25 13:45:03 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ static int		check_fill_bottom(t_struct_m *main)
 	int	y;
 
 	y = main->Ray.yy;
+	y--;
 	x = 0;
 	while (main->cubecopy[y][x])
 	{
@@ -59,7 +60,7 @@ static	int		check_fill_left(t_struct_m *main)
 
 	y = 0;
 	x = 0;
-	while (y <= main->Ray.yy)
+	while (y < main->Ray.yy)
 	{
 		if (main->cubecopy[y][x] == 'X')
 		{
@@ -78,7 +79,7 @@ static int		check_fill_right(t_struct_m *main)
 	int	y;
 
 	y = main->Ray.yy;
-	while (y <= main->Ray.yy)
+	while (y < main->Ray.yy)
 	{
 		x = ft_strlen(main->cubecopy[y]);
 		if (main->cubecopy[y][x] == 'X')
@@ -101,19 +102,14 @@ int				check_fill(t_struct_m *main)
 	y = (int)(main->Ray.posY);
 	main->cubecopy[y][x] = '0';
 	flood_fill(x, y, main);
-	ft_putstr("-copy-");
-	y = 0;
-	while (y <= main->Ray.yy)
-	{
-		ft_putstr(main->cubecopy[y]);
-		y++;
-	}
-	ft_putstr("start check");
 	x = 0;
-	if (check_fill_right(main) == 1
-	|| check_fill_left(main) == 1
-	|| check_fill_top(main) == 1
-	|| check_fill_bottom(main) == 1)
+	if (check_fill_right(main) == 1)
+		x = 1;
+	if (check_fill_left(main) == 1)
+		x = 1;
+	if (check_fill_top(main) == 1)
+		x = 1;
+	if (check_fill_bottom(main) == 1)
 		x = 1;
 	return (x);
 }

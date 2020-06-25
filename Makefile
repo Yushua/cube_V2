@@ -6,7 +6,7 @@
 #    By: ybakker <ybakker@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/03/05 10:59:00 by ybakker       #+#    #+#                  #
-#    Updated: 2020/06/24 12:50:11 by ybakker       ########   odam.nl          #
+#    Updated: 2020/06/25 14:29:46 by ybakker       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,6 @@ SRC = ./srcs/cube_functions/main.c\
 		./srcs/cube_functions/check_fill.c\
 		./srcs/cube_functions/ft_check_empty_line.c\
 		./srcs/cube_functions/key_input.c\
-		./srcs/cube_functions/ft_empty_space.c\
 		./srcs/cube_functions/readmap/get_info/ft_read_C.c\
 		./srcs/cube_functions/readmap/get_info/ft_read_EA.c\
 		./srcs/cube_functions/readmap/get_info/ft_read_F.c\
@@ -62,7 +61,7 @@ $(NAME): $(OBJ)
 	@$(CC) -L srcs/mlx/ -lmlx -framework OpenGL -framework AppKit  \
 	$(OBJ) libft.a -o $(NAME)
 %.o: %.c
-	@gcc $(CFLAGS) -I srcs/mlx -I srcs/libft -c $? -o $@
+	@gcc $(CFLAGS) -I srcs/mlx -I srcs/libft -c $< -o $@
 clean:
 	@$(RM) $(OBJ)
 	@$(RM) $(B_OBJ)
