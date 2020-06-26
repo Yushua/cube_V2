@@ -6,22 +6,28 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/26 11:33:59 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/26 14:54:05 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-void			ft_end_function(t_struct_m *main)
+static void		check_value(t_struct_m *main)
 {
-	free(main);
-	exit(0);
-}
-
-int			ft_close(int keycode, t_struct_m *main)
-{
-	ft_end_function(main);
-	return (0);
+	if (main->place.ccol1 < 0 || main->place.ccol2 < 0 || main->place.ccol3 < 0)
+	{
+		 
+		main->place.error = 51;
+		ft_error(main);
+		ft_end_function(main);
+	}
+	if (main->place.fcol1 < 0 || main->place.fcol2 < 0 || main->place.fcol3 < 0)
+	{
+		main->place.error = 52;
+		ft_error(main);
+		ft_end_function(main);
+	}
+	//screenwidth
 }
 
 void			ft_mlx_loop(t_struct_m *main)
@@ -65,6 +71,7 @@ void		read_map(t_struct_m *main)
 		ft_putstr("size store error");
 		ft_end_function(main);
 	}
+	check_value(main);
 	set_location(main);
 	spritesnumb(main);
 	if (check_fill(main) == 1)

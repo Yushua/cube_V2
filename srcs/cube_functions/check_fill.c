@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 11:13:15 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/26 12:51:37 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/26 15:19:51 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,7 @@ int				check_fill(t_struct_m *main)
 	y = (int)(main->ray.posy);
 	main->cubecopy[y][x] = '0';
 	flood_fill(x, y, main);
+	// ft_floodfill_extra(main, 0, 0);
 	x = 0;
 	if (check_fill_right(main) == 1)
 		x = 1;

@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 18:37:30 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/26 12:55:13 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/26 15:11:48 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -293,6 +293,7 @@ void			spritesnumb(t_struct_m *main);
 void			get_spritenumber(t_struct_m *main, int y, int x);
 int				check_fill(t_struct_m *main);
 void			flood_fill(int x, int y, t_struct_m *main);
+void			ft_floodfill_extra(t_struct_m *main, int x, int y);
 int				if_empty(int x, int y, t_struct_m *main);
 int				ft_check_empty(int x, int y, t_struct_m *main);
 int				ft_atoi_cube(char *str, t_struct_m *main, int i);

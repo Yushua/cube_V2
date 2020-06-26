@@ -2,7 +2,7 @@ NO srcs/cube_functions/textures/png-cute-cat--828.png
 SO srcs/cube_functions/textures/wall_1.xpm
 WE srcs/cube_functions/textures/wall_4.xpm
 EA srcs/cube_functions/textures/wall_3.xpm
-S  srcs/cube_functions/textures/sprite_1.xpm
+S srcs/cube_functions/textures/sprite_1.xpm
 F 220,100,0
 R 1000 1501
 C 225,30,0

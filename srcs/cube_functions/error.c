@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/18 14:22:42 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/26 12:12:44 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/26 14:42:57 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,5 +143,9 @@ void			ft_error(t_struct_m *main)
 	error_check_four(main);
 	if (main->place.error == 50)
 		ft_putstr("[50] clutter in the map file");
+	else if (main->place.error == 51)
+		ft_putstr("[51] c colour negative");
+	else if (main->place.error == 52)
+		ft_putstr("[52] f colour negative");
 	main->place.error = 0;
 }

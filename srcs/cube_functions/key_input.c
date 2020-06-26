@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/18 15:45:22 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/26 12:20:37 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/26 14:29:10 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,16 @@ void			wasd_r_l(t_struct_m *main, double movesp, double rotsp)
 		movesp)][(int)(main->ray.posx)] != '1')
 			main->ray.posy -= main->ray.planey * movesp;
 	}
+}
+
+void			ft_end_function(t_struct_m *main)
+{
+	free(main);
+	exit(0);
+}
+
+int				ft_close(int keycode, t_struct_m *main)
+{
+	ft_end_function(main);
+	return (0);
 }
