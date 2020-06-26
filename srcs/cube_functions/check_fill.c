@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 11:13:15 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/26 15:19:51 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/26 15:57:13 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int		check_fill_bottom(t_struct_m *main)
 	{
 		if (main->cubecopy[y][x] == 'X')
 		{
-			main->place.error = 17;
+			main->place.error = 15;
 			ft_error(main);
 			return (1);
 		}
@@ -44,7 +44,7 @@ static int		check_fill_top(t_struct_m *main)
 	{
 		if (main->cubecopy[0][x] == 'X')
 		{
-			main->place.error = 17;
+			main->place.error = 15;
 			ft_error(main);
 			return (1);
 		}
@@ -102,12 +102,12 @@ int				check_fill(t_struct_m *main)
 	y = (int)(main->ray.posy);
 	main->cubecopy[y][x] = '0';
 	flood_fill(x, y, main);
-	// ft_floodfill_extra(main, 0, 0);
+	ft_floodfill_extra(main);
 	x = 0;
 	if (check_fill_right(main) == 1)
 		x = 1;
 	if (check_fill_left(main) == 1)
-		x = 1;
+		x = 1;	
 	if (check_fill_top(main) == 1)
 		x = 1;
 	if (check_fill_bottom(main) == 1)

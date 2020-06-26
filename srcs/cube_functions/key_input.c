@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/18 15:45:22 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/26 14:29:10 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/26 15:37:19 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,6 @@ void			ft_end_function(t_struct_m *main)
 
 int				ft_close(int keycode, t_struct_m *main)
 {
-	ft_end_function(main);
+	exit(0);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 18:37:30 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/26 15:11:48 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/26 15:44:10 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -293,7 +293,7 @@ void			spritesnumb(t_struct_m *main);
 void			get_spritenumber(t_struct_m *main, int y, int x);
 int				check_fill(t_struct_m *main);
 void			flood_fill(int x, int y, t_struct_m *main);
-void			ft_floodfill_extra(t_struct_m *main, int x, int y);
+void			ft_floodfill_extra(t_struct_m *main);
 int				if_empty(int x, int y, t_struct_m *main);
 int				ft_check_empty(int x, int y, t_struct_m *main);
 int				ft_atoi_cube(char *str, t_struct_m *main, int i);
@@ -308,18 +308,17 @@ void			space_cubemap(t_struct_m *main);
 int				render_next_frame(t_struct_m *main);
 int				ft_raycasting(t_struct_m *main);
 int				ft_floor_casting(t_struct_m *main);
-// int			ft_cealing_casting(t_struct_m *main);
 int				wasd_2(t_struct_m *main);
 int				ft_push_key(int keycode, t_struct_m *main);
 int				ft_release_key(int keycode, t_struct_m *main);
 int				ft_close(int keycode, t_struct_m *main);
-void			verLine(int x, int drawStart, int drawEnd,
+void			verline(int x, int drawStart, int drawEnd,
 				int col, t_struct_m *main);
 int				create_trgb(int r, int g, int b);
 
 void			printmap(t_struct_m *main);
 int				render_next_frame_structure(t_struct_m *main);
-void			verLine_texture(int x, t_struct_m *main);
+void			verline_texture(int x, t_struct_m *main);
 void			set_value_texture(t_struct_m *main);
 void			verline_structure(t_struct_m *main);
 
@@ -332,4 +331,6 @@ void			start_bmp(t_struct_m *main);
 void			ft_end_function(t_struct_m *main);
 int				ft_check_empty_line(t_struct_m *main, int x, int y);
 int				ft_map_line_get_x(char *map);
+
+// int			ft_cealing_casting(t_struct_m *main);
 #endif

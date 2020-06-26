@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/26 15:05:44 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/26 15:17:48 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/26 15:55:59 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 static void			if_x(int x, int y, t_struct_m *main)
 {
-	if (main->cubecopy[y][x] == '0' || main->cubecopy[y][x] == '2')
+	printf("x=[%i]y=[%i]\n", x, y);
+	if (y < 0 || x < 0 || y == main->ray.yy || x >= main->ray.xx)
+		y = y;
+	else if (main->cubecopy[y][x] == '0' || main->cubecopy[y][x] == '2')
 		main->cubecopy[y][x] = 'X';
 }
 
@@ -26,16 +29,22 @@ static void		ft_place_x(t_struct_m *main, int x, int y)
 	if_x(x, y + 1, main);
 }
 
-void			ft_floodfill_extra(t_struct_m *main, int x, int y)
+void			ft_floodfill_extra(t_struct_m *main)
 {
+	int		y;
+	int		x;
+
+	y = 0;
+	x = 0;
 	while (y < main->ray.yy)
 	{
-		while (main->cubecopy[x][y])
+		while (main->cubecopy[y][x] != '\0')
 		{
-			if (main->cubecopy[x][y] == 'X')
+			if (main->cubecopy[y][x] == 'X')
 				ft_place_x(main, x, y);
 			x++;
 		}
+		x = 0;
 		y++;
 	}
 }
