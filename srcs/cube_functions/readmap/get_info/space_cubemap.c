@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/05 11:49:54 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/25 16:48:37 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/26 12:07:26 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ static void			ft_fill_empty_string(t_struct_m *main, int y)
 	int		x;
 
 	x = 0;
-	while (x <= main->Ray.xx)
+	while (x <= main->ray.xx)
 	{
 		main->place.cubemap[y][x] = ' ';
 		main->cubecopy[y][x] = ' ';
 		x++;
 	}
-	main->place.cubemap[y][main->Ray.xx] = '\0';
-	main->cubecopy[y][main->Ray.xx] = '\0';
+	main->place.cubemap[y][main->ray.xx] = '\0';
+	main->cubecopy[y][main->ray.xx] = '\0';
 }
 
 static int			ft_substr_save(char *map, t_struct_m *main, int y)
@@ -35,8 +35,8 @@ static int			ft_substr_save(char *map, t_struct_m *main, int y)
 		return (1);
 	main->place.cubemap[y] = NULL;
 	main->cubecopy[y] = NULL;
-	main->place.cubemap[y] = (char *)malloc((main->Ray.xx + 1) * sizeof(char));
-	main->cubecopy[y] = (char *)malloc((main->Ray.xx + 1) * sizeof(char));
+	main->place.cubemap[y] = (char *)malloc((main->ray.xx + 1) * sizeof(char));
+	main->cubecopy[y] = (char *)malloc((main->ray.xx + 1) * sizeof(char));
 	if (!main->place.cubemap[y] || !main->cubecopy[y])
 		return (1);
 	ft_fill_empty_string(main, y);
@@ -60,8 +60,8 @@ static int			ft_print_map(t_struct_m *main)
 	int		yyy;
 
 	count = 1;
-	y = main->Ray.yyy;
-	yy = main->Ray.yy;
+	y = main->ray.yyy;
+	yy = main->ray.yy;
 	yyy = 0;
 	fd = open(main->map, O_RDONLY);
 	if (fd < 0)
@@ -88,8 +88,8 @@ static int			ft_print_map(t_struct_m *main)
 
 void				space_cubemap(t_struct_m *main)
 {
-	main->place.cubemap = (char**)malloc(sizeof(char*) * (main->Ray.yy));
-	main->cubecopy = (char**)malloc(sizeof(char*) * (main->Ray.yy));
+	main->place.cubemap = (char**)malloc(sizeof(char*) * (main->ray.yy));
+	main->cubecopy = (char**)malloc(sizeof(char*) * (main->ray.yy));
 	if (!main->place.cubemap || !main->cubecopy)
 	{
 		main->place.error = 13;

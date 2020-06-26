@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_read_S.c                                        :+:    :+:            */
+/*   ft_read_s.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 15:08:39 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/25 16:48:06 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/26 12:52:27 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cube.h"
 
-int     ft_read_S(t_struct_m *main, char *map)
+int			ft_read_s(t_struct_m *main, char *map)
 {
-	int     i;
-	int     r;
+	int		i;
+	int		r;
 
 	i = 0;
 	r = 0;
-	if (main->Double.D_S > 0)
+	if (main->doublle.d_s > 0)
 	{
-		main->place.error = 44;//St eSugh information
+		main->place.error = 44;
 		ft_error(main);
 	}
 	else
@@ -35,10 +35,10 @@ int     ft_read_S(t_struct_m *main, char *map)
 		if (map[i] != ' ')
 		{
 			r = ft_strleng(map, i);
-			main->place.S = ft_substr(map, i, r);
+			main->place.s = ft_substr(map, i, r);
 			i = i + r;
 			r = 1;
-			main->Double.D_S = 1;
+			main->doublle.d_s = 1;
 		}
 		if (map[i] != '\0')
 		{

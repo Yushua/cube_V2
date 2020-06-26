@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 14:09:41 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/25 18:53:29 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/26 12:53:08 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,21 @@
 void			check_map_symbol(t_struct_m *main, char *map)
 {
 	if (ft_strnstr_map(map, "R ", strlen(map)) == 1)
-		ft_read_R(main, map);
+		ft_read_r(main, map);
 	else if (ft_strnstr_map(map, "SO ", strlen(map)) == 1)
-		ft_read_SO(main, map);
+		ft_read_so(main, map);
 	else if (ft_strnstr_map(map, "S ", strlen(map)) == 1)
-		ft_read_S(main, map);
+		ft_read_s(main, map);
 	else if (ft_strnstr_map(map, "NO ", strlen(map)) == 1)
-		ft_read_NO(main, map);
+		ft_read_no(main, map);
 	else if (ft_strnstr_map(map, "EA ", strlen(map)) == 1)
-		ft_read_EA(main, map);
+		ft_read_ea(main, map);
 	else if (ft_strnstr_map(map, "WE ", strlen(map)) == 1)
-		ft_read_WE(main, map);
+		ft_read_we(main, map);
 	else if (ft_strnstr_map(map, "F ", strlen(map)) == 1)
-		ft_read_F(main, map);
+		ft_read_f(main, map);
 	else if (ft_strnstr_map(map, "C ", strlen(map)) == 1)
-		ft_read_C(main, map);
+		ft_read_c(main, map);
 	else if (map[0] == '\0')
 		map = map;
 	else
@@ -70,7 +70,7 @@ int				ft_read_map(t_struct_m *main)
 	main->i = 0;
 	main->ii = 0;
 	count = 1;
-	main->Ray.yyy = 0;
+	main->ray.yyy = 0;
 	fd = open(main->map, O_RDONLY);
 	if (fd < 0)
 	{
@@ -94,7 +94,7 @@ int				ft_read_map(t_struct_m *main)
 			main->ii = 1;
 		if (main->ii != 1)
 		{
-			main->Ray.yyy++;
+			main->ray.yyy++;
 			if (ft_check_empty_line_check(main, map) == 1)
 				count = count;
 			else if (ft_read_map_where(main, map) == 2)
@@ -102,10 +102,10 @@ int				ft_read_map(t_struct_m *main)
 		}
 		free(map);
 	}
-	if (main->Double.D_R != 1 && main->Double.D_NO != 1 &&
-			main->Double.D_SO != 1 && main->Double.D_EA != 1 &&
-			main->Double.D_S != 1 && main->Double.D_WE != 1 &&
-			main->Double.D_F != 1 && main->Double.D_C != 1)
+	if (main->doublle.d_r != 1 && main->doublle.d_no != 1 &&
+			main->doublle.d_so != 1 && main->doublle.d_ea != 1 &&
+			main->doublle.d_s != 1 && main->doublle.d_we != 1 &&
+			main->doublle.d_f != 1 && main->doublle.d_c != 1)
 		main->i = 2;
 	if (main->i == 2)
 		return (2);

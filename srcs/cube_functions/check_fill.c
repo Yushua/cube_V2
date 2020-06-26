@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 11:13:15 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/25 13:45:03 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/26 12:51:37 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int		check_fill_bottom(t_struct_m *main)
 	int	x;
 	int	y;
 
-	y = main->Ray.yy;
+	y = main->ray.yy;
 	y--;
 	x = 0;
 	while (main->cubecopy[y][x])
@@ -60,7 +60,7 @@ static	int		check_fill_left(t_struct_m *main)
 
 	y = 0;
 	x = 0;
-	while (y < main->Ray.yy)
+	while (y < main->ray.yy)
 	{
 		if (main->cubecopy[y][x] == 'X')
 		{
@@ -78,8 +78,8 @@ static int		check_fill_right(t_struct_m *main)
 	int	x;
 	int	y;
 
-	y = main->Ray.yy;
-	while (y < main->Ray.yy)
+	y = main->ray.yy;
+	while (y < main->ray.yy)
 	{
 		x = ft_strlen(main->cubecopy[y]);
 		if (main->cubecopy[y][x] == 'X')
@@ -98,8 +98,8 @@ int				check_fill(t_struct_m *main)
 	int	x;
 	int	y;
 
-	x = (int)(main->Ray.posX);
-	y = (int)(main->Ray.posY);
+	x = (int)(main->ray.posx);
+	y = (int)(main->ray.posy);
 	main->cubecopy[y][x] = '0';
 	flood_fill(x, y, main);
 	x = 0;

@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/18 15:45:22 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/18 15:46:25 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/26 12:20:37 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,26 @@ void			wasd_s_d(t_struct_m *main, double movesp, double rotsp)
 	double olddirx;
 	double oldplanex;
 
-	if (main->keys.S)
+	if (main->keys.s)
 	{
-		if (main->place.cubemap[(int)(main->Ray.posY)][(int)(main->Ray.posX -
-		main->Ray.dirX * movesp)] != '1')
-			main->Ray.posX -= main->Ray.dirX * movesp;
-		if (main->place.cubemap[(int)(main->Ray.posY - main->Ray.dirY *
-		movesp)][(int)(main->Ray.posX)] != '1')
-			main->Ray.posY -= main->Ray.dirY * movesp;
+		if (main->place.cubemap[(int)(main->ray.posy)][(int)(main->ray.posx -
+		main->ray.dirx * movesp)] != '1')
+			main->ray.posx -= main->ray.dirx * movesp;
+		if (main->place.cubemap[(int)(main->ray.posy - main->ray.diry *
+		movesp)][(int)(main->ray.posx)] != '1')
+			main->ray.posy -= main->ray.diry * movesp;
 	}
-	if (main->keys.D)
+	if (main->keys.d)
 	{
-		olddirx = main->Ray.dirX;
-		main->Ray.dirX = main->Ray.dirX * cos(rotsp) -
-		main->Ray.dirY * sin(rotsp);
-		main->Ray.dirY = olddirx * sin(rotsp) + main->Ray.dirY * cos(rotsp);
-		oldplanex = main->Ray.planeX;
-		main->Ray.planeX = main->Ray.planeX * cos(rotsp)
-		- main->Ray.planeY * sin(rotsp);
-		main->Ray.planeY = oldplanex * sin(rotsp) +
-		main->Ray.planeY * cos(rotsp);
+		olddirx = main->ray.dirx;
+		main->ray.dirx = main->ray.dirx * cos(rotsp) -
+		main->ray.diry * sin(rotsp);
+		main->ray.diry = olddirx * sin(rotsp) + main->ray.diry * cos(rotsp);
+		oldplanex = main->ray.planex;
+		main->ray.planex = main->ray.planex * cos(rotsp)
+		- main->ray.planey * sin(rotsp);
+		main->ray.planey = oldplanex * sin(rotsp) +
+		main->ray.planey * cos(rotsp);
 	}
 }
 
@@ -45,38 +45,38 @@ void			wasd_a(t_struct_m *main, double movesp, double rotsp)
 	double olddirx;
 	double oldplanex;
 
-	if (main->keys.A)
+	if (main->keys.a)
 	{
-		olddirx = main->Ray.dirX;
-		main->Ray.dirX = main->Ray.dirX * cos(-rotsp) -
-		main->Ray.dirY * sin(-rotsp);
-		main->Ray.dirY = olddirx * sin(-rotsp) + main->Ray.dirY * cos(-rotsp);
-		oldplanex = main->Ray.planeX;
-		main->Ray.planeX = main->Ray.planeX * cos(-rotsp) -
-		main->Ray.planeY * sin(-rotsp);
-		main->Ray.planeY = oldplanex * sin(-rotsp) +
-		main->Ray.planeY * cos(-rotsp);
+		olddirx = main->ray.dirx;
+		main->ray.dirx = main->ray.dirx * cos(-rotsp) -
+		main->ray.diry * sin(-rotsp);
+		main->ray.diry = olddirx * sin(-rotsp) + main->ray.diry * cos(-rotsp);
+		oldplanex = main->ray.planex;
+		main->ray.planex = main->ray.planex * cos(-rotsp) -
+		main->ray.planey * sin(-rotsp);
+		main->ray.planey = oldplanex * sin(-rotsp) +
+		main->ray.planey * cos(-rotsp);
 	}
 }
 
 void			wasd_r_l(t_struct_m *main, double movesp, double rotsp)
 {
-	if (main->keys.RIG)
+	if (main->keys.rig)
 	{
-		if (main->place.cubemap[(int)(main->Ray.posY)][(int)(main->Ray.posX
-		+ main->Ray.planeX * movesp)] != '1')
-			main->Ray.posX += main->Ray.planeX * movesp;
-		if (main->place.cubemap[(int)(main->Ray.posY + main->Ray.planeY *
-		movesp)][(int)(main->Ray.posX)] != '1')
-			main->Ray.posY += main->Ray.planeY * movesp;
+		if (main->place.cubemap[(int)(main->ray.posy)][(int)(main->ray.posx
+		+ main->ray.planex * movesp)] != '1')
+			main->ray.posx += main->ray.planex * movesp;
+		if (main->place.cubemap[(int)(main->ray.posy + main->ray.planey *
+		movesp)][(int)(main->ray.posx)] != '1')
+			main->ray.posy += main->ray.planey * movesp;
 	}
-	if (main->keys.LEF)
+	if (main->keys.lef)
 	{
-		if (main->place.cubemap[(int)(main->Ray.posY)][(int)(main->Ray.posX -
-		main->Ray.planeX * movesp)] != '1')
-			main->Ray.posX -= main->Ray.planeX * movesp;
-		if (main->place.cubemap[(int)(main->Ray.posY - main->Ray.planeY *
-		movesp)][(int)(main->Ray.posX)] != '1')
-			main->Ray.posY -= main->Ray.planeY * movesp;
+		if (main->place.cubemap[(int)(main->ray.posy)][(int)(main->ray.posx -
+		main->ray.planex * movesp)] != '1')
+			main->ray.posx -= main->ray.planex * movesp;
+		if (main->place.cubemap[(int)(main->ray.posy - main->ray.planey *
+		movesp)][(int)(main->ray.posx)] != '1')
+			main->ray.posy -= main->ray.planey * movesp;
 	}
 }

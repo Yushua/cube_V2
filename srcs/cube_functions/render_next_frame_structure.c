@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/18 13:24:45 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/18 16:27:27 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/26 12:50:00 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ int			render_next_frame_structure(t_struct_m *main)
 	main->place.s_height);
 	main->img.addr = mlx_get_data_addr(main->img.img, &main->img.bits_per_pixel,
 			&main->img.line_length, &main->img.endian);
-	if (main->keys.UP > 0)
-		main->keys.UP = -1;
-	else if (main->keys.DOW > 0)
-		main->keys.DOW = -1;
+	if (main->keys.up > 0)
+		main->keys.up = -1;
+	else if (main->keys.dow > 0)
+		main->keys.dow = -1;
 	return (0);
 }

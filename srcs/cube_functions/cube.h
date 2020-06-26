@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 18:37:30 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/26 11:33:24 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/26 12:55:13 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ typedef struct	s_data {
 }				t_data;
 
 typedef struct	s_vars {
-	void	*mlx;
-	void	*win;
+	void		*mlx;
+	void		*win;
 }				t_vars;
 
 typedef struct	s_place {
@@ -58,18 +58,18 @@ typedef struct	s_place {
 	int			s_width;
 	int			s_height;
 	int			dir;
-	char		*NO;
-	char		*SO;
-	char		*EA;
-	char		*S;
-	char		*WE;
+	char		*no;
+	char		*so;
+	char		*ea;
+	char		*s;
+	char		*we;
 	int			i;
-	int			Fcol1;
-	int			Fcol2;
-	int			Fcol3;
-	int			Ccol1;
-	int			Ccol2;
-	int			Ccol3;
+	int			fcol1;
+	int			fcol2;
+	int			fcol3;
+	int			ccol1;
+	int			ccol2;
+	int			ccol3;
 	int			error;
 	int			error_c;
 	int			error_n;
@@ -78,44 +78,44 @@ typedef struct	s_place {
 	int			mapx;
 	int			mapy;
 	int			mapp;
-	int			mapE;
+	int			mape;
 	int			mapc;
 
 	int			crouch;
 }				t_place;
 
-typedef struct	s_Double {
-	int			D_R;
-	int			D_NO;
-	int			D_SO;
-	int			D_EA;
-	int			D_S;
-	int			D_WE;
+typedef struct	s_doublle {
+	int			d_r;
+	int			d_no;
+	int			d_so;
+	int			d_ea;
+	int			d_s;
+	int			d_we;
 
-	int			D_F;
-	int			D_C;
-}				t_Double;
+	int			d_f;
+	int			d_c;
+}				t_doublle;
 
-typedef struct	s_Ray {
+typedef struct	s_ray {
 
-	double		posX;
-	double		posY;
-	double		dirX;
-	double		dirY;
-	double		planeX;
-	double		planeY;
-	double		cameraX;
-	double		rayDirX;
-	double		rayDirY;
-	int			mapX;
-	int			mapY;
-	double		sideDistX;
-	double		sideDistY;
-	double		deltaDistX;
-	double		deltaDistY;
-	double		perpWallDist;
-	int			stepX;
-	int			stepY;
+	double		posx;
+	double		posy;
+	double		dirx;
+	double		diry;
+	double		planex;
+	double		planey;
+	double		camerax;
+	double		raydirx;
+	double		raydiry;
+	int			mapx;
+	int			mapy;
+	double		sidedistx;
+	double		sidedisty;
+	double		deltadistx;
+	double		deltadisty;
+	double		perpwalldist;
+	int			stepx;
+	int			stepy;
 	int			hit;
 	int			side;
 	int			h;
@@ -124,17 +124,17 @@ typedef struct	s_Ray {
 	int			yyy;
 	int			xx;
 	int			eh;
-	int			lineHeight;
-	int			drawStart;
-	int			drawEnd;
-	int			texNum;
-	double		wallX;
-	int			texX;
-	int			texY;
+	int			lineheight;
+	int			drawstart;
+	int			drawend;
+	int			texnum;
+	double		wallx;
+	int			texx;
+	int			texy;
 	double		step;
-	double		texPos;
+	double		texpos;
 	int			look;
-}				t_Ray;
+}				t_ray;
 
 typedef struct	s_texture {
 	void		*texture;
@@ -151,22 +151,22 @@ typedef struct	s_sprite {
 
 	double		spritex;
 	double		spritey;
-	double		invDet;
+	double		invdet;
 
-	double		transformX;
-	double		transformY;
+	double		transformx;
+	double		transformy;
 
-	int			spriteScreenX;
-	int			vMoveScreen;
+	int			spritescreenx;
+	int			vmovescreen;
 
-	int			spriteHeight;
+	int			spriteheight;
 
-	int			drawStartY;
-	int			drawendY;
-	int			drawStartX;
-	int			drawendX;
+	int			drawstarty;
+	int			drawendy;
+	int			drawstartx;
+	int			drawendx;
 
-	int			spriteWidth;
+	int			spritewidth;
 	int			stripe;
 
 	double		first;
@@ -185,30 +185,30 @@ typedef struct	s_sprites {
 
 typedef	struct	s_keys {
 
-	int			W;
-	int			S;
-	int			A;
-	int			D;
-	int			UP;
-	int			DOW;
-	int			LEF;
-	int			RIG;
-	float	rayDirX0;
-	float	rayDirY0;
-	float	rayDirX1;
-	float	rayDirY1;
-	int		p;
-	float	posZ;
-	float	rowDistance;
-	float	floorStepX;
-	float	floorStepY;
-	float	floorX;
-	float	floorY;
-	int		cellX;
-	int		cellY;
-	int		tx;
-	int		ty;
-	int		colour;
+	int			w;
+	int			s;
+	int			a;
+	int			d;
+	int			up;
+	int			dow;
+	int			lef;
+	int			rig;
+	float		raydirx0;
+	float		raydiry0;
+	float		raydirx1;
+	float		raydiry1;
+	int			p;
+	float		posz;
+	float		rowdistance;
+	float		floorstepx;
+	float		floorstepy;
+	float		floorx;
+	float		floory;
+	int			cellx;
+	int			celly;
+	int			tx;
+	int			ty;
+	int			colour;
 
 }				t_keys;
 
@@ -216,17 +216,17 @@ typedef struct	s_struct_m {
 	t_data		img;
 	t_vars		vars;
 	t_place		place;
-	t_Double	Double;
-	t_Ray		Ray;
+	t_doublle	doublle;
+	t_ray		ray;
 	t_texture	texture[5];
 	t_sprite	sprite;
 	t_sprites	*sprites;
 	t_keys		keys;
 
-	int			numSprites;
-	double		*ZBuffer;
-	int			*spriteOrder;
-	double		*spriteDistance;
+	int			numsprites;
+	double		*zbuffer;
+	int			*spriteorder;
+	double		*spritedistance;
 	char		**cubecopy;
 	char		**cubecopytwo;
 	int			count;
@@ -248,14 +248,14 @@ int				ft_strnstr_map(const char *haystack, const char *needle,
 size_t len);
 int				ft_check_for_map(char *map, t_struct_m *main);
 
-int				ft_read_EA(t_struct_m *main, char *map);
-int				ft_read_C(t_struct_m *main, char *map);
-int				ft_read_F(t_struct_m *main, char *map);
-int				ft_read_NO(t_struct_m *main, char *map);
-int				ft_read_R(t_struct_m *main, char *map);
-int				ft_read_S(t_struct_m *main, char *map);
-int				ft_read_SO(t_struct_m *main, char *map);
-int				ft_read_WE(t_struct_m *main, char *map);
+int				ft_read_ea(t_struct_m *main, char *map);
+int				ft_read_c(t_struct_m *main, char *map);
+int				ft_read_f(t_struct_m *main, char *map);
+int				ft_read_no(t_struct_m *main, char *map);
+int				ft_read_r(t_struct_m *main, char *map);
+int				ft_read_s(t_struct_m *main, char *map);
+int				ft_read_so(t_struct_m *main, char *map);
+int				ft_read_we(t_struct_m *main, char *map);
 void			ft_read_cubecube(t_struct_m *main, char *map);
 void			check_map_symbol(t_struct_m *main, char *map);
 int				ft_clutter(t_struct_m *main, char *map);
@@ -273,14 +273,14 @@ void			readmap(t_struct_m *main);
 void			read_string(t_struct_m *main, char *map);
 void			ft_check(t_struct_m *main, char *map);
 
-int				check_R(t_struct_m *main, char *map, int i);
-int				check_NO(t_struct_m *main, char *map, int i);
-int				check_SO(t_struct_m *main, char *map, int i);
-int				check_S(t_struct_m *main, char *map, int i);
-int				check_WE(t_struct_m *main, char *map, int i);
-int				check_EA(t_struct_m *main, char *map, int i);
-int				check_F(t_struct_m *main, char *map, int i);
-int				check_C(t_struct_m *main, char *map, int i);
+int				check_r(t_struct_m *main, char *map, int i);
+int				check_no(t_struct_m *main, char *map, int i);
+int				check_so(t_struct_m *main, char *map, int i);
+int				check_s(t_struct_m *main, char *map, int i);
+int				check_we(t_struct_m *main, char *map, int i);
+int				check_ea(t_struct_m *main, char *map, int i);
+int				check_f(t_struct_m *main, char *map, int i);
+int				check_c(t_struct_m *main, char *map, int i);
 void			set_value(t_struct_m *main);
 
 void			ft_error(t_struct_m *main);

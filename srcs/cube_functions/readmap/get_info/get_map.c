@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 14:08:37 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/25 13:24:25 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/26 12:06:42 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,12 @@ int				get_size_map(t_struct_m *main, char *map)
 		return (1);
 	}
 	x = ft_map_line_get_x(map);
-	if (x > main->Ray.xx)
-		main->Ray.xx = x;
+	if (x > main->ray.xx)
+		main->ray.xx = x;
 	return (0);
 }
 
-int			ft_size_store_map(t_struct_m *main)
+int				ft_size_store_map(t_struct_m *main)
 {
 	int		count;
 	int		fd;
@@ -63,8 +63,8 @@ int			ft_size_store_map(t_struct_m *main)
 	int		y;
 
 	count = 1;
-	y = main->Ray.yyy;
-	main->Ray.eh = 0;
+	y = main->ray.yyy;
+	main->ray.eh = 0;
 	fd = open(main->map, O_RDONLY);
 	if (fd < 0)
 	{
@@ -79,14 +79,14 @@ int			ft_size_store_map(t_struct_m *main)
 		else
 		{
 			if (map[0] == '\0')
-				main->Ray.eh++;
-			else if (ft_check_for_map(map, main) == 1 && main->Ray.eh > 0)
+				main->ray.eh++;
+			else if (ft_check_for_map(map, main) == 1 && main->ray.eh > 0)
 			{
 				main->place.error = 47;
 				ft_error(main);
 				return (1);
 			}
-			main->Ray.yy++;
+			main->ray.yy++;
 			if (get_size_map(main, map) == 1)
 			{
 				free(map);
@@ -95,7 +95,7 @@ int			ft_size_store_map(t_struct_m *main)
 		}
 		free(map);
 	}
-	main->Ray.yy = main->Ray.yy - main->Ray.eh;
+	main->ray.yy = main->ray.yy - main->ray.eh;
 	space_cubemap(main);
 	return (0);
 }

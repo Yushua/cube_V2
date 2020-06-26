@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 18:50:30 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/25 18:52:56 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/26 12:15:58 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,10 +77,10 @@ int				ft_clutter(t_struct_m *main, char *map)
 	int		i;
 
 	i = 0;
-	if (main->Double.D_R == 1 && main->Double.D_NO == 1 &&
-	main->Double.D_SO == 1 && main->Double.D_EA == 1 &&
-	main->Double.D_S == 1 && main->Double.D_WE == 1 &&
-	main->Double.D_F == 1 && main->Double.D_C == 1)
+	if (main->doublle.d_r == 1 && main->doublle.d_no == 1 &&
+	main->doublle.d_so == 1 && main->doublle.d_ea == 1 &&
+	main->doublle.d_s == 1 && main->doublle.d_we == 1 &&
+	main->doublle.d_f == 1 && main->doublle.d_c == 1)
 	{
 		while (map[i])
 		{

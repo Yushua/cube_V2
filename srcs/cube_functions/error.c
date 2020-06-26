@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/18 14:22:42 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/25 18:37:14 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/26 12:12:44 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,7 @@ void			ft_error(t_struct_m *main)
 	{
 		ft_putstr("[1]you got double lines, fix your map\n");
 		main->place.check_double = 0;
+		main->place.error = 0;
 	}
 	error_check_one(main);
 	error_check_two(main);

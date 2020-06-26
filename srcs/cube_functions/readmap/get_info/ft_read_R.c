@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_read_R.c                                        :+:    :+:            */
+/*   ft_read_r.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 15:08:39 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/25 18:10:50 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/26 12:03:41 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cube.h"
 
-int			ft_read_R(t_struct_m *main, char *map)
+int			ft_read_r(t_struct_m *main, char *map)
 {
 	int		i;
 	int		r;
 
 	i = 0;
 	r = 0;
-	if (main->Double.D_R > 0)
+	if (main->doublle.d_r > 0)
 	{
 		main->place.error = 26;
 		ft_error(main);
@@ -62,7 +62,7 @@ int			ft_read_R(t_struct_m *main, char *map)
 						main->place.s_width = ft_atoi_cube(map, main, i);
 						i = main->place.i;
 						main->place.i = 0;
-						main->Double.D_R = 1;
+						main->doublle.d_r = 1;
 					}
 					if (map[i] != '\0' && r == 1)
 					{
@@ -81,7 +81,7 @@ int			ft_read_R(t_struct_m *main, char *map)
 			}
 		}
 	}
-	if (main->Double.D_R != 1)
+	if (main->doublle.d_r != 1)
 	{
 		main->place.error = 3;
 		ft_error(main);

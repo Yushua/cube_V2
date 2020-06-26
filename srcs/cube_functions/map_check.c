@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/10 11:53:18 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/23 18:02:22 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/26 12:23:23 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void		flood_fill(int x, int y, t_struct_m *main)
 		return ;
 	if (main->cubecopy[y][x] != '0' && main->cubecopy[y][x] != '2')
 		return ;
-	if (x <= 0 || y <= 0 || y == (main->Ray.yy) ||
+	if (x <= 0 || y <= 0 || y == (main->ray.yy) ||
 	x == (ft_strlen(main->cubecopy[y]) - 1))
 	{
 		main->place.error = 15;

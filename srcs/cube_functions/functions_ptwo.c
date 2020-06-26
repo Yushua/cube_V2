@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 18:42:02 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/25 16:50:22 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/26 12:45:40 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 void			get_spritenumber(t_struct_m *main, int y, int x)
 {
-	while (y < main->Ray.yy)
+	while (y < main->ray.yy)
 	{
 		while (main->place.cubemap[y][x])
 		{
 			if (main->place.cubemap[y][x] == '2')
 			{
-				main->numSprites++;
+				main->numsprites++;
 			}
 			x++;
 		}
 		y++;
 		x = 0;
 	}
-	main->sprites = ft_calloc(main->numSprites, sizeof(t_sprites));
-	main->ZBuffer = ft_calloc(main->place.s_width, sizeof(double));
-	main->spriteDistance = ft_calloc(main->numSprites, sizeof(double));
-	main->spriteOrder = ft_calloc(main->numSprites, sizeof(int));
+	main->sprites = ft_calloc(main->numsprites, sizeof(t_sprites));
+	main->zbuffer = ft_calloc(main->place.s_width, sizeof(double));
+	main->spritedistance = ft_calloc(main->numsprites, sizeof(double));
+	main->spriteorder = ft_calloc(main->numsprites, sizeof(int));
 }
 
 void			spritesnumb(t_struct_m *main)
@@ -43,7 +43,7 @@ void			spritesnumb(t_struct_m *main)
 	x = 0;
 	numsprites = 0;
 	get_spritenumber(main, y, x);
-	while (y < main->Ray.yy)
+	while (y < main->ray.yy)
 	{
 		while (main->place.cubemap[y][x] != '\0')
 		{
@@ -65,12 +65,12 @@ void			swap(t_struct_m *main, int j)
 	int		temp_order;
 	double	temp_dist;
 
-	temp_dist = (main->spriteDistance)[j];
-	temp_order = (main->spriteOrder)[j];
-	(main->spriteDistance)[j] = (main->spriteDistance)[j + 1];
-	(main->spriteDistance)[j + 1] = temp_dist;
-	(main->spriteOrder)[j] = (main->spriteOrder)[j + 1];
-	(main->spriteOrder)[j + 1] = temp_order;
+	temp_dist = (main->spritedistance)[j];
+	temp_order = (main->spriteorder)[j];
+	(main->spritedistance)[j] = (main->spritedistance)[j + 1];
+	(main->spritedistance)[j + 1] = temp_dist;
+	(main->spriteorder)[j] = (main->spriteorder)[j + 1];
+	(main->spriteorder)[j + 1] = temp_order;
 }
 
 void			bubble_sort(t_struct_m *main)
@@ -82,13 +82,13 @@ void			bubble_sort(t_struct_m *main)
 	swapped = 1;
 	i = 0;
 	j = 0;
-	while (main->numSprites - i > 1 && swapped == 1)
+	while (main->numsprites - i > 1 && swapped == 1)
 	{
 		swapped = 0;
 		j = 0;
-		while (j < main->numSprites - i - 1)
+		while (j < main->numsprites - i - 1)
 		{
-			if ((main->spriteDistance)[j] < (main->spriteDistance)[j + 1])
+			if ((main->spritedistance)[j] < (main->spritedistance)[j + 1])
 			{
 				swap(main, j);
 				swapped = 1;
