@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/25 18:03:24 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/26 11:33:59 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void			ft_end_function(t_struct_m *main)
 {
+	free(main);
 	exit(0);
 }
 
