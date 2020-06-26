@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/26 14:54:05 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/26 16:13:10 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,16 @@ static void		check_value(t_struct_m *main)
 	if (main->place.fcol1 < 0 || main->place.fcol2 < 0 || main->place.fcol3 < 0)
 	{
 		main->place.error = 52;
+		ft_error(main);
+		ft_end_function(main);
+	}
+	if (main->place.s_height > 1440)
+		main->place.s_height = 1440;
+	if (main->place.s_width > 2560)
+		main->place.s_width = 2560;
+	if (main->place.s_height <= 0 || main->place.s_width <= 0)
+	{
+		main->place.error = 53;
 		ft_error(main);
 		ft_end_function(main);
 	}

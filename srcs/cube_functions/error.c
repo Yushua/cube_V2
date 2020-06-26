@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/18 14:22:42 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/26 14:42:57 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/26 16:12:31 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,5 +147,7 @@ void			ft_error(t_struct_m *main)
 		ft_putstr("[51] c colour negative");
 	else if (main->place.error == 52)
 		ft_putstr("[52] f colour negative");
+	else if (main->place.error == 53)
+		ft_putstr("[53] width or hight in the negative");
 	main->place.error = 0;
 }
