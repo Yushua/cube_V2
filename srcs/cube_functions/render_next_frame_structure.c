@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/18 13:24:45 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/26 12:50:00 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/29 14:29:30 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int			render_next_frame_structure(t_struct_m *main)
 {
 	wasd_2(main);
-	ft_floor_casting(main);
+	background(main);
 	ft_raycasting(main);
 	render_next_frame_sprites(main);
 	mlx_put_image_to_window(main->vars.mlx, main->vars.win,

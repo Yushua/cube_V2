@@ -6,14 +6,14 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 18:37:30 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/26 15:44:10 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/29 14:19:50 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUBE_H
 # define CUBE_H
 
-#include<stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include <sys/stat.h>
@@ -312,7 +312,7 @@ int				wasd_2(t_struct_m *main);
 int				ft_push_key(int keycode, t_struct_m *main);
 int				ft_release_key(int keycode, t_struct_m *main);
 int				ft_close(int keycode, t_struct_m *main);
-void			verline(int x, int drawStart, int drawEnd,
+void			verline(int x, int drawstart, int drawend,
 				int col, t_struct_m *main);
 int				create_trgb(int r, int g, int b);
 
@@ -331,6 +331,7 @@ void			start_bmp(t_struct_m *main);
 void			ft_end_function(t_struct_m *main);
 int				ft_check_empty_line(t_struct_m *main, int x, int y);
 int				ft_map_line_get_x(char *map);
+void			ft_fill_empty_string(t_struct_m *main, int y);
 
-// int			ft_cealing_casting(t_struct_m *main);
+int				ft_cealing_casting(t_struct_m *main);
 #endif

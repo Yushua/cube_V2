@@ -6,26 +6,11 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/05 11:49:54 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/26 12:07:26 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/29 14:13:32 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cube.h"
-
-static void			ft_fill_empty_string(t_struct_m *main, int y)
-{
-	int		x;
-
-	x = 0;
-	while (x <= main->ray.xx)
-	{
-		main->place.cubemap[y][x] = ' ';
-		main->cubecopy[y][x] = ' ';
-		x++;
-	}
-	main->place.cubemap[y][main->ray.xx] = '\0';
-	main->cubecopy[y][main->ray.xx] = '\0';
-}
 
 static int			ft_substr_save(char *map, t_struct_m *main, int y)
 {
@@ -50,25 +35,16 @@ static int			ft_substr_save(char *map, t_struct_m *main, int y)
 	return (0);
 }
 
-static int			ft_print_map(t_struct_m *main)
+static int			ft_print_map_read(t_struct_m *main, char *map,
+int count, int fd)
 {
-	int		count;
-	int		fd;
-	char	*map;
 	int		y;
 	int		yy;
 	int		yyy;
 
-	count = 1;
 	y = main->ray.yyy;
 	yy = main->ray.yy;
 	yyy = 0;
-	fd = open(main->map, O_RDONLY);
-	if (fd < 0)
-	{
-		main->place.error = 24;
-		ft_error(main);
-	}
 	while (count > 0)
 	{
 		count = get_next_line(fd, &map);
@@ -78,11 +54,29 @@ static int			ft_print_map(t_struct_m *main)
 		{
 			yy--;
 			if (ft_substr_save(map, main, yyy) == 1)
-				return (1);
+				return (-2);
 			yyy++;
 		}
 		free(map);
 	}
+	return (0);
+}
+
+static int			ft_print_map(t_struct_m *main)
+{
+	int		count;
+	int		fd;
+	char	*map;
+
+	count = 1;
+	fd = open(main->map, O_RDONLY);
+	if (fd < 0)
+	{
+		main->place.error = 24;
+		ft_error(main);
+	}
+	if (ft_print_map_read(main, map, count, fd) == -2)
+		return (1);
 	return (0);
 }
 

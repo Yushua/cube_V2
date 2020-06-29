@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 14:09:41 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/26 12:53:08 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/29 14:18:11 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,23 +61,8 @@ int				ft_read_map_where(t_struct_m *main, char *map)
 	return (0);
 }
 
-int				ft_read_map(t_struct_m *main)
+static int		ft_read_mapp(t_struct_m *main, char *map, int count, int fd)
 {
-	int		count;
-	int		fd;
-	char	*map;
-
-	main->i = 0;
-	main->ii = 0;
-	count = 1;
-	main->ray.yyy = 0;
-	fd = open(main->map, O_RDONLY);
-	if (fd < 0)
-	{
-		main->place.error = 24;
-		ft_error(main);
-		return (2);
-	}
 	while (count > 0)
 	{
 		count = get_next_line(fd, &map);
@@ -102,6 +87,28 @@ int				ft_read_map(t_struct_m *main)
 		}
 		free(map);
 	}
+	return (0);
+}
+
+int				ft_read_map(t_struct_m *main)
+{
+	int		count;
+	int		fd;
+	char	*map;
+
+	main->i = 0;
+	main->ii = 0;
+	count = 1;
+	main->ray.yyy = 0;
+	fd = open(main->map, O_RDONLY);
+	if (fd < 0)
+	{
+		main->place.error = 24;
+		ft_error(main);
+		return (2);
+	}
+	if (ft_read_mapp(main, map, count, fd) == 2)
+		return (2);
 	if (main->doublle.d_r != 1 && main->doublle.d_no != 1 &&
 			main->doublle.d_so != 1 && main->doublle.d_ea != 1 &&
 			main->doublle.d_s != 1 && main->doublle.d_we != 1 &&

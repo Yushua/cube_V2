@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/26 12:42:06 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/29 14:32:24 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,36 @@ int				background(t_struct_m *main)
 {
 	int		x;
 	int		y;
-	int		col;
+	int		m;
+	int		colour;
 
 	x = 0;
 	y = 0;
-	col = 0xffffffff;
-	while (y < main->place.s_height)
+	m = main->place.s_height / 2;
+	colour = create_trgb(main->place.fcol1, main->place.fcol2,
+	main->place.fcol3);
+	while (y < m)
 	{
 		while (x < main->place.s_width)
 		{
-			my_mlx_pixel_put(main, x, y, col);
+			my_mlx_pixel_put(main, x, y, colour);
 			x++;
 		}
 		x = 0;
 		y++;
+	}
+	colour = create_trgb(main->place.ccol1, main->place.ccol2,
+	main->place.ccol3);
+	x = 0;
+	while (m < main->place.s_height)
+	{
+		while (x < main->place.s_width)
+		{
+			my_mlx_pixel_put(main, x, m, colour);
+			x++;
+		}
+		x = 0;
+		m++;
 	}
 	return (0);
 }
