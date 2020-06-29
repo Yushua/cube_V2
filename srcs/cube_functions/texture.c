@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/29 14:32:24 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/29 14:47:32 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void			my_mlx_pixel_put(t_struct_m *main, int x, int y, int color)
 	*(unsigned int*)dst = color;
 }
 
-int				background(t_struct_m *main)
+static void				background_floor(t_struct_m *main)
 {
 	int		x;
 	int		y;
@@ -43,9 +43,20 @@ int				background(t_struct_m *main)
 		x = 0;
 		y++;
 	}
-	colour = create_trgb(main->place.ccol1, main->place.ccol2,
-	main->place.ccol3);
+}
+
+static void				background_cealing(t_struct_m *main)
+{
+	int		x;
+	int		y;
+	int		m;
+	int		colour;
+
 	x = 0;
+	y = 0;
+	m = main->place.s_height / 2;
+	colour = create_trgb(main->place.fcol1, main->place.fcol2,
+	main->place.fcol3);
 	while (m < main->place.s_height)
 	{
 		while (x < main->place.s_width)
@@ -55,6 +66,24 @@ int				background(t_struct_m *main)
 		}
 		x = 0;
 		m++;
+	}
+}
+
+int				background(t_struct_m *main)
+{
+	int		x;
+	int		y;
+	int		m;
+	int		colour;
+
+	x = 0;
+	y = 0;
+	if (main->cealing == 1)
+		ft_floor_casting(main);
+	else
+	{
+		background_floor(main);
+		background_cealing(main);
 	}
 	return (0);
 }

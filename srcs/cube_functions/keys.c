@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 13:26:33 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/26 12:44:37 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/29 14:52:12 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int				ft_push_key(int keycode, t_struct_m *main)
 		mlx_destroy_window(main->vars.mlx, main->vars.win);
 		ft_end_function(main);
 	}
+	printf("[%d]\n", keycode);
 	if (keycode == W_KEY && main->keys.s != 1)
 		main->keys.w = 1;
 	if (keycode == S_KEY && main->keys.w != 1)
@@ -35,6 +36,10 @@ int				ft_push_key(int keycode, t_struct_m *main)
 		main->keys.dow = 1;
 	if (keycode == UP_KEY && main->keys.dow != 1)
 		main->keys.up = 1;
+	if (keycode == 8)
+		main->cealing = 1;
+	if (keycode == 9)
+		main->cealing = 0;
 	return (0);
 }
 

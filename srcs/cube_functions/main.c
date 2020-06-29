@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/29 14:34:21 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/29 14:34:54 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,6 @@ void			ft_mlx_loop(t_struct_m *main)
 
 void		read_map(t_struct_m *main)
 {
-	if (ft_read_map(main) == 2)
-	{
-		ft_putstr(" not enough information");
-		ft_end_function(main);
-	}
 	if (ft_size_store_map(main) == 1)
 	{
 		ft_putstr("size store error");
@@ -118,6 +113,11 @@ int				main(int argc, char **argv)
 		ft_end_function(main);
 	}
 	set_value(main);
+	if (ft_read_map(main) == 2)
+	{
+		ft_putstr(" not enough information");
+		ft_end_function(main);
+	}
 	read_map(main);
 	ft_mlx_loop(main);
 }
