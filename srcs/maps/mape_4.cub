@@ -1,5 +1,5 @@
-F 220,100,6
-C 225,30,0
+F 0220,0100,06
+C 0225,030,0
 NO srcs/cube_functions/textures/wall_2.xpm
 SO srcs/cube_functions/textures/wall_1.xpm
 WE srcs/cube_functions/textures/wall_4.xpm
