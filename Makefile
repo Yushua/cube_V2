@@ -6,7 +6,7 @@
 #    By: ybakker <ybakker@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/03/05 10:59:00 by ybakker       #+#    #+#                  #
-#    Updated: 2020/06/29 13:20:14 by ybakker       ########   odam.nl          #
+#    Updated: 2020/06/29 15:20:49 by ybakker       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,6 @@ SRC = ./srcs/cube_functions/main.c\
 		./srcs/cube_functions/set_value_texture.c\
 		./srcs/cube_functions/raycasting_texture_input.c\
 		./srcs/cube_functions/input_file_to_image.c\
-		./srcs/cube_functions/floor_casting.c\
 		./srcs/cube_functions/create_bmp.c\
 		./srcs/cube_functions/check_fill.c\
 		./srcs/cube_functions/ft_floodfill_extra.c\
@@ -51,18 +50,18 @@ SRC = ./srcs/cube_functions/main.c\
 OBJ	= $(SRC:.c=.o)
 CFLAGS = -g -Ofast
 LIBFT = srcs/libft
-MLX = srcs/mlx
+MLX = mlx
 .PHONY: all clean fclean re
 all: $(NAME)
 $(NAME): $(OBJ)
 	@make -C $(LIBFT)
 	@make -C $(MLX)
-	@cp srcs/mlx/libmlx.dylib ./libmlx.dylib
+	@cp mlx/libmlx.dylib ./libmlx.dylib
 	@cp srcs/libft/libft.a ./libft.a
-	@$(CC) -L srcs/mlx/ -lmlx -framework OpenGL -framework AppKit  \
+	@$(CC) -L mlx/ -lmlx -framework OpenGL -framework AppKit  \
 	$(OBJ) libft.a -o $(NAME)
 %.o: %.c
-	@gcc $(CFLAGS) -I srcs/mlx -I srcs/libft -c $< -o $@
+	@gcc $(CFLAGS) -I mlx -I srcs/libft -c $< -o $@
 clean:
 	@$(RM) $(OBJ)
 	@$(RM) $(B_OBJ)

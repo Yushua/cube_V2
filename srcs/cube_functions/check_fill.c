@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 11:13:15 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/26 15:57:13 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/29 16:03:39 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ int				check_fill(t_struct_m *main)
 	if (check_fill_right(main) == 1)
 		x = 1;
 	if (check_fill_left(main) == 1)
-		x = 1;	
+		x = 1;
 	if (check_fill_top(main) == 1)
 		x = 1;
 	if (check_fill_bottom(main) == 1)

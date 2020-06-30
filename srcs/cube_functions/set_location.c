@@ -6,11 +6,61 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/26 12:38:13 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/29 16:32:19 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
+
+
+static int		set_location_w(t_struct_m *main, int y, int x, int r)
+{
+	r = 1;
+	main->ray.diry = 0.0;
+	main->ray.dirx = -1;
+	main->ray.planex = 0.0;
+	main->ray.planey = -0.66;
+	return (r);
+}
+
+static int		set_location_n(t_struct_m *main, int y, int x, int r)
+{
+	r = 1;
+	main->ray.diry = -1;
+	main->ray.dirx = 0.0;
+	main->ray.planex = 0.66;
+	main->ray.planey = 0.0;
+	return (r);
+}
+
+static int		set_location_s(t_struct_m *main, int y, int x, int r)
+{
+	r = 1;
+	main->ray.diry = 1.0;
+	main->ray.dirx = 0.0;
+	main->ray.planex = -0.66;
+	main->ray.planey = 0.0;
+	return (r);
+}
+
+static int		set_location_e(t_struct_m *main, int y, int x, int r)
+{
+	if (main->place.cubemap[y][x] == 'E')
+	{
+		r = 1;
+		main->ray.diry = 0.0;
+		main->ray.dirx = 1.0;
+		main->ray.planex = 0.0;
+		main->ray.planey = 0.66;
+	}
+	else if (main->place.cubemap[y][x] == 'W')
+		r = set_location_w(main, y, x, r);
+	else if (main->place.cubemap[y][x] == 'S')
+		r = set_location_s(main, y, x, r);
+	else if (main->place.cubemap[y][x] == 'N')
+		r = set_location_n(main, y, x, r);
+	return (r);
+}
 
 void		set_location(t_struct_m *main)
 {
@@ -25,38 +75,7 @@ void		set_location(t_struct_m *main)
 	{
 		while (main->place.cubemap[y][x] != '\0' && r != 1)
 		{
-			if (main->place.cubemap[y][x] == 'E')
-			{
-				r = 1;
-				main->ray.diry = 0.0;
-				main->ray.dirx = 1.0;
-				main->ray.planex = 0.0;
-				main->ray.planey = 0.66;
-			}
-			else if (main->place.cubemap[y][x] == 'W')
-			{
-				r = 1;
-				main->ray.diry = 0.0;
-				main->ray.dirx = -1;
-				main->ray.planex = 0.0;
-				main->ray.planey = -0.66;
-			}
-			else if (main->place.cubemap[y][x] == 'S')
-			{
-				r = 1;
-				main->ray.diry = 1.0;
-				main->ray.dirx = 0.0;
-				main->ray.planex = -0.66;
-				main->ray.planey = 0.0;
-			}
-			else if (main->place.cubemap[y][x] == 'N')
-			{
-				r = 1;
-				main->ray.diry = -1;
-				main->ray.dirx = 0.0;
-				main->ray.planex = 0.66;
-				main->ray.planey = 0.0;
-			}
+			r = set_location_e(main, y, x, r);
 			x++;
 		}
 		if (r == 1)

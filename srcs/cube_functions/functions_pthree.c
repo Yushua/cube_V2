@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 18:50:30 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/26 12:15:58 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/29 16:04:06 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int			ft_strlenght(char *s)
 	return (i);
 }
 
-int				ft_check_for_map(char *map, t_struct_m *main)
+int			ft_check_for_map(char *map, t_struct_m *main)
 {
 	int		x;
 
@@ -53,7 +53,7 @@ int				ft_check_for_map(char *map, t_struct_m *main)
 	return (0);
 }
 
-int				ft_get_info(t_struct_m *main, char *map)
+int			ft_get_info(t_struct_m *main, char *map)
 {
 	int		x;
 
@@ -72,7 +72,7 @@ int				ft_get_info(t_struct_m *main, char *map)
 	return (0);
 }
 
-int				ft_clutter(t_struct_m *main, char *map)
+int			ft_clutter(t_struct_m *main, char *map)
 {
 	int		i;
 

@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/15 10:26:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/25 16:52:54 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/29 15:13:57 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void			ft_image(t_struct_m *main)
 		ft_putstr(" error after map print");
 		ft_end_function(main);
 	}
-	ft_floor_casting(main);
+	background(main);
 	ft_raycasting(main);
 	render_next_frame_sprites(main);
 	if (main->place.error_n == 0)

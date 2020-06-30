@@ -6,27 +6,35 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/29 14:34:54 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/29 16:07:06 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-static void		check_value(t_struct_m *main)
+static void		check_screen(t_struct_m *main)
 {
-	if (main->place.ccol1 < 0 || main->place.ccol2 < 0 || main->place.ccol3 < 0)
+	if (main->place.ccol1 < 0 || main->place.ccol2 < 0 || main->place.ccol3 < 0
+	|| main->place.ccol1 > 256 || main->place.ccol2 > 256 ||
+	main->place.ccol3 > 256)
 	{
-		 
 		main->place.error = 51;
 		ft_error(main);
 		ft_end_function(main);
 	}
-	if (main->place.fcol1 < 0 || main->place.fcol2 < 0 || main->place.fcol3 < 0)
+	if (main->place.fcol1 < 0 || main->place.fcol2 < 0 || main->place.fcol3 < 0
+	|| main->place.fcol1 > 256 || main->place.fcol2 > 256 ||
+	main->place.fcol3 > 256)
 	{
 		main->place.error = 52;
 		ft_error(main);
 		ft_end_function(main);
 	}
+}
+
+static void		check_value(t_struct_m *main)
+{
+	check_screen(main);
 	if (main->place.s_height > 1440)
 		main->place.s_height = 1440;
 	if (main->place.s_width > 2560)
@@ -66,7 +74,7 @@ void			ft_mlx_loop(t_struct_m *main)
 	mlx_loop(main->vars.mlx);
 }
 
-void		read_map(t_struct_m *main)
+void			read_map(t_struct_m *main)
 {
 	if (ft_size_store_map(main) == 1)
 	{
@@ -101,13 +109,13 @@ int				main(int argc, char **argv)
 	main = ft_calloc(1, sizeof(t_struct_m));
 	if (argc == 1 || argc >= 4 || argv[1] == NULL)
 		ft_end_function(main);
-	if (ft_strnstr_map(argv[1], ".cub", strlen(argv[1])) != 1)
+	if (ft_strnstr_map(argv[1], ".cub", ft_strlen(argv[1])) != 1)
 		ft_end_function(main);
 	else
 		main->map = ft_strdup(argv[1]);
 	if (argv[2] != NULL)
 	{
-		if (ft_strnstr_map(argv[2], "––save", strlen(argv[2])) == 1)
+		if (ft_strncmp_map(argv[2], "--save", ft_strlen(argv[2])) == 1)
 			start_bmp(main);
 		ft_putstr("--save incorrectly written");
 		ft_end_function(main);

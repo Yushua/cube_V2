@@ -6,17 +6,17 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/05/11 11:58:54 by anonymous     ########   odam.nl         */
+/*   Updated: 2020/06/29 16:00:14 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-#define BUFFER_SIZE 10000
+# define BUFFER_SIZE 10000
 # include <stdlib.h>
-#include <unistd.h>
-#include <fcntl.h>
+# include <unistd.h>
+# include <fcntl.h>
 
 typedef struct	s_gnl
 {

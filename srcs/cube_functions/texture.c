@@ -6,13 +6,13 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/29 14:47:32 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/29 15:59:26 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-void			my_mlx_pixel_put(t_struct_m *main, int x, int y, int color)
+void				my_mlx_pixel_put(t_struct_m *main, int x, int y, int color)
 {
 	char	*dst;
 
@@ -21,7 +21,7 @@ void			my_mlx_pixel_put(t_struct_m *main, int x, int y, int color)
 	*(unsigned int*)dst = color;
 }
 
-static void				background_floor(t_struct_m *main)
+static void			background_floor(t_struct_m *main)
 {
 	int		x;
 	int		y;
@@ -45,7 +45,7 @@ static void				background_floor(t_struct_m *main)
 	}
 }
 
-static void				background_cealing(t_struct_m *main)
+static void			background_cealing(t_struct_m *main)
 {
 	int		x;
 	int		y;
@@ -69,7 +69,7 @@ static void				background_cealing(t_struct_m *main)
 	}
 }
 
-int				background(t_struct_m *main)
+int					background(t_struct_m *main)
 {
 	int		x;
 	int		y;
@@ -78,12 +78,7 @@ int				background(t_struct_m *main)
 
 	x = 0;
 	y = 0;
-	if (main->cealing == 1)
-		ft_floor_casting(main);
-	else
-	{
-		background_floor(main);
-		background_cealing(main);
-	}
+	background_floor(main);
+	background_cealing(main);
 	return (0);
 }

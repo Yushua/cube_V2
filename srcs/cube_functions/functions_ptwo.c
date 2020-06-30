@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 18:42:02 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/29 12:49:06 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/29 16:04:31 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void			bubble_sort(t_struct_m *main)
 	}
 }
 
-int		ft_atoi_cube(char *str, t_struct_m *main, int i)
+int				ft_atoi_cube(char *str, t_struct_m *main, int i)
 {
 	int		res;
 	int		sign;

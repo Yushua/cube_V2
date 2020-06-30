@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 15:08:39 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/29 12:15:38 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/29 16:07:53 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int		ft_read_s_read(t_struct_m *main, char *map, int i, int r)
 	return (i);
 }
 
-int			ft_read_s(t_struct_m *main, char *map)
+int				ft_read_s(t_struct_m *main, char *map)
 {
 	int		i;
 	int		r;

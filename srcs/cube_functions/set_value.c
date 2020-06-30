@@ -6,20 +6,14 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 13:26:52 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/26 12:46:27 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/29 16:13:41 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-void		set_value(t_struct_m *main)
+static void		set_value_one(t_struct_m *main)
 {
-	main->place.crouch = 0;
-	main->place.x = 100;
-	main->place.y = 100;
-	main->place.w = 100;
-	main->place.h = 100;
-	main->place.col = 0xFFFF0000;
 	main->place.s_width = -1;
 	main->place.s_height = -1;
 	main->place.dir = -1;
@@ -37,7 +31,6 @@ void		set_value(t_struct_m *main)
 	main->place.y = 100;
 	main->place.w = 100;
 	main->place.h = 100;
-	main->place.col = 0xFFFF0000;
 	main->place.s_width = 1200;
 	main->place.s_height = 800;
 	main->doublle.d_r = 0;
@@ -46,6 +39,11 @@ void		set_value(t_struct_m *main)
 	main->doublle.d_we = 0;
 	main->doublle.d_ea = 0;
 	main->doublle.d_s = 0;
+}
+
+void		set_value(t_struct_m *main)
+{
+	set_value_one(main);
 	main->doublle.d_f = 0;
 	main->doublle.d_c = 0;
 	main->place.no = NULL;

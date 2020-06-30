@@ -6,33 +6,33 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 18:37:30 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/29 14:46:59 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/29 16:00:45 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUBE_H
 # define CUBE_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <sys/types.h>
-#include <string.h>
-#include "../mlx/mlx.h"
-#include "../get_next_line/get_next_line.h"
-#include "../libft/libft.h"
+# include <stdio.h>
+# include <stdlib.h>
+# include <math.h>
+# include <sys/stat.h>
+# include <fcntl.h>
+# include <sys/types.h>
+# include <string.h>
+# include "../mlx/mlx.h"
+# include "../get_next_line/get_next_line.h"
+# include "../libft/libft.h"
 
-#define ESC 53
-#define W_KEY 13
-#define S_KEY 1
-#define A_KEY 0
-#define D_KEY 2
-#define UP_KEY 126
-#define DOW_KEY 125
-#define LEF_KEY 123
-#define RIG_KEY 124
+# define ESC 53
+# define W_KEY 13
+# define S_KEY 1
+# define A_KEY 0
+# define D_KEY 2
+# define UP_KEY 126
+# define DOW_KEY 125
+# define LEF_KEY 123
+# define RIG_KEY 124
 
 typedef struct	s_data {
 	void		*img;
@@ -180,6 +180,8 @@ typedef struct	s_sprites {
 
 	double		x;
 	double		y;
+	int			texy;
+	int			texx;
 
 }				t_sprites;
 
@@ -309,7 +311,6 @@ void			space_cubemap(t_struct_m *main);
 
 int				render_next_frame(t_struct_m *main);
 int				ft_raycasting(t_struct_m *main);
-int				ft_floor_casting(t_struct_m *main);
 int				wasd_2(t_struct_m *main);
 int				ft_push_key(int keycode, t_struct_m *main);
 int				ft_release_key(int keycode, t_struct_m *main);
@@ -324,8 +325,7 @@ void			verline_texture(int x, t_struct_m *main);
 void			set_value_texture(t_struct_m *main);
 void			verline_structure(t_struct_m *main);
 
-int				render_next_frame_sprites(t_struct_m *main);
-int				render_next_frame_sprites_copy(t_struct_m *main);
+void			render_next_frame_sprites(t_struct_m *main);
 void			swap(t_struct_m *main, int j);
 void			bubble_sort(t_struct_m *main);
 void			ft_bmp(t_struct_m *main);
@@ -334,5 +334,6 @@ void			ft_end_function(t_struct_m *main);
 int				ft_check_empty_line(t_struct_m *main, int x, int y);
 int				ft_map_line_get_x(char *map);
 void			ft_fill_empty_string(t_struct_m *main, int y);
+int				ft_strncmp_map(char *s1, char *s2, int n);
 
 #endif

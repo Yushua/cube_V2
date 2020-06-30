@@ -6,13 +6,13 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 15:08:39 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/29 11:43:08 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/29 16:07:43 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cube.h"
 
-static	int		ft_read_c_n(t_struct_m *main, char *map, int i)
+static	int			ft_read_c_n(t_struct_m *main, char *map, int i)
 {
 	i = ft_isalnummer(i, map);
 	if (i < 0)
@@ -24,7 +24,7 @@ static	int		ft_read_c_n(t_struct_m *main, char *map, int i)
 	return (i);
 }
 
-static	int		ft_read_c_input(t_struct_m *main, char *map, int i, int r)
+static	int			ft_read_c_input(t_struct_m *main, char *map, int i, int r)
 {
 	if (r == 0)
 	{
@@ -50,7 +50,7 @@ static	int		ft_read_c_input(t_struct_m *main, char *map, int i, int r)
 	return (i);
 }
 
-static	int	ft_read_c_readd(t_struct_m *main, char *map, int i, int r)
+static	int			ft_read_c_readd(t_struct_m *main, char *map, int i, int r)
 {
 	if (map[i] >= '0' && map[i] <= '9')
 	{
@@ -79,7 +79,7 @@ static	int	ft_read_c_readd(t_struct_m *main, char *map, int i, int r)
 	return (i);
 }
 
-static	int	ft_read_c_read(t_struct_m *main, char *map, int i, int r)
+static	int			ft_read_c_read(t_struct_m *main, char *map, int i, int r)
 {
 	while (map[i] == ' ')
 		i++;
@@ -102,7 +102,7 @@ static	int	ft_read_c_read(t_struct_m *main, char *map, int i, int r)
 	return (i);
 }
 
-int			ft_read_c(t_struct_m *main, char *map)
+int					ft_read_c(t_struct_m *main, char *map)
 {
 	int		i;
 	int		r;

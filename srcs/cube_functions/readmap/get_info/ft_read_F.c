@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 15:08:39 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/29 11:54:01 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/29 16:08:01 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static	int		ft_read_f_input(t_struct_m *main, char *map, int i, int r)
 	return (i);
 }
 
-static	int	ft_read_f_readd(t_struct_m *main, char *map, int i, int r)
+static	int		ft_read_f_readd(t_struct_m *main, char *map, int i, int r)
 {
 	if (map[i] >= '0' && map[i] <= '9')
 	{

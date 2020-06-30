@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 14:09:41 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/29 14:18:11 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/29 15:29:02 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 
 void			check_map_symbol(t_struct_m *main, char *map)
 {
-	if (ft_strnstr_map(map, "R ", strlen(map)) == 1)
+	if (ft_strnstr_map(map, "R ", ft_strlen(map)) == 1)
 		ft_read_r(main, map);
-	else if (ft_strnstr_map(map, "SO ", strlen(map)) == 1)
+	else if (ft_strnstr_map(map, "SO ", ft_strlen(map)) == 1)
 		ft_read_so(main, map);
-	else if (ft_strnstr_map(map, "S ", strlen(map)) == 1)
+	else if (ft_strnstr_map(map, "S ", ft_strlen(map)) == 1)
 		ft_read_s(main, map);
-	else if (ft_strnstr_map(map, "NO ", strlen(map)) == 1)
+	else if (ft_strnstr_map(map, "NO ", ft_strlen(map)) == 1)
 		ft_read_no(main, map);
-	else if (ft_strnstr_map(map, "EA ", strlen(map)) == 1)
+	else if (ft_strnstr_map(map, "EA ", ft_strlen(map)) == 1)
 		ft_read_ea(main, map);
-	else if (ft_strnstr_map(map, "WE ", strlen(map)) == 1)
+	else if (ft_strnstr_map(map, "WE ", ft_strlen(map)) == 1)
 		ft_read_we(main, map);
-	else if (ft_strnstr_map(map, "F ", strlen(map)) == 1)
+	else if (ft_strnstr_map(map, "F ", ft_strlen(map)) == 1)
 		ft_read_f(main, map);
-	else if (ft_strnstr_map(map, "C ", strlen(map)) == 1)
+	else if (ft_strnstr_map(map, "C ", ft_strlen(map)) == 1)
 		ft_read_c(main, map);
 	else if (map[0] == '\0')
 		map = map;

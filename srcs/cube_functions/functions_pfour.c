@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 18:50:30 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/29 14:13:39 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/29 16:03:51 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,16 @@ void			ft_fill_empty_string(t_struct_m *main, int y)
 	}
 	main->place.cubemap[y][main->ray.xx] = '\0';
 	main->cubecopy[y][main->ray.xx] = '\0';
+}
+
+int				ft_strncmp_map(char *s1, char *s2, int n)
+{
+	int i;
+
+	i = ft_strlen(s2);
+	if (!n || i != n)
+		return (0);
+	while (s1[i] == s2[i] && s1[i] && s2[i] && i < n - 1)
+		i++;
+	return (1);
 }
