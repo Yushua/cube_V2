@@ -6,12 +6,11 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/29 16:32:19 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/30 15:23:25 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
-
 
 static int		set_location_w(t_struct_m *main, int y, int x, int r)
 {
@@ -62,7 +61,7 @@ static int		set_location_e(t_struct_m *main, int y, int x, int r)
 	return (r);
 }
 
-void		set_location(t_struct_m *main)
+void			set_location(t_struct_m *main)
 {
 	int		r;
 	int		y;

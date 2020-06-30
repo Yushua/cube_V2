@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 13:26:52 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/29 16:13:41 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/06/30 15:22:38 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static void		set_value_one(t_struct_m *main)
 	main->doublle.d_s = 0;
 }
 
-void		set_value(t_struct_m *main)
+void			set_value(t_struct_m *main)
 {
 	set_value_one(main);
 	main->doublle.d_f = 0;
