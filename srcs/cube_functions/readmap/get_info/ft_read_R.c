@@ -6,31 +6,11 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 15:08:39 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/07/01 12:20:03 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/01 12:39:28 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cube.h"
-
-static int			error_r(t_struct_m *main, char *map, int i, int y)
-{
-	if (y == 1)
-	{
-		if (map[i] != 'R')
-		{
-			main->place.error = 3;
-			ft_error(main);
-			return (2);
-		}
-	}
-	if (y == 2)
-	{
-		main->place.error = 3;
-		ft_error(main);
-		return (2);
-	}
-	return (0);
-}
 
 static	int			ft_read_r_n(t_struct_m *main, char *map, int i)
 {
@@ -63,19 +43,13 @@ static	int			ft_read_r_readd(t_struct_m *main, char *map, int i, int r)
 	{
 		main->place.error = 28;
 		ft_error(main);
-		return (2);
+		return (-2);
 	}
-	return (0);
+	return (i);
 }
 
-static int			ft_read_r_read(t_struct_m *main, char *map, int i, int r)
+static int			ft_read_r_while(t_struct_m *main, char *map, int i, int r)
 {
-	while (map[i] == ' ')
-		i++;
-	if (error_r(main, map, i, 1) == 2)
-		return (2);
-	while (map[i] == ' ')
-		i++;
 	while (map[i])
 	{
 		while (map[i] == ' ')
@@ -85,15 +59,36 @@ static int			ft_read_r_read(t_struct_m *main, char *map, int i, int r)
 			i = ft_read_r_n(main, map, i);
 			if (i == -2)
 				return (2);
-			else if (ft_read_r_readd(main, map, i, r) == 2)
-				return (2);
+			else
+			{
+				i = ft_read_r_readd(main, map, i, r);
+				if (i == -2)
+					return (2);
+			}
 			r++;
 		}
 		else
 			return (error_r(main, map, i, 2));
 	}
+	return (r);
+}
+
+static int			ft_read_r_read(t_struct_m *main, char *map, int i, int r)
+{
+	while (map[i] == ' ')
+		i++;
+	if (error_r(main, map, i, 1) == 2)
+		return (2);
+	else
+		i++;
+	while (map[i] == ' ')
+		i++;
+	r = ft_read_r_while(main, map, i, r);
+	if (r == -2)
+		return (2);
 	if (r == 1)
 		return (0);
+	return (2);
 }
 
 int					ft_read_r(t_struct_m *main, char *map)
@@ -109,7 +104,7 @@ int					ft_read_r(t_struct_m *main, char *map)
 		ft_error(main);
 	}
 	else if (ft_read_r_read(main, map, i, r) == 2)
-			return (0);
+		return (0);
 	if (main->doublle.d_r != 1)
 	{
 		main->place.error = 3;

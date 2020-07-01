@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 18:50:30 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/29 16:03:51 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/01 12:37:29 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,15 @@ int				ft_strncmp_map(char *s1, char *s2, int n)
 	while (s1[i] == s2[i] && s1[i] && s2[i] && i < n - 1)
 		i++;
 	return (1);
+}
+
+int			error_r(t_struct_m *main, char *map, int i, int y)
+{
+	if (y == 2)
+	{
+		main->place.error = 3;
+		ft_error(main);
+		return (-2);
+	}
+	return (0);
 }
