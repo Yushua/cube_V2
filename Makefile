@@ -6,7 +6,7 @@
 #    By: ybakker <ybakker@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/03/05 10:59:00 by ybakker       #+#    #+#                  #
-#    Updated: 2020/07/01 13:49:48 by ybakker       ########   odam.nl          #
+#    Updated: 2020/07/01 14:08:29 by ybakker       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,5 +75,6 @@ fclean: clean
 	@$(RM) $(NAME)
 	@$(RM) libmlx.dylib
 	@$(RM) libft.a
+	@$(RM) screen.bmp
 	@make fclean -C $(LIBFT)
 re: fclean all

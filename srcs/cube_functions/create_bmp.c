@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/15 10:26:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/29 15:13:57 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/01 14:34:26 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,12 @@ void				ft_bmp(t_struct_m *main)
 
 void				start_bmp(t_struct_m *main)
 {
+	set_value(main);
+	if (ft_read_map(main) == 2)
+	{
+		ft_putstr(" not enough information");
+		ft_end_function(main);
+	}
 	read_map(main);
 	main->vars.mlx = mlx_init();
 	ft_bmp(main);
