@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/18 15:45:22 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/26 15:37:19 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/01 12:02:58 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void			wasd_s_d(t_struct_m *main, double movesp, double rotsp)
 	}
 }
 
-void			wasd_a(t_struct_m *main, double movesp, double rotsp)
+void			wasd_a(t_struct_m *main, double rotsp)
 {
 	double olddirx;
 	double oldplanex;
@@ -59,7 +59,7 @@ void			wasd_a(t_struct_m *main, double movesp, double rotsp)
 	}
 }
 
-void			wasd_r_l(t_struct_m *main, double movesp, double rotsp)
+void			wasd_r_l(t_struct_m *main, double movesp)
 {
 	if (main->keys.rig)
 	{
@@ -87,7 +87,7 @@ void			ft_end_function(t_struct_m *main)
 	exit(0);
 }
 
-int				ft_close(int keycode, t_struct_m *main)
+int				ft_close(void)
 {
 	exit(0);
 	return (0);

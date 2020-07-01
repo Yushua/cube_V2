@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/26 15:05:44 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/29 11:57:47 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/01 12:01:45 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 static void			if_x(int x, int y, t_struct_m *main)
 {
+	int yy;
+
+	yy = y;
 	if (y < 0 || x < 0 || y == main->ray.yy || x >= main->ray.xx)
-		y = y;
+		yy = y;
 	else if (main->cubecopy[y][x] == '0' || main->cubecopy[y][x] == '2')
 		main->cubecopy[y][x] = 'X';
 }

@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 13:26:33 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/29 16:04:59 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/01 12:03:15 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int				wasd_2(t_struct_m *main)
 			main->ray.posy += main->ray.diry * movesp;
 	}
 	wasd_s_d(main, movesp, rotsp);
-	wasd_a(main, movesp, rotsp);
-	wasd_r_l(main, movesp, rotsp);
+	wasd_a(main, rotsp);
+	wasd_r_l(main, movesp);
 	return (0);
 }

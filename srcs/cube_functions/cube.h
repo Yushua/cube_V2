@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 18:37:30 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/07/01 11:57:10 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/01 12:03:25 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -271,8 +271,8 @@ void			set_value_texture_s(t_struct_m *main, int fd);
 void			set_value_texture_ea(t_struct_m *main, int fd);
 
 void			wasd_s_d(t_struct_m *main, double movesp, double rotsp);
-void			wasd_a(t_struct_m *main, double movesp, double rotsp);
-void			wasd_r_l(t_struct_m *main, double movesp, double rotsp);
+void			wasd_a(t_struct_m *main, double rotsp);
+void			wasd_r_l(t_struct_m *main, double movesp);
 void			readmap(t_struct_m *main);
 void			read_string(t_struct_m *main, char *map);
 void			ft_check(t_struct_m *main, char *map);
@@ -314,7 +314,7 @@ int				ft_raycasting(t_struct_m *main);
 int				wasd_2(t_struct_m *main);
 int				ft_push_key(int keycode, t_struct_m *main);
 int				ft_release_key(int keycode, t_struct_m *main);
-int				ft_close(int keycode, t_struct_m *main);
+int				ft_close(void);
 void			verline(int x, int drawstart, int drawend,
 				int col, t_struct_m *main);
 int				create_trgb(int r, int g, int b);
