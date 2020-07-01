@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/29 16:02:55 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/01 11:58:08 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,9 @@ void			render_next_frame_sprites(t_struct_m *main)
 	sprite_order(main, i);
 	bubble_sort(main);
 	i = 0;
+	y = 0;
+	d = 0;
+	colour = 0;
 	while (i < main->numsprites)
 	{
 		render_next_frame_sprites_start(main, i);

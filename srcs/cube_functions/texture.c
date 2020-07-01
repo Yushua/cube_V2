@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/29 15:59:26 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/01 11:56:45 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,13 +71,6 @@ static void			background_cealing(t_struct_m *main)
 
 int					background(t_struct_m *main)
 {
-	int		x;
-	int		y;
-	int		m;
-	int		colour;
-
-	x = 0;
-	y = 0;
 	background_floor(main);
 	background_cealing(main);
 	return (0);

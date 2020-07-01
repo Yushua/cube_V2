@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 14:08:37 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/29 13:23:38 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/01 11:57:23 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int		ft_size_store_map_readd(t_struct_m *main, char *map)
 {
 	if (map[0] == '\0')
 		main->ray.eh++;
-	else if (ft_check_for_map(map, main) == 1 && main->ray.eh > 0)
+	else if (ft_check_for_map(map) == 1 && main->ray.eh > 0)
 	{
 		main->place.error = 47;
 		ft_error(main);

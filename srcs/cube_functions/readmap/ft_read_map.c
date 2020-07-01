@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 14:09:41 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/29 15:29:02 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/01 11:57:19 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ static int		ft_read_mapp(t_struct_m *main, char *map, int count, int fd)
 		}
 		if (ft_clutter(main, map) == 2)
 			count = count;
-		if (ft_check_for_map(map, main) == 1)
+		if (ft_check_for_map(map) == 1)
 			main->ii = 1;
 		if (main->ii != 1)
 		{

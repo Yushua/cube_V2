@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 18:37:30 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/29 16:00:45 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/01 11:57:10 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -250,7 +250,7 @@ int				ft_read_map_where(t_struct_m *main, char *map);
 int				ft_get_info(t_struct_m *main, char *map);
 int				ft_strnstr_map(const char *haystack, const char *needle,
 size_t len);
-int				ft_check_for_map(char *map, t_struct_m *main);
+int				ft_check_for_map(char *map);
 
 int				ft_read_ea(t_struct_m *main, char *map);
 int				ft_read_c(t_struct_m *main, char *map);

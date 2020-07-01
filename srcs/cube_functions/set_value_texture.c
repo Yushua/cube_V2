@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/18 14:47:45 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/25 16:40:51 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/01 11:58:25 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void				set_value_texture(t_struct_m *main)
 {
 	int		fd;
 
+	fd = -1;
 	set_value_texture_no(main, fd);
 	set_value_texture_so(main, fd);
 	set_value_texture_we(main, fd);

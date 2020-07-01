@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 18:50:30 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/29 16:04:06 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/01 11:57:01 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int			ft_strlenght(char *s)
 	return (i);
 }
 
-int			ft_check_for_map(char *map, t_struct_m *main)
+int			ft_check_for_map(char *map)
 {
 	int		x;
 
