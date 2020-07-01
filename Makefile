@@ -6,7 +6,7 @@
 #    By: ybakker <ybakker@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/03/05 10:59:00 by ybakker       #+#    #+#                  #
-#    Updated: 2020/07/01 13:30:46 by ybakker       ########   odam.nl          #
+#    Updated: 2020/07/01 13:49:48 by ybakker       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRC = ./srcs/cube_functions/main.c\
 		./srcs/cube_functions/functions_ptwo.c\
 		./srcs/cube_functions/functions_pthree.c\
 		./srcs/cube_functions/functions_pfour.c\
+		./srcs/cube_functions/utills_five.c\
 		./srcs/cube_functions/set_value.c\
 		./srcs/cube_functions/map_check.c\
 		./srcs/cube_functions/raycasting_texture.c\
@@ -48,8 +49,8 @@ SRC = ./srcs/cube_functions/main.c\
 		./srcs/get_next_line/get_next_line.c\
 
 OBJ	= $(SRC:.c=.o)
-CFLAGS = -g -Ofast
-# CFLAGS = -Wall -Wextra -Werror -g -Ofast
+# CFLAGS = -g -Ofast
+CFLAGS = -Wall -Wextra -Werror -g -Ofast
 LIBFT = srcs/libft
 MLX = mlx
 .PHONY: all clean fclean re

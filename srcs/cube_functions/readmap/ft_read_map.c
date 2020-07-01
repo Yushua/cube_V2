@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 14:09:41 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/07/01 13:31:20 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/01 13:48:12 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,8 @@ static int		ft_read_mapp(t_struct_m *main, char *map, int count, int fd)
 		if (main->ii != 1)
 		{
 			main->ray.yyy++;
-			if (ft_check_empty_line_check(map) == 1)
-				count = count;
-			else if (ft_read_map_where(main, map) == 2)
+			if (ft_check_empty_line_check(map) != 1
+			&& ft_read_map_where(main, map) == 2)
 				main->i = 2;
 		}
 		free(map);
@@ -100,13 +99,10 @@ int				ft_read_map(t_struct_m *main)
 	main->ii = 0;
 	count = 1;
 	main->ray.yyy = 0;
+	map = NULL;
 	fd = open(main->map, O_RDONLY);
-	if (fd < 0)
-	{
-		main->place.error = 24;
-		ft_error(main);
+	if (ft_error_map(main, fd) < 0)
 		return (2);
-	}
 	if (ft_read_mapp(main, map, count, fd) == 2)
 		return (2);
 	if (main->doublle.d_r != 1 && main->doublle.d_no != 1 &&

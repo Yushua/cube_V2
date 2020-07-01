@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/29 16:00:14 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/01 13:57:16 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct	s_gnl
 	int			newline;
 }				t_gnl;
 
-char			*ft_substr(char const *s, unsigned int start, size_t len);
+char			*ft_substr(char const *s, int start, size_t len);
 int				ft_strlen(const char *s);
 char			*ft_strdup(const char *s1);
 char			*ft_strjoin(char *s1, char *s2);
