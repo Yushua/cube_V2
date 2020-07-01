@@ -6,7 +6,7 @@
 #    By: ybakker <ybakker@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/03/05 10:59:00 by ybakker       #+#    #+#                  #
-#    Updated: 2020/07/01 11:08:19 by ybakker       ########   odam.nl          #
+#    Updated: 2020/07/01 11:49:39 by ybakker       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ SRC = ./srcs/cube_functions/main.c\
 		./srcs/get_next_line/get_next_line.c\
 
 OBJ	= $(SRC:.c=.o)
-CFLAGS = -Wall -Wextra -Werror -g -Ofast
+CFLAGS = -g -Ofast
 LIBFT = srcs/libft
 MLX = mlx
 .PHONY: all clean fclean re

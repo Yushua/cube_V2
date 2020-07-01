@@ -6,13 +6,13 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/07/01 11:25:29 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/01 11:48:04 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-static int		set_location_w(t_struct_m *mai, int r)
+static int		set_location_w(t_struct_m *main, int r)
 {
 	r = 1;
 	main->ray.diry = 0.0;
@@ -42,7 +42,7 @@ static int		set_location_s(t_struct_m *main, int r)
 	return (r);
 }
 
-static int		set_location_e(t_struct_m *main, int r)
+static int		set_location_e(t_struct_m *main, int y, int x, int r)
 {
 	if (main->place.cubemap[y][x] == 'E')
 	{
