@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 15:08:39 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/07/01 12:39:28 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/01 13:24:56 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static int			ft_read_r_while(t_struct_m *main, char *map, int i, int r)
 			r++;
 		}
 		else
-			return (error_r(main, map, i, 2));
+			return (error_r(main, 2));
 	}
 	return (r);
 }
@@ -77,7 +77,7 @@ static int			ft_read_r_read(t_struct_m *main, char *map, int i, int r)
 {
 	while (map[i] == ' ')
 		i++;
-	if (error_r(main, map, i, 1) == 2)
+	if (error_r(main, 1) == 2)
 		return (2);
 	else
 		i++;

@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 14:08:37 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/07/01 11:57:23 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/01 13:25:34 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ int				ft_size_store_map(t_struct_m *main)
 	char	*map;
 
 	main->ray.eh = 0;
+	map = NULL;
 	fd = open(main->map, O_RDONLY);
 	if (fd < 0)
 	{

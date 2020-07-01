@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/05 11:49:54 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/29 14:13:32 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/01 13:25:14 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ static int			ft_print_map(t_struct_m *main)
 	char	*map;
 
 	count = 1;
+	map = NULL;
 	fd = open(main->map, O_RDONLY);
 	if (fd < 0)
 	{

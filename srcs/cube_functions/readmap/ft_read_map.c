@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 14:09:41 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/07/01 11:57:19 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/01 13:31:20 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void			check_map_symbol(t_struct_m *main, char *map)
 	else if (ft_strnstr_map(map, "C ", ft_strlen(map)) == 1)
 		ft_read_c(main, map);
 	else if (map[0] == '\0')
-		map = map;
+		map[0] = '\0';
 	else
 	{
 		main->place.error = 49;
@@ -39,7 +39,7 @@ void			check_map_symbol(t_struct_m *main, char *map)
 	}
 }
 
-static int		ft_check_empty_line_check(t_struct_m *main, char *map)
+static int		ft_check_empty_line_check(char *map)
 {
 	int		i;
 
@@ -74,13 +74,13 @@ static int		ft_read_mapp(t_struct_m *main, char *map, int count, int fd)
 			return (2);
 		}
 		if (ft_clutter(main, map) == 2)
-			count = count;
+			;
 		if (ft_check_for_map(map) == 1)
 			main->ii = 1;
 		if (main->ii != 1)
 		{
 			main->ray.yyy++;
-			if (ft_check_empty_line_check(main, map) == 1)
+			if (ft_check_empty_line_check(map) == 1)
 				count = count;
 			else if (ft_read_map_where(main, map) == 2)
 				main->i = 2;
