@@ -1,15 +1,15 @@
 F 0220,0100,06
-C 0225,030,0
+C 0220,0100,06
 NO srcs/cube_functions/textures/wall_2.xpm
 SO srcs/cube_functions/textures/wall_1.xpm
 WE srcs/cube_functions/textures/wall_4.xpm
 EA srcs/cube_functions/textures/wall_3.xpm
 S srcs/cube_functions/textures/sprite_1.xpm
-R 16384 100
+R 3000 3000
 
 11111111111111
 10000000000001
-10000000000001
+11110000000001
 10000222222201
 10000000000001
 10000000000001

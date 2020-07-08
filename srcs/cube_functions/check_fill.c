@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 11:13:15 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/29 16:03:39 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/08 11:26:02 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,11 @@ static int		check_fill_right(t_struct_m *main)
 	int	x;
 	int	y;
 
-	y = main->ray.yy;
+	y = 0;
+	x = 0;
+	x = (ft_strlen(main->cubecopy[y]) - 1);
 	while (y < main->ray.yy)
 	{
-		x = ft_strlen(main->cubecopy[y]);
 		if (main->cubecopy[y][x] == 'X')
 		{
 			main->place.error = 17;

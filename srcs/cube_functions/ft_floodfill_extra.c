@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/26 15:05:44 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/07/01 12:01:45 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/08 11:26:32 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void				ft_floodfill_extra(t_struct_m *main)
 	x = 0;
 	while (y < main->ray.yy)
 	{
-		while (main->cubecopy[y][x] != '\0')
+		while (main->cubecopy[y][x])
 		{
 			if (main->cubecopy[y][x] == 'X')
 				ft_place_x(main, x, y);
