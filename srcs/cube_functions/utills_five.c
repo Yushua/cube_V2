@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 18:50:30 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/07/08 10:29:26 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/08 11:49:39 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,6 @@ void		read_map_bmp(t_struct_m *main)
 	if (check_fill(main) == 1)
 	{
 		ft_putstr("error in check_fill");
-		ft_end_function(main);
-	}
-	if (ft_check_empty_line(main, 0, 0) == 1)
-	{
-		ft_putstr("error in empty_line");
 		ft_end_function(main);
 	}
 	printmap(main);

@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/24 12:34:03 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/26 12:15:12 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/08 11:45:53 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int			ft_check_empty_line(t_struct_m *main, int x, int y)
 		{
 			while (y < yy && main->cubecopy[y][x] == ' ')
 				y++;
-			if (main->cubecopy[y][x] == ' ')
+			if (main->cubecopy[y][x] == '\0')
 				return (1);
 		}
 		y = 0;
@@ -32,3 +32,5 @@ int			ft_check_empty_line(t_struct_m *main, int x, int y)
 	}
 	return (0);
 }
+
+//check every line, if a line after while " " end with null, then its a empty line

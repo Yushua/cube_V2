@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/07/08 11:14:23 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/08 11:51:45 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,11 +95,6 @@ void			read_map(t_struct_m *main)
 		ft_putstr("error in check_fill");
 		ft_end_function(main);
 	}
-	if (ft_check_empty_line(main, 0, 0) == 1)
-	{
-		ft_putstr("error in empty_line");
-		ft_end_function(main);
-	}
 	printmap(main);
 	if (main->place.error_n == 0)
 	{
@@ -108,25 +103,24 @@ void			read_map(t_struct_m *main)
 	}
 }
 
-int				main(void)
+int				main(int argc, char **argv)
 {
 	t_struct_m *main;
 
 	main = ft_calloc(1, sizeof(t_struct_m));
-	main->map = ft_strdup("./srcs/maps/mape_4.cub");
-	// if (argc == 1 || argc >= 4 || argv[1] == NULL)
-	// 	ft_end_function(main);
-	// if (ft_strnstr_map(argv[1], ".cub", ft_strlen(argv[1])) != 1)
-	// 	ft_end_function(main);
-	// else
-	// 	main->map = ft_strdup(argv[1]);
-	// if (argv[2] != NULL)
-	// {
-	// 	if (ft_strncmp_map(argv[2], "--save", ft_strlen(argv[2])) == 1)
-	// 		start_bmp(main);
-	// 	ft_putstr("--save incorrectly written");
-	// 	ft_end_function(main);
-	// }
+	if (argc == 1 || argc >= 4 || argv[1] == NULL)
+		ft_end_function(main);
+	if (ft_strnstr_map(argv[1], ".cub", ft_strlen(argv[1])) != 1)
+		ft_end_function(main);
+	else
+		main->map = ft_strdup(argv[1]);
+	if (argv[2] != NULL)
+	{
+		if (ft_strncmp_map(argv[2], "--save", ft_strlen(argv[2])) == 1)
+			start_bmp(main);
+		ft_putstr("--save incorrectly written");
+		ft_end_function(main);
+	}
 	set_value(main);
 	if (ft_read_map(main) == 2)
 	{
