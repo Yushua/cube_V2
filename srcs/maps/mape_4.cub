@@ -1,17 +1,17 @@
-F 0220,0100,06
-C 0220,0100,06
-NO srcs/cube_functions/textures/wall_2.xpm
-SO srcs/cube_functions/textures/wall_1.xpm
-WE srcs/cube_functions/textures/wall_4.xpm
-EA srcs/cube_functions/textures/wall_3.xpm
+R 4000 4000
+SO srcs/cube_functions/textures/barrel.png
 S srcs/cube_functions/textures/sprite_1.xpm
-R 3000 3000
+NO srcs/cube_functions/textures/wall_2.xpm
+F 0220,0100,06
+EA srcs/cube_functions/textures/wall_3.xpm
+WE srcs/cube_functions/textures/wall_4.xpm
+C 0225,030,0
 
-    11111111111111
-    10000000000001
-    11110000000001
-    10000222222201
-111110000000011111    
+11111111111111
+10000000000001
+10000000000001
+10000222222201
+10000000000001
 10000000000001
 100000N0000001
 10000000000001

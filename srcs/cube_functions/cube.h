@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 18:37:30 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/07/08 10:27:42 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/08 12:06:15 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -338,9 +338,12 @@ int				ft_strncmp_map(char *s1, char *s2, int n);
 int				error_r(t_struct_m *main, int y);
 int				ft_error_map(t_struct_m *main, int fd);
 
+int				ft_info_parser_check(t_struct_m *main);
+
 void			check_screen(t_struct_m *main);
 void			check_value(t_struct_m *main);
 void			read_map_bmp(t_struct_m *main);
 void			check_screen_bmp(t_struct_m *main);
+void			read_map_bmp(t_struct_m *main);
 
 #endif

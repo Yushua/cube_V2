@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 14:09:41 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/07/01 13:48:12 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/03 11:54:49 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,11 +105,6 @@ int				ft_read_map(t_struct_m *main)
 		return (2);
 	if (ft_read_mapp(main, map, count, fd) == 2)
 		return (2);
-	if (main->doublle.d_r != 1 && main->doublle.d_no != 1 &&
-			main->doublle.d_so != 1 && main->doublle.d_ea != 1 &&
-			main->doublle.d_s != 1 && main->doublle.d_we != 1 &&
-			main->doublle.d_f != 1 && main->doublle.d_c != 1)
-		main->i = 2;
 	if (main->i == 2)
 		return (2);
 	return (0);
