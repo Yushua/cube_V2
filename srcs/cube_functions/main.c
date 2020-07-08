@@ -6,13 +6,27 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/07/01 14:35:34 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/08 10:17:55 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-static void		check_screen(t_struct_m *main)
+void		check_screen(t_struct_m *main)
+{
+	if (main->place.s_height > 1440)
+		main->place.s_height = 1440;
+	if (main->place.s_width > 2560)
+		main->place.s_width = 2560;
+	if (main->place.s_height <= 0 || main->place.s_width <= 0)
+	{
+		main->place.error = 53;
+		ft_error(main);
+		ft_end_function(main);
+	}
+}
+
+void		check_value(t_struct_m *main)
 {
 	if (main->place.ccol1 < 0 || main->place.ccol2 < 0 || main->place.ccol3 < 0
 	|| main->place.ccol1 > 256 || main->place.ccol2 > 256 ||
@@ -27,21 +41,6 @@ static void		check_screen(t_struct_m *main)
 	main->place.fcol3 > 256)
 	{
 		main->place.error = 52;
-		ft_error(main);
-		ft_end_function(main);
-	}
-}
-
-static void		check_value(t_struct_m *main)
-{
-	check_screen(main);
-	if (main->place.s_height > 1440)
-		main->place.s_height = 1440;
-	if (main->place.s_width > 2560)
-		main->place.s_width = 2560;
-	if (main->place.s_height <= 0 || main->place.s_width <= 0)
-	{
-		main->place.error = 53;
 		ft_error(main);
 		ft_end_function(main);
 	}
@@ -82,6 +81,7 @@ void			read_map(t_struct_m *main)
 		ft_end_function(main);
 	}
 	check_value(main);
+	check_screen(main);
 	set_location(main);
 	spritesnumb(main);
 	if (check_fill(main) == 1)

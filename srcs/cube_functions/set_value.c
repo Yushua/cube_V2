@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 13:26:52 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/06/30 15:22:38 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/08 10:09:39 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ static void		set_value_one(t_struct_m *main)
 	main->place.s_width = -1;
 	main->place.s_height = -1;
 	main->place.dir = -1;
-	main->place.fcol1 = -1;
-	main->place.fcol2 = -1;
-	main->place.fcol3 = -1;
-	main->place.ccol1 = -1;
-	main->place.ccol2 = -1;
-	main->place.ccol3 = -1;
+	main->place.fcol1 = -10;
+	main->place.fcol2 = -10;
+	main->place.fcol3 = -10;
+	main->place.ccol1 = -10;
+	main->place.ccol2 = -10;
+	main->place.ccol3 = -10;
 	main->place.error = -1;
 	main->place.error_c = 0;
 	main->place.error_n = -1;
@@ -31,8 +31,8 @@ static void		set_value_one(t_struct_m *main)
 	main->place.y = 100;
 	main->place.w = 100;
 	main->place.h = 100;
-	main->place.s_width = 1200;
-	main->place.s_height = 800;
+	main->place.s_width = -10;
+	main->place.s_height = -10;
 	main->doublle.d_r = 0;
 	main->doublle.d_no = 0;
 	main->doublle.d_so = 0;
