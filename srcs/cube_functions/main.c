@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/07/08 12:00:09 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/10 14:36:34 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,11 @@ void			read_map(t_struct_m *main)
 	if (check_fill(main) == 1)
 	{
 		ft_putstr("error in check_fill");
+		ft_end_function(main);
+	}
+	if (ft_check_empty_line(main, 0, 0) == 1)
+	{
+		ft_putstr("error in empty_line vertical");
 		ft_end_function(main);
 	}
 	printmap(main);

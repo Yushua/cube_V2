@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 18:50:30 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/07/08 12:01:59 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/10 14:41:56 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,11 @@ void		read_map_bmp(t_struct_m *main)
 		ft_putstr("error in check_fill");
 		ft_end_function(main);
 	}
+	if (ft_check_empty_line(main, 0, 0) == 1)
+	{
+		ft_putstr("error in empty_line vertical");
+		ft_end_function(main);
+	}
 	printmap(main);
 	if (main->place.error_n == 0)
 	{
@@ -50,10 +55,10 @@ void		read_map_bmp(t_struct_m *main)
 
 void		check_screen_bmp(t_struct_m *main)
 {
-	if (main->place.s_height > 16000)
-		main->place.s_height = 16000;
-	if (main->place.s_width > 16000)
-		main->place.s_width = 16000;
+	if (main->place.s_height > 16834)
+		main->place.s_height = 16834;
+	if (main->place.s_width > 16834)
+		main->place.s_width = 16834;
 	if (main->place.s_height <= 0 || main->place.s_width <= 0)
 	{
 		main->place.error = 53;
