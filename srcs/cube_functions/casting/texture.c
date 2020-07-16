@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/07/03 11:43:00 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/12 15:19:35 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ static void			background_cealing(t_struct_m *main)
 	x = 0;
 	y = 0;
 	m = main->place.s_height / 2;
-	colour = create_trgb(main->place.fcol1, main->place.fcol2,
-	main->place.fcol3);
+	colour = create_trgb(main->place.ccol1, main->place.ccol2,
+	main->place.ccol3);
 	while (m < main->place.s_height)
 	{
 		while (x < main->place.s_width)
@@ -71,7 +71,7 @@ static void			background_cealing(t_struct_m *main)
 
 int					background(t_struct_m *main)
 {
-	background_floor(main);
 	background_cealing(main);
+	background_floor(main);
 	return (0);
 }

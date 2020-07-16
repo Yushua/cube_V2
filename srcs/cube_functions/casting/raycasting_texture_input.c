@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/18 13:52:53 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/07/03 11:42:46 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/12 15:13:23 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void			verline_structure(t_struct_m *main)
 	int		i;
 	int		colour;
 
-	colour = 0;
+	colour = -1;
 	h = main->place.s_height / 2;
 	i = 0;
 	if (main->ray.side == 0)

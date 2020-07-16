@@ -6,7 +6,7 @@
 #    By: ybakker <ybakker@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/03/05 10:59:00 by ybakker       #+#    #+#                  #
-#    Updated: 2020/07/03 11:42:15 by ybakker       ########   odam.nl          #
+#    Updated: 2020/07/16 12:51:43 by ybakker       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,6 @@ SRC = ./srcs/cube_functions/main.c\
 		./srcs/cube_functions/settings/set_value.c\
 		./srcs/cube_functions/utills/check_fill.c\
 		./srcs/cube_functions/utills/ft_check_empty_line.c\
-		./srcs/cube_functions/utills/ft_floodfill_extra.c\
 		./srcs/cube_functions/utills/functions_pfour.c\
 		./srcs/cube_functions/utills/functions_pthree.c\
 		./srcs/cube_functions/utills/functions_ptwo.c\

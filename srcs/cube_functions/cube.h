@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 18:37:30 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/07/08 12:06:15 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/16 13:00:11 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -297,7 +297,6 @@ void			spritesnumb(t_struct_m *main);
 void			get_spritenumber(t_struct_m *main, int y, int x);
 int				check_fill(t_struct_m *main);
 void			flood_fill(int x, int y, t_struct_m *main);
-void			ft_floodfill_extra(t_struct_m *main);
 int				if_empty(int x, int y, t_struct_m *main);
 int				ft_check_empty(int x, int y, t_struct_m *main);
 int				ft_atoi_cube(char *str, t_struct_m *main, int i);
@@ -345,5 +344,6 @@ void			check_value(t_struct_m *main);
 void			read_map_bmp(t_struct_m *main);
 void			check_screen_bmp(t_struct_m *main);
 void			read_map_bmp(t_struct_m *main);
+int				ft_strnstr_cub(const char *haystack, const char *needle);
 
 #endif

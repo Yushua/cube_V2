@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 14:08:37 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/07/01 13:25:34 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/11 10:08:51 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,7 @@ int				get_size_map(t_struct_m *main, char *map)
 
 static int		ft_size_store_map_readd(t_struct_m *main, char *map)
 {
-	if (map[0] == '\0')
-		main->ray.eh++;
-	else if (ft_check_for_map(map) == 1 && main->ray.eh > 0)
+	if ((ft_check_for_map(map) == 1 && main->ray.eh > 0) || (map[0] == '\0'))
 	{
 		main->place.error = 47;
 		ft_error(main);
@@ -84,7 +82,11 @@ int				ft_size_store_map(t_struct_m *main)
 	}
 	if (ft_size_store_map_read(main, map, fd, 1) == -2)
 		return (1);
-	main->ray.yy = main->ray.yy - main->ray.eh;
+	if (main->ray.yy <= 0 || main->place.mapp <= 0)
+	{
+		ft_putstr("no map or no position");
+		return (1);
+	}
 	space_cubemap(main);
 	return (0);
 }

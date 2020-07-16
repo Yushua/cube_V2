@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 18:42:02 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/07/03 11:44:07 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/11 10:47:57 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,13 +103,22 @@ int				ft_atoi_cube(char *str, t_struct_m *main, int i)
 {
 	int		res;
 	int		sign;
+	int		max;
 
+	max = 2147483647;
 	res = 0;
 	sign = 1;
 	while (str[i] == '0')
 		i++;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
+		if (res > (max / 10))
+		{
+			while (str[i] >= '0' && str[i] <= '9')
+				i++;
+			main->place.i = i;
+			return (2147483647);
+		}
 		res = res * 10 + (str[i] - '0');
 		i++;
 	}

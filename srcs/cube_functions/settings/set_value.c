@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 13:26:52 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/07/03 11:43:38 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/11 10:47:28 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ static void		set_value_one(t_struct_m *main)
 	main->place.y = 100;
 	main->place.w = 100;
 	main->place.h = 100;
-	main->place.s_width = 1200;
-	main->place.s_height = 800;
 	main->doublle.d_r = 0;
 	main->doublle.d_no = 0;
 	main->doublle.d_so = 0;

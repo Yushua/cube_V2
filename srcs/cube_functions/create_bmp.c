@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/15 10:26:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/07/08 12:04:34 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/11 09:54:53 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,10 @@ void				ft_bmp(t_struct_m *main)
 		ft_putstr("screenshot fd is incorrect");
 		close(fd);
 	}
+	printf("h == [%d] w == [%d]\n", main->place.s_height, main->place.s_width);
 	ft_image(main);
 	ft_bmp_draw_screenshot(main, fd);
+	printf("h == [%d] w == [%d]\n", main->place.s_height, main->place.s_width);
 	close(fd);
 }
 

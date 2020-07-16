@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 15:08:39 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/07/01 13:24:56 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/11 11:00:12 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,18 @@ static	int			ft_read_r_readd(t_struct_m *main, char *map, int i, int r)
 {
 	if (r == 0)
 	{
-		main->place.s_height = ft_atoi_cube(map, main, i);
-		i = main->place.i;
-		main->place.i = 0;
-	}
-	else if (r == 1)
-	{
 		main->place.s_width = ft_atoi_cube(map, main, i);
+		if (main->place.s_width < 0)
+			main->place.s_width = main->place.s_width - 1;
 		i = main->place.i;
 		main->place.i = 0;
 		main->doublle.d_r = 1;
+	}
+	else if (r == 1)
+	{
+		main->place.s_height = ft_atoi_cube(map, main, i);
+		i = main->place.i;
+		main->place.i = 0;
 	}
 	if (map[i] != '\0' && r == 1)
 	{

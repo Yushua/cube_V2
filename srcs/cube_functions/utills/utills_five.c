@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 18:50:30 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/07/10 14:41:56 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/16 15:22:56 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,6 @@ void		read_map_bmp(t_struct_m *main)
 		ft_putstr("error in check_fill");
 		ft_end_function(main);
 	}
-	if (ft_check_empty_line(main, 0, 0) == 1)
-	{
-		ft_putstr("error in empty_line vertical");
-		ft_end_function(main);
-	}
 	printmap(main);
 	if (main->place.error_n == 0)
 	{
@@ -55,10 +50,57 @@ void		read_map_bmp(t_struct_m *main)
 
 void		check_screen_bmp(t_struct_m *main)
 {
-	if (main->place.s_height > 16834)
-		main->place.s_height = 16834;
-	if (main->place.s_width > 16834)
-		main->place.s_width = 16834;
+	if (main->place.s_height > 16384)
+		main->place.s_height = 16384;
+	if (main->place.s_width > 16384)
+		main->place.s_width = 16384;
+	if (main->place.s_height <= 0 || main->place.s_width <= 0)
+	{
+		main->place.error = 53;
+		ft_error(main);
+		ft_end_function(main);
+	}
+}
+
+int			ft_strnstr_cub(const char *haystack, const char *needle)
+{
+	size_t	i;
+	size_t	j;
+
+	if (!(*needle))
+		return (0);
+	i = 0;
+	i = ft_strlen(haystack);
+	i = i - 4;
+	j = 0;
+	while (j <= 4)
+	{
+		if (haystack[i] == needle[j])
+		{
+			i++;
+			j++;
+		}
+		else
+		{
+			ft_putstr("must have .cub at the end");
+			return (1);
+		}
+	}
+	return (0);
+}
+
+void		check_screen(t_struct_m *main)
+{
+	int		x;
+	int		y;
+
+	x = 0;
+	y = 0;
+	mlx_get_screen_size(main->vars.mlx, &x, &y);
+	if (main->place.s_width > x)
+		main->place.s_width = x;
+	if (main->place.s_height > y)
+		main->place.s_height = y;
 	if (main->place.s_height <= 0 || main->place.s_width <= 0)
 	{
 		main->place.error = 53;

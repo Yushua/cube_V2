@@ -6,45 +6,25 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/07/10 14:36:34 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/16 15:28:44 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-void			check_screen(t_struct_m *main)
-{
-	int		x;
-	int		y;
-
-	x = 0;
-	y = 0;
-	mlx_get_screen_size(main->vars.mlx, &x, &y);
-	if (main->place.s_width > x)
-		main->place.s_width = x;
-	if (main->place.s_height > y)
-		main->place.s_height = y;
-	if (main->place.s_height <= 0 || main->place.s_width <= 0)
-	{
-		main->place.error = 53;
-		ft_error(main);
-		ft_end_function(main);
-	}
-}
-
 void			check_value(t_struct_m *main)
 {
 	if (main->place.ccol1 < 0 || main->place.ccol2 < 0 || main->place.ccol3 < 0
-	|| main->place.ccol1 > 256 || main->place.ccol2 > 256 ||
-	main->place.ccol3 > 256)
+	|| main->place.ccol1 > 255 || main->place.ccol2 > 255 ||
+	main->place.ccol3 > 255)
 	{
 		main->place.error = 51;
 		ft_error(main);
 		ft_end_function(main);
 	}
 	if (main->place.fcol1 < 0 || main->place.fcol2 < 0 || main->place.fcol3 < 0
-	|| main->place.fcol1 > 256 || main->place.fcol2 > 256 ||
-	main->place.fcol3 > 256)
+	|| main->place.fcol1 > 255 || main->place.fcol2 > 255 ||
+	main->place.fcol3 > 255)
 	{
 		main->place.error = 52;
 		ft_error(main);
@@ -95,11 +75,6 @@ void			read_map(t_struct_m *main)
 		ft_putstr("error in check_fill");
 		ft_end_function(main);
 	}
-	if (ft_check_empty_line(main, 0, 0) == 1)
-	{
-		ft_putstr("error in empty_line vertical");
-		ft_end_function(main);
-	}
 	printmap(main);
 	if (main->place.error_n == 0)
 	{
@@ -108,15 +83,33 @@ void			read_map(t_struct_m *main)
 	}
 }
 
+static void		start_screen(t_struct_m *main)
+{
+	set_value(main);
+	if (ft_read_map(main) == 2)
+	{
+		ft_putstr(" not enough information");
+		ft_end_function(main);
+	}
+	read_map(main);
+	ft_mlx_loop(main);
+}
+
 int				main(int argc, char **argv)
 {
 	t_struct_m *main;
 
 	main = ft_calloc(1, sizeof(t_struct_m));
-	if (argc == 1 || argc >= 4 || argv[1] == NULL)
+	if (argc == 1 || argc >= 4 || argv[1] == NULL == 1)
+	{
+		ft_putstr("error\nincorrect amount of input");
 		ft_end_function(main);
-	if (ft_strnstr_map(argv[1], ".cub", ft_strlen(argv[1])) != 1)
+	}
+	if (ft_strnstr_cub(argv[1], ".cub") == 1)
+	{
+		ft_putstr("error\n.cub not at the end of the file");
 		ft_end_function(main);
+	}
 	else
 		main->map = ft_strdup(argv[1]);
 	if (argv[2] != NULL)
@@ -126,12 +119,5 @@ int				main(int argc, char **argv)
 		ft_putstr("--save incorrectly written");
 		ft_end_function(main);
 	}
-	set_value(main);
-	if (ft_read_map(main) == 2)
-	{
-		ft_putstr(" not enough information");
-		ft_end_function(main);
-	}
-	read_map(main);
-	ft_mlx_loop(main);
+	start_screen(main);
 }
