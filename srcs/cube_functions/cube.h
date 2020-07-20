@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 18:37:30 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/07/16 13:00:11 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/20 11:35:07 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -333,7 +333,7 @@ void			ft_end_function(t_struct_m *main);
 int				ft_check_empty_line(t_struct_m *main, int x, int y);
 int				ft_map_line_get_x(char *map);
 void			ft_fill_empty_string(t_struct_m *main, int y);
-int				ft_strncmp_map(char *s1, char *s2, int n);
+int				ft_strncmp_map(const char *haystack, const char *needle);
 int				error_r(t_struct_m *main, int y);
 int				ft_error_map(t_struct_m *main, int fd);
 

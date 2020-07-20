@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 18:50:30 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/07/16 12:53:20 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/20 11:37:35 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,16 +53,28 @@ void			ft_fill_empty_string(t_struct_m *main, int y)
 	main->cubecopy[y][main->ray.xx] = '\0';
 }
 
-int				ft_strncmp_map(char *s1, char *s2, int n)
+int				ft_strncmp_map(const char *haystack, const char *needle)
 {
-	int i;
+	size_t	i;
+	size_t	j;
 
-	i = ft_strlen(s2);
-	if (!n || i != n)
+	if (!(*needle))
 		return (0);
-	while (s1[i] == s2[i] && s1[i] && s2[i] && i < n - 1)
-		i++;
-	return (1);
+	i = 0;
+	i = ft_strlen(haystack);
+	i = i - 6;
+	j = 0;
+	while (j <= 6)
+	{
+		if (haystack[i] == needle[j])
+		{
+			i++;
+			j++;
+		}
+		else
+			return (1);
+	}
+	return (0);
 }
 
 int				error_r(t_struct_m *main, int y)

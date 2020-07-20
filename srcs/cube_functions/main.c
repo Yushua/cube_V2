@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/07/20 09:51:52 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/20 11:37:01 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ int				main(int argc, char **argv)
 		main->map = ft_strdup(argv[1]);
 	if (argv[2] != NULL)
 	{
-		if (ft_strncmp_map(argv[2], "--save", ft_strlen(argv[2])) == 1)
+		if (ft_strncmp_map(argv[2], "--save") == 0)
 			start_bmp(main);
 		ft_putstr("error\n--save incorrectly written");
 		ft_end_function(main);
