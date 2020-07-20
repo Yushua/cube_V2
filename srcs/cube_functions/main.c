@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/09 16:41:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/07/16 15:28:44 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/20 09:51:52 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void			ft_mlx_loop(t_struct_m *main)
 	set_value_texture(main);
 	if (main->place.error_n == 0)
 	{
-		ft_putstr(" error after map print");
+		ft_putstr("error\nerror after map print");
 		ft_end_function(main);
 	}
 	mlx_hook(main->vars.win, 2, 1L << 0, ft_push_key, main);
@@ -63,7 +63,7 @@ void			read_map(t_struct_m *main)
 {
 	if (ft_size_store_map(main) == 1)
 	{
-		ft_putstr("size store error");
+		ft_putstr("error\nsize store error");
 		ft_end_function(main);
 	}
 	check_value(main);
@@ -72,13 +72,13 @@ void			read_map(t_struct_m *main)
 	spritesnumb(main);
 	if (check_fill(main) == 1)
 	{
-		ft_putstr("error in check_fill");
+		ft_putstr("error\nerror in check_fill");
 		ft_end_function(main);
 	}
 	printmap(main);
 	if (main->place.error_n == 0)
 	{
-		ft_putstr(" error after map print");
+		ft_putstr("error\nerror after map print");
 		ft_end_function(main);
 	}
 }
@@ -88,7 +88,7 @@ static void		start_screen(t_struct_m *main)
 	set_value(main);
 	if (ft_read_map(main) == 2)
 	{
-		ft_putstr(" not enough information");
+		ft_putstr("error\nnot enough information");
 		ft_end_function(main);
 	}
 	read_map(main);
@@ -116,7 +116,7 @@ int				main(int argc, char **argv)
 	{
 		if (ft_strncmp_map(argv[2], "--save", ft_strlen(argv[2])) == 1)
 			start_bmp(main);
-		ft_putstr("--save incorrectly written");
+		ft_putstr("error\n--save incorrectly written");
 		ft_end_function(main);
 	}
 	start_screen(main);

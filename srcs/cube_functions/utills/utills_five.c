@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/23 18:50:30 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/07/16 15:22:56 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/20 09:54:16 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void		read_map_bmp(t_struct_m *main)
 {
 	if (ft_size_store_map(main) == 1)
 	{
-		ft_putstr("size store error");
+		ft_putstr("error\nsize store error");
 		ft_end_function(main);
 	}
 	check_value(main);
@@ -37,13 +37,13 @@ void		read_map_bmp(t_struct_m *main)
 	spritesnumb(main);
 	if (check_fill(main) == 1)
 	{
-		ft_putstr("error in check_fill");
+		ft_putstr("error\nerror in check_fill");
 		ft_end_function(main);
 	}
 	printmap(main);
 	if (main->place.error_n == 0)
 	{
-		ft_putstr(" error after map print");
+		ft_putstr("error\nerror after map print");
 		ft_end_function(main);
 	}
 }
@@ -82,7 +82,7 @@ int			ft_strnstr_cub(const char *haystack, const char *needle)
 		}
 		else
 		{
-			ft_putstr("must have .cub at the end");
+			ft_putstr("error\nmust have .cub at the end");
 			return (1);
 		}
 	}

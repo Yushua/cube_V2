@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/15 10:26:21 by ybakker       #+#    #+#                 */
-/*   Updated: 2020/07/11 09:54:53 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/07/20 10:02:21 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void			ft_image(t_struct_m *main)
 	set_value_texture(main);
 	if (main->place.error_n == 0)
 	{
-		ft_putstr(" error after map print");
+		ft_putstr("error\nerror after map print");
 		ft_end_function(main);
 	}
 	background(main);
@@ -58,7 +58,7 @@ static void			ft_image(t_struct_m *main)
 	render_next_frame_sprites(main);
 	if (main->place.error_n == 0)
 	{
-		ft_putstr(" error after map print");
+		ft_putstr("error\nerror after map print");
 		ft_end_function(main);
 	}
 }
@@ -97,10 +97,8 @@ void				ft_bmp(t_struct_m *main)
 		ft_putstr("screenshot fd is incorrect");
 		close(fd);
 	}
-	printf("h == [%d] w == [%d]\n", main->place.s_height, main->place.s_width);
 	ft_image(main);
 	ft_bmp_draw_screenshot(main, fd);
-	printf("h == [%d] w == [%d]\n", main->place.s_height, main->place.s_width);
 	close(fd);
 }
 
@@ -109,7 +107,7 @@ void				start_bmp(t_struct_m *main)
 	set_value(main);
 	if (ft_read_map(main) == 2)
 	{
-		ft_putstr(" not enough information");
+		ft_putstr("error\nnot enough information");
 		ft_end_function(main);
 	}
 	read_map_bmp(main);
